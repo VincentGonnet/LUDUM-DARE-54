@@ -52,13 +52,35 @@ public class PlayerController : MonoBehaviour
     {
         if(value.started)
         {
-            // GameManager.Instance.TogglePauseState(this);
+            GameManager.Instance.TogglePauseState(this);
         }
     }
 
-    
+    // PAUSE METHODS --------------
 
+    public void EnableGameplayControls()
+    {
+        playerInput.SwitchCurrentActionMap(actionMapPlayerControls);  
+    }
 
+    public void EnablePauseMenuControls()
+    {
+        playerInput.SwitchCurrentActionMap(actionMapMenuControls);
+    }
+
+    public void SetInputActiveState(bool gameIsPaused)
+    {
+        switch (gameIsPaused)
+        {
+            case true:
+                playerInput.DeactivateInput();
+                break;
+
+            case false:
+                playerInput.ActivateInput();
+                break;
+        }
+    }
 
     // INPUT SYSTEM AUTOMATIC CALLBACKS --------------
     public void OnControlsChanged()

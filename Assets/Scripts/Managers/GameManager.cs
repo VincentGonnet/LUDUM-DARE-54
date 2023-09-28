@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
     // Player controllers
     public List<PlayerController> activePlayerControllers; // List of all active players, referencing their PlayerController scripts
     private bool isPaused;
+    private PlayerController focusedPlayerController;
 
     void Start()
     {
@@ -94,6 +95,69 @@ public class GameManager : Singleton<GameManager>
         for(int i = 0; i < activePlayerControllers.Count; i++)
         {
             activePlayerControllers[i].SetupPlayer(i);
+        }
+    }
+
+
+    // Pause methods
+
+    public void TogglePauseState(PlayerController newFocusedPlayerController)
+    {
+        focusedPlayerController = newFocusedPlayerController;
+
+        isPaused = !isPaused;
+
+        ToggleTimeScale();
+
+        UpdateActivePlayerInputs(); // Will only deactivate input on the player's current action map
+
+        SwitchFocusedPlayerControlScheme(); // Switch the action map for the player that triggered the pause
+
+        // UpdateUIMenu();
+    }
+
+    void ToggleTimeScale()
+    {
+        float newTimeScale = 0f;
+
+        switch(isPaused)
+        {
+            case true:
+                newTimeScale = 0f;
+                break;
+
+            case false:
+                newTimeScale = 1f;
+                break;
+        }
+
+        Time.timeScale = newTimeScale;
+    }
+
+    void SwitchFocusedPlayerControlScheme()
+    {
+        switch(isPaused)
+        {
+            case true:
+                focusedPlayerController.EnablePauseMenuControls();
+                break;
+
+            case false:
+                focusedPlayerController.EnableGameplayControls();
+                break;
+        }
+    }
+
+    // Deactivate input for all players if paused, activate if not paused
+    void UpdateActivePlayerInputs()
+    {
+        for(int i = 0; i < activePlayerControllers.Count; i++)
+        {
+            if(activePlayerControllers[i] != focusedPlayerController)
+            {
+                 activePlayerControllers[i].SetInputActiveState(isPaused);
+            }
+
         }
     }
 }
