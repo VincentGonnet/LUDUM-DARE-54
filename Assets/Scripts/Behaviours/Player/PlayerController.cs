@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     private int playerID;
 
+    [Header("Sub Behaviours")]
+    public PlayerMovementBehaviour playerMovementBehaviour;
+
     [Header("Input Settings")]
     public PlayerInput playerInput;
     public float movementSmoothingSpeed = 1f;
@@ -23,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         this.playerID = newPlayerID;
         this.currentControlScheme = this.playerInput.currentControlScheme;
+
+        playerMovementBehaviour.SetupBehaviour();
     }
 
 
@@ -31,7 +36,7 @@ public class PlayerController : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext value)
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
-        rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
+        rawInputMovement = new Vector3(inputMovement.x, inputMovement.y, 0);
     }
 
     // Example of a button press
@@ -50,6 +55,8 @@ public class PlayerController : MonoBehaviour
             // GameManager.Instance.TogglePauseState(this);
         }
     }
+
+    
 
 
 
@@ -76,6 +83,23 @@ public class PlayerController : MonoBehaviour
     public PlayerInput GetPlayerInput()
     {
         return playerInput;
+    }
+
+    // Update Loop - Frame-based data
+    void Update()
+    {
+        CalculateMovementInputSmoothing();
+        UpdatePlayerMovement();
+    }
+
+    void CalculateMovementInputSmoothing()
+    {
+        smoothInputMovement = Vector3.Lerp(smoothInputMovement, rawInputMovement, Time.deltaTime * movementSmoothingSpeed);
+    }
+
+    void UpdatePlayerMovement()
+    {
+        playerMovementBehaviour.UpdateMovementData(smoothInputMovement);
     }
 
 

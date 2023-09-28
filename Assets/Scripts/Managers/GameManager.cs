@@ -27,6 +27,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         isPaused = false;
+        SetupBasedOnGameState();
     }
 
     // TODO : delete this method and all multiplayer related code if not using multiplayer
@@ -75,7 +76,7 @@ public class GameManager : Singleton<GameManager>
         for(int i = 0; i < numberOfPlayers; i++)
         {
             Vector3 spawnPosition = new Vector3(0, 0, 0); // TODO: write algorithm to calculate spawn position
-            Quaternion spawnRotation = Quaternion.identity; // TODO : set a spawn rotation
+            Quaternion spawnRotation = Quaternion.identity; // TODO : set a spawn rotation (if we use rotations)
             
             GameObject spawnedPlayer = Instantiate(playerPrefab, spawnPosition, spawnRotation);
             AddPlayerToActivePlayerList(spawnedPlayer.GetComponent<PlayerController>());
