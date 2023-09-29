@@ -22,7 +22,6 @@ public class GameManagerEditor : Editor
 
     void OnEnable()
     {
-
         //Game Mode
         currentGameModeProperty = serializedObject.FindProperty("currentGameMode");
 
@@ -33,7 +32,6 @@ public class GameManagerEditor : Editor
         //Local Multiplayer
         playerPrefabProperty = serializedObject.FindProperty("playerPrefab");
         numberOfPlayersProperty = serializedObject.FindProperty("numberOfPlayers");
-
     }
 
 
