@@ -5,7 +5,7 @@ using TMPro;
 public class KnowledgeInstaller : MonoBehaviour {
     public TextMeshProUGUI slots;
     public TextMeshProUGUI maxSlots;
-    public GameObject layout;
+    public Transform layout;
     public GameManager gManager;
     public PlayerController playerController;
     public GameObject buttonPrefab;
@@ -18,10 +18,10 @@ public class KnowledgeInstaller : MonoBehaviour {
     }
 
     public void Load(PlayerProperties playerInventory) {
-        for (int i = 0;  i < layout.transform.childCount; i++)
+        gameObject.SetActive(true);
+        for (int i = 0; i < layout.transform.childCount; i++)
             Destroy(layout.transform.GetChild(layout.transform.childCount - 1 - i).gameObject);
         SetMemoryData(Mathf.RoundToInt(playerInventory.currentMemory), Mathf.RoundToInt(playerInventory.maxMemory));
-        gameObject.SetActive(true);
         gManager.TogglePauseState(playerController);
         foreach (var skill in playerInventory.skills) {
             GameObject go = Instantiate(buttonPrefab, layout.transform);
