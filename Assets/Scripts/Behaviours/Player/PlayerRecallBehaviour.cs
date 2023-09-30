@@ -9,22 +9,38 @@ public class PlayerRecallBehaviour : MonoBehaviour
     public Rigidbody2D playerRigidbody;
 
     [Header("Recall Settings")]
-    public float recallDistance = 3f;
+    public GameObject player;
+    private Vector2 checkpointPosition;
 
     public void SetupBehaviour()
     {
         // Potentially setup any other components here
         // Is called when the player is setup in the GameManager
+        player = GameObject.FindWithTag("Player");
+        SetCurrentCheckpoint(player.transform.position);
     }
 
-    // public void UpdateAttackData(Vector3 newMovementDirection)
-    // {
-    //     attackDirection = newAttackDirection;
-    // }
+    // TODO: Fix the trigger
+    void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("In trigger");
+        if(other.CompareTag("Garage")){
+            Debug.Log("In garage");
+            SetCurrentCheckpoint(other.transform.position);
+        }
+    }
 
-    public void Recall()
-    {
-        // TODO: add recall code here
+    void SetCurrentCheckpoint(Vector2 position){
+        this.checkpointPosition = position;
+    }
+
+    Vector2 GetCurrentCheckpoint(){
+        return this.checkpointPosition;
+    }
+
+
+    public void Recall(){
         Debug.Log("Recall");
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+        player.transform.position = GetCurrentCheckpoint();
     }
 }

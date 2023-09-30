@@ -9,7 +9,7 @@ public class PlayerDashBehaviour : MonoBehaviour
     public Rigidbody2D playerRigidbody;
 
     [Header("Dash Settings")]
-    public float dashDistance = 2000f;
+    public float dashDistance = 3f;
 
     //Stored Values
     private Vector3 dashDirection;
