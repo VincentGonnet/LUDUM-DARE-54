@@ -57,6 +57,16 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    public float GetSkillLevel(SkillType skillType) {
+        float level = 0f;
+        foreach (Skill skill in equippedSkills) {
+            if (skill.type == skillType) {
+                level += skill.level;
+            }
+        }
+        return level;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
