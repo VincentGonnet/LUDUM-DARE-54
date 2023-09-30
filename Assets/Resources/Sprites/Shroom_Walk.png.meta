@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21fade831a0664449ac0fd777df31d9b
+guid: 908d146fb2ddb3646ac487dd252368a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,49 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall-e_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 307baf21b2cae9d4aae6392cccabbaa1
-      internalID: -1269077262
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall-e_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae3ac3e2f870819489613953a3782849
-      internalID: -662988057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall-e_2
+      name: Shroom_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5b36a2e71e50ab42b8d8bd18836eb5d
-      internalID: 1600835462
+      spriteID: e25e47006e0a025428d22273be6e851e
+      internalID: -1662408927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall-e_3
+      name: Shroom_Walk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -187,8 +145,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b042971904834d641906bddd2a2ce151
-      internalID: -997584824
+      spriteID: 8fbf3460701f0a940833215c3e17b4db
+      internalID: 558006676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shroom_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3ab94aa25380546a9b5867ee13a1a1
+      internalID: 1331819602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shroom_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c7c8daa590b4be4191fc3688d74f474
+      internalID: 1712268963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shroom_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3364677590728d3409b9306dcb743a28
+      internalID: 576169634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shroom_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f482e973558ba4a89987b1bd4c3c4e
+      internalID: -632149952
       vertices: []
       indices: 
       edges: []
@@ -204,10 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall-e_0: -1269077262
-      Wall-e_1: -662988057
-      Wall-e_2: 1600835462
-      Wall-e_3: -997584824
+      Shroom_Walk_0: -1662408927
+      Shroom_Walk_1: 558006676
+      Shroom_Walk_2: 1331819602
+      Shroom_Walk_3: 1712268963
+      Shroom_Walk_4: 576169634
+      Shroom_Walk_5: -632149952
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

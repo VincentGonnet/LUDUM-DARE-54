@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21fade831a0664449ac0fd777df31d9b
+guid: fe4a259bb0faca3488e9729a70aec28f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,49 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall-e_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 307baf21b2cae9d4aae6392cccabbaa1
-      internalID: -1269077262
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall-e_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae3ac3e2f870819489613953a3782849
-      internalID: -662988057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall-e_2
+      name: Shroom_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5b36a2e71e50ab42b8d8bd18836eb5d
-      internalID: 1600835462
+      spriteID: 462fbc4e413193d40935419470a55f48
+      internalID: 498070103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall-e_3
+      name: Shroom_1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -187,8 +145,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b042971904834d641906bddd2a2ce151
-      internalID: -997584824
+      spriteID: 0dc39a12a5aa22548bfac04a4e7a2bb9
+      internalID: -356328874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shroom_1_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51d212a7c791fc498624f43abd15698
+      internalID: 40222611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shroom_1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1186b6d4b66de3248bec6d9ec22c767e
+      internalID: -2047202206
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall-e_0: -1269077262
-      Wall-e_1: -662988057
-      Wall-e_2: 1600835462
-      Wall-e_3: -997584824
+      Shroom_1_0: 498070103
+      Shroom_1_1: -356328874
+      Shroom_1_2: 40222611
+      Shroom_1_3: -2047202206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

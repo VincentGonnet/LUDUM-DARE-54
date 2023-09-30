@@ -13,8 +13,8 @@ public class EnemyController : MonoBehaviour {
     public bool isMelee;
     public int wanderDistance = 8;
     public float detectionDistance = 10f;
-    public float attackMaxDistance = 6f;
-    public float attackMinDistance = 4f;
+    public float attackMaxDistance = 8f;
+    public float attackMinDistance = 5f;
 
     public int currentZone;
 
