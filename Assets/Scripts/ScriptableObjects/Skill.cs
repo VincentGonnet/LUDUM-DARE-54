@@ -21,4 +21,5 @@ public class Skill : ScriptableObject
     public Sprite sprite = null;
     public float level = 1f;
     public SkillType type = SkillType.Attack;
+    public float cooldown = 0f;
 }
