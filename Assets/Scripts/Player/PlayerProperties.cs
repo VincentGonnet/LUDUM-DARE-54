@@ -17,6 +17,7 @@ public class PlayerProperties : MonoBehaviour
     // Current memory the player is carrying
     public float currentMemory = 0f;
 
+    public int currentZone = 0;
     public float health = 10f;
 
     public List<Skill> skills {

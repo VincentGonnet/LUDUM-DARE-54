@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     public bool isRanged;
     public bool isMelee;
 
+    public int currentZone;
+
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject projectile;
     private GameObject projectileInstance;
@@ -45,17 +47,20 @@ public class EnemyController : MonoBehaviour
 
     void canAttack()
     {
-        float playerEnemyDistance = Vector3.Distance(this.transform.position, player.transform.position);
-        if (isMelee && playerEnemyDistance < 6f)
+        if (player.GetComponent<PlayerProperties>().currentZone == currentZone)
         {
-            Attack();
-        }
-        else if (isRanged && 6f < playerEnemyDistance && playerEnemyDistance < 10f)
-        {
-            direction = (player.transform.position - this.transform.position).normalized*10f;
-            projectileInstance = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(direction));
-            projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
-            projectileInstance.GetComponent<Projectile>().enemyController = this;
+            float playerEnemyDistance = Vector3.Distance(this.transform.position, player.transform.position);
+            if (isMelee && playerEnemyDistance < 6f)
+            {
+                Attack();
+            }
+            else if (isRanged && 6f < playerEnemyDistance && playerEnemyDistance < 10f)
+            {
+                direction = (player.transform.position - this.transform.position).normalized*10f;
+                projectileInstance = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(direction));
+                projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
+                projectileInstance.GetComponent<Projectile>().enemyController = this;
+            }
         }
 
     }
