@@ -22,6 +22,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
 
     // TODO: Fix the trigger
     void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("In trigger");
         if(other.CompareTag("Garage")){
             Debug.Log("In garage");
             SetCurrentCheckpoint(other.transform.position);
