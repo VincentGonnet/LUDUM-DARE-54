@@ -68,7 +68,6 @@ public class CameraManager : Singleton<CameraManager>
         }
 
         StartCoroutine(SlideToCoroutine(targetPosition, slideSpeed));
-        Debug.Log("targetPosition: " + targetPosition);
     }
 
     private IEnumerator SlideToCoroutine(Vector3 targetPosition, float slideSpeed)
