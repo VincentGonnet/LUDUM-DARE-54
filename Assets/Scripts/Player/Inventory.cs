@@ -10,18 +10,18 @@ public class Inventory : MonoBehaviour
     // List of skills currently equipped
     private List<Skill> equippedSkills = new List<Skill>();
 
-    // Max weight the player can carry
-    [SerializeField] public float maxWeight = 10f;
+    // Max memory the player can carry
+    [SerializeField] public float maxMemory = 10f;
 
-    // Current weight the player is carrying
-    private float currentWeight = 0f;
+    // Current memory the player is carrying
+    private float currentMemory = 0f;
 
     // Add a skill to the backpack
     public void EquipSkill(int skillIndexInBackpack)
     {
-        if (currentWeight + backpack[skillIndexInBackpack].weight > maxWeight)
+        if (currentMemory + backpack[skillIndexInBackpack].memory > maxMemory)
         {
-            Debug.Log("Not enough weight to equip skill");
+            Debug.Log("Not enough memory to equip skill");
             return;
         }
 
@@ -31,8 +31,8 @@ public class Inventory : MonoBehaviour
         // Remove the skill from the backpack
         backpack.RemoveAt(skillIndexInBackpack);
 
-        // Update the current weight
-        currentWeight += equippedSkills[equippedSkills.Count - 1].weight;
+        // Update the current memory
+        currentMemory += equippedSkills[equippedSkills.Count - 1].memory;
     }
 
     // Remove a skill from the backpack
@@ -44,8 +44,8 @@ public class Inventory : MonoBehaviour
         // Remove the skill from the equipped list
         equippedSkills.RemoveAt(skillIndexInEquipped);
 
-        // Update the current weight
-        currentWeight -= backpack[backpack.Count - 1].weight;
+        // Update the current memory
+        currentMemory -= backpack[backpack.Count - 1].memory;
     }
 
     public bool Can(SkillType skillType) {

@@ -15,7 +15,7 @@ public class Skill : ScriptableObject
 {
     public string title = "";
     public string description = "";
-    public float weight = 3f;
+    public float memory = 3f;
     public Sprite sprite = null;
     public float level = 1f;
     public SkillType type = SkillType.Attack;
