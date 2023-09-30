@@ -18,7 +18,15 @@ public class PlayerProperties : MonoBehaviour
 
     public int currentZone = 0;
     public float health = 10f;
+    public float maxHealth = 10f;
 
+    public void SetHealth(float newHealth)
+    {
+        health = newHealth;
+        // Update UI
+        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health / maxHealth);
+    }
+    
     public List<Skill> skills {
         get {
             return backpack.Union(equippedSkills).Distinct().ToList();

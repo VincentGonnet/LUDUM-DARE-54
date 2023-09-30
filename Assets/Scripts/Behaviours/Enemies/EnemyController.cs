@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour
 
     public void Attack()
     {
-        player.GetComponent<PlayerProperties>().health -= attackDamage;
+        player.GetComponent<PlayerProperties>().SetHealth(player.GetComponent<PlayerProperties>().health - attackDamage);
     }
 
 
