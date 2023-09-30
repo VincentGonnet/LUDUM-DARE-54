@@ -59,7 +59,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
             ? (float) Math.Ceiling(transform.position.y + movementDirection.y)
             : (float) Math.Floor(transform.position.y + movementDirection.y);
 
-        targetPosition = new Vector3(newXDirection, newYDirection, targetPosition.z);
+        targetPosition = new Vector3(newXDirection, newYDirection, -5f);
 
         if(xDiff > yDiff)
         {
