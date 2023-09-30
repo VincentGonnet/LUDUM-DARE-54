@@ -921,7 +921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots: {fileID: 4218058914535995305}
   maxSlots: {fileID: 6573737740649384107}
-  layout: {fileID: 6836386025539125965}
+  layout: {fileID: 7897565169431112367}
   gManager: {fileID: 0}
   playerController: {fileID: 0}
   buttonPrefab: {fileID: 1960383883140840337, guid: 44e05e0cc38751b4e9a438200d0dbd9b, type: 3}

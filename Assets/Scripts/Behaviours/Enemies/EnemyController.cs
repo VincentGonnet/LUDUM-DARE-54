@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
-{
+public class EnemyController : MonoBehaviour {
     [SerializeField] public EnemiesData enemyData;
 
     public float health;
@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public float attackSpeed;
     public bool isRanged;
     public bool isMelee;
+    public int wanderDistance = 8;
 
     public int currentZone;
 
@@ -18,6 +19,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public GameObject projectile;
     private GameObject projectileInstance;
     Vector3 direction;
+
+    private NavMeshAgent nav {
+        get {
+            return GetComponent<NavMeshAgent>();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +49,15 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        else if ((nav?.remainingDistance ?? 10) < 1f) {
+            Vector3 nextDestination = transform.position;
+            nextDestination += wanderDistance * new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f).normalized;
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(nextDestination, out hit, 5f, NavMesh.AllAreas)) nav.SetDestination(hit.position);
+        }
+        transform.rotation = Quaternion.Euler(0, 0, 90);
     }
 
 
