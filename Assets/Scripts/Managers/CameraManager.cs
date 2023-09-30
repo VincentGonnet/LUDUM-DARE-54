@@ -18,13 +18,9 @@ public class CameraManager : Singleton<CameraManager>
     {
         float targetWidth = targetTriggerGameObject.GetComponent<BoxCollider2D>().size.x;
         float targetHeight = targetTriggerGameObject.GetComponent<BoxCollider2D>().size.y;
-        Debug.Log("targetWidth: " + targetWidth);
-        Debug.Log("targetHeight: " + targetHeight);
 
         float cameraWidth = gameplayCameraObject.GetComponent<Camera>().orthographicSize * gameplayCameraObject.GetComponent<Camera>().aspect * 2f;
         float cameraHeight = gameplayCameraObject.GetComponent<Camera>().orthographicSize * 2f;
-        Debug.Log("cameraWidth: " + cameraWidth);
-        Debug.Log("cameraHeight: " + cameraHeight);
 
         float currentZoneTriggerX = targetTriggerGameObject.transform.position.x;
         float currentZoneTriggerY = targetTriggerGameObject.transform.position.y;
@@ -61,7 +57,6 @@ public class CameraManager : Singleton<CameraManager>
             // Movement is vertical
             targetPosition.x = gameplayCameraObject.transform.position.x;
             if (cameraHeight < targetHeight) {
-                Debug.Log("cameraHeight < targetHeight");
                 if (movementDirection.y > 0)
                 {
                     targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f) - 0.5f;
