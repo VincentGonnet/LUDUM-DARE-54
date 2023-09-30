@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 4185711516987643425}
   - component: {fileID: 7754388910480940125}
   - component: {fileID: 2664985784235940499}
+  - component: {fileID: 2385310381195193233}
+  - component: {fileID: 5645429585195383139}
+  - component: {fileID: 2977818489075068097}
+  - component: {fileID: 7984305897031274643}
   - component: {fileID: 8915476065750387232}
   - component: {fileID: 2702001395606795274}
   - component: {fileID: 4450065634703085324}
@@ -136,7 +140,19 @@ MonoBehaviour:
     m_ActionId: 8ebbde1f-3044-41bc-bdac-430e0eae1a68
     m_ActionName: Player Controls/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7754388910480940125}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 10fecf58-9483-40e0-ae20-15c8d01a4288
     m_ActionName: Player Controls/Attack[/Keyboard/e]
   - m_PersistentCalls:
@@ -179,6 +195,54 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e773b1f9-ce5b-4fa2-9c1f-d194202c43b7
     m_ActionName: Menu Controls/TogglePause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7754388910480940125}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: af1b4200-78f3-4b1a-8550-d7eba33bf165
+    m_ActionName: Player Controls/Dash[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7754388910480940125}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 607f6667-8e3c-4330-85a9-18be035899a1
+    m_ActionName: Player Controls/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7754388910480940125}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnRecall
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f791ba6d-7429-41a3-9bb7-1ce4d4604a52
+    m_ActionName: Player Controls/Recall[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Controls
@@ -197,8 +261,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovementBehaviour: {fileID: 2664985784235940499}
+  playerJumpBehaviour: {fileID: 5645429585195383139}
+  playerDashBehaviour: {fileID: 7984305897031274643}
+  playerAttackBehaviour: {fileID: 2977818489075068097}
+  playerRecallBehaviour: {fileID: 2385310381195193233}
   playerInput: {fileID: 4185711516987643425}
   movementSmoothingSpeed: 10
+  dashSmoothingSpeed: 100
 --- !u!114 &2664985784235940499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +283,62 @@ MonoBehaviour:
   canMove: 1
   playerRigidbody: {fileID: 8915476065750387232}
   movementSpeed: 10
+--- !u!114 &2385310381195193233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72796022a8a2a3649b77d88fd793284b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 8915476065750387232}
+  player: {fileID: 6996792250485383104}
+--- !u!114 &5645429585195383139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20ffd852cb59914d8146d18837cd98c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 8915476065750387232}
+  jumpDistance: 3
+--- !u!114 &2977818489075068097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b497be175823c3942b0774787c7aede5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 8915476065750387232}
+  attackDistance: 3
+--- !u!114 &7984305897031274643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1d8e363ecc6864b93930178f0a91e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 8915476065750387232}
+  dashDistance: 2500
 --- !u!50 &8915476065750387232
 Rigidbody2D:
   serializedVersion: 4
