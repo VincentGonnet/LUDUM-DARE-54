@@ -36,7 +36,9 @@ public class PlayerMovementBehaviour : MonoBehaviour
     public void MoveThePlayer()
     {
         Vector3 movement = canMove ? movementDirection * movementSpeed * Time.deltaTime : Vector3.zero;
-        playerRigidbody.MovePosition(transform.position + movement);
+        if (movement != Vector3.zero) {
+            playerRigidbody.MovePosition(transform.position + movement);
+        }
     }
 
     public void ToggleMovement()
