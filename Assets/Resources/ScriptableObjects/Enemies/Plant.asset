@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a7ef53b92ccc1543af441426a332464, type: 3}
-  m_Name: Grass
+  m_Name: Plant
   m_EditorClassIdentifier: 
-  name: Grass
+  name: Plant
   health: 10
-  sprite: {fileID: 21300000, guid: 12f557fe3f4133d4abf01de675f70d5d, type: 3}
+  sprite: {fileID: 21300000, guid: b678ecaac17c14444aff3b78373b444e, type: 3}
   attackDamage: 2
   attackSpeed: 3
   isRanged: 1

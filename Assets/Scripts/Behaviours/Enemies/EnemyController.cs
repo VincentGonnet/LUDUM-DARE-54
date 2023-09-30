@@ -12,6 +12,9 @@ public class EnemyController : MonoBehaviour {
     public bool isRanged;
     public bool isMelee;
     public int wanderDistance = 8;
+    public float detectionDistance = 10f;
+    public float attackMaxDistance = 6f;
+    public float attackMinDistance = 4f;
 
     public int currentZone;
 
@@ -57,7 +60,13 @@ public class EnemyController : MonoBehaviour {
             NavMeshHit hit;
             if (NavMesh.SamplePosition(nextDestination, out hit, 5f, NavMesh.AllAreas)) nav.SetDestination(hit.position);
         }
-        transform.rotation = Quaternion.Euler(0, 0, 90);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        if (nav != null) {
+            float playerEnemyDistance = Vector3.Distance(this.transform.position, player.transform.position);
+            if (playerEnemyDistance >= attackMaxDistance && playerEnemyDistance < detectionDistance) nav.SetDestination(player.transform.position);
+            else if (playerEnemyDistance < attackMinDistance) nav.SetDestination(player.transform.position - this.transform.position);
+        }
     }
 
 
@@ -66,11 +75,11 @@ public class EnemyController : MonoBehaviour {
         if (player.GetComponent<PlayerProperties>().currentZone == currentZone)
         {
             float playerEnemyDistance = Vector3.Distance(this.transform.position, player.transform.position);
-            if (isMelee && playerEnemyDistance < 6f)
+            if (isMelee && playerEnemyDistance < attackMinDistance)
             {
                 Attack();
             }
-            else if (isRanged && 6f < playerEnemyDistance && playerEnemyDistance < 10f)
+            else if (isRanged && attackMinDistance < playerEnemyDistance && playerEnemyDistance < attackMaxDistance)
             {
                 direction = (player.transform.position - this.transform.position).normalized*10f;
                 projectileInstance = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(direction));
@@ -86,5 +95,10 @@ public class EnemyController : MonoBehaviour {
         player.GetComponent<PlayerProperties>().SetHealth(player.GetComponent<PlayerProperties>().health - attackDamage);
     }
 
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position, detectionDistance);
+        Gizmos.DrawWireSphere(transform.position, attackMaxDistance);
+        Gizmos.DrawWireSphere(transform.position, attackMinDistance);
+    }
 
 }
