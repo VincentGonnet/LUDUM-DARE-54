@@ -32,6 +32,6 @@ public class PlayerDashBehaviour : MonoBehaviour
 
         Debug.Log("Force added : " + dash + " to " + playerRigidbody.name);
 
-        playerRigidbody.AddForce(dash, ForceMode2D.);
+        playerRigidbody.AddForce(dash, ForceMode2D.Force);
     }
 }
