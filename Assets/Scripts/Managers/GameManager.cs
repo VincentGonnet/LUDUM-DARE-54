@@ -11,7 +11,6 @@ public enum GameMode
 public class GameManager : Singleton<GameManager>
 {
     public GameMode currentGameMode; // Selected between single player and local multiplayer
-    
 
     // Single player
     public GameObject inScenePlayer;
@@ -19,6 +18,9 @@ public class GameManager : Singleton<GameManager>
     //Local Multiplayer
     public GameObject playerPrefab;
     public int numberOfPlayers;
+
+    // Myopia gameobject
+    public GameObject myopia;
 
     // Player controllers
     public List<PlayerController> activePlayerControllers; // List of all active players, referencing their PlayerController scripts
@@ -38,20 +40,31 @@ public class GameManager : Singleton<GameManager>
         SetupBasedOnGameState();
     }
 
-    void UpdateUI() {
-        // if(inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIHealth)) {
-        //     // TODO: Update UI
-        // }
+    void UpdateUI()
+    {
+        if (inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIHealth))
+        {
+            // TODO: Update UI
+        }
+        else
+        {
+            // TODO: Update UI
+        }
 
-        // if(!inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIMyopia)) {
-        //     // TODO: Update UI
-        // }
-    } 
+        if (!inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIMyopia))
+        {
+            myopia.SetActive(true);
+        }
+        else
+        {
+            myopia.SetActive(false);
+        }
+    }
 
     // TODO: delete this method and all multiplayer related code if not using multiplayer
     void SetupBasedOnGameState()
     {
-        switch(currentGameMode)
+        switch (currentGameMode)
         {
             case GameMode.SinglePlayer:
                 SetupSinglePlayer(); // to extract if no multiplayer
@@ -68,7 +81,7 @@ public class GameManager : Singleton<GameManager>
         activePlayerControllers = new List<PlayerController>();
 
         // Setup player
-        if(inScenePlayer == true)
+        if (inScenePlayer == true)
         {
             AddPlayerToActivePlayerList(inScenePlayer.GetComponent<PlayerController>());
         }
@@ -77,8 +90,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     void SetupLocalMultiplayer()
-    {   
-        if(inScenePlayer == true)
+    {
+        if (inScenePlayer == true)
         {
             Destroy(inScenePlayer);
         }
@@ -91,11 +104,11 @@ public class GameManager : Singleton<GameManager>
     {
         activePlayerControllers = new List<PlayerController>();
 
-        for(int i = 0; i < numberOfPlayers; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             Vector3 spawnPosition = new Vector3(0, 0, 0); // TODO: write algorithm to calculate spawn position
             Quaternion spawnRotation = Quaternion.identity; // TODO: set a spawn rotation (if we use rotations)
-            
+
             GameObject spawnedPlayer = Instantiate(playerPrefab, spawnPosition, spawnRotation);
             AddPlayerToActivePlayerList(spawnedPlayer.GetComponent<PlayerController>());
         }
@@ -109,7 +122,7 @@ public class GameManager : Singleton<GameManager>
     // Start setup script for active players
     void SetupActivePlayers()
     {
-        for(int i = 0; i < activePlayerControllers.Count; i++)
+        for (int i = 0; i < activePlayerControllers.Count; i++)
         {
             activePlayerControllers[i].SetupPlayer(i);
         }
@@ -137,7 +150,7 @@ public class GameManager : Singleton<GameManager>
     {
         float newTimeScale = 0f;
 
-        switch(isPaused)
+        switch (isPaused)
         {
             case true:
                 newTimeScale = 0f;
@@ -153,7 +166,7 @@ public class GameManager : Singleton<GameManager>
 
     void SwitchFocusedPlayerControlScheme()
     {
-        switch(isPaused)
+        switch (isPaused)
         {
             case true:
                 focusedPlayerController.EnablePauseMenuControls();
@@ -168,11 +181,11 @@ public class GameManager : Singleton<GameManager>
     // Deactivate input for all players if paused, activate if not paused
     void UpdateActivePlayerInputs()
     {
-        for(int i = 0; i < activePlayerControllers.Count; i++)
+        for (int i = 0; i < activePlayerControllers.Count; i++)
         {
-            if(activePlayerControllers[i] != focusedPlayerController)
+            if (activePlayerControllers[i] != focusedPlayerController)
             {
-                 activePlayerControllers[i].SetInputActiveState(isPaused);
+                activePlayerControllers[i].SetInputActiveState(isPaused);
             }
 
         }
