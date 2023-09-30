@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +9,7 @@ public class PlayerDashBehaviour : MonoBehaviour
     public Rigidbody2D playerRigidbody;
 
     [Header("Dash Settings")]
-    public float dashDistance = 20f;
+    public float dashDistance = 2000f;
 
     //Stored Values
     private Vector3 dashDirection;
@@ -27,14 +26,12 @@ public class PlayerDashBehaviour : MonoBehaviour
         dashDirection = newDashDirection;
     }
 
-    void FixedUpdate()
-    {
-        Dash();
-    }
-
     public void Dash()
     {
-        Vector3 dash = dashDirection * dashDistance * Time.deltaTime;
-        playerRigidbody.MovePosition(transform.position + dash);
+        Vector3 dash = dashDirection * dashDistance;
+
+        Debug.Log("Force added : " + dash + " to " + playerRigidbody.name);
+
+        playerRigidbody.AddForce(dash, ForceMode2D.);
     }
 }

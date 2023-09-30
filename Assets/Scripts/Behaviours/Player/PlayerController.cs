@@ -72,7 +72,8 @@ public class PlayerController : MonoBehaviour
     {
         if(value.started)
         {
-            
+            // Do Dash
+            playerDashBehaviour.Dash();
         }
     }  
 
@@ -183,7 +184,7 @@ public class PlayerController : MonoBehaviour
     void UpdatePlayerDash()
     {
         // Dash in the direction the player is facing when the dash button is pressed 
-        playerDashBehaviour.UpdateDashData(smoothInputDash);
+        playerDashBehaviour.UpdateDashData(new Vector3(lastInputMovement.x, lastInputMovement.y, 0));
     }
 }
     
