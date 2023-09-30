@@ -9,6 +9,7 @@ TagManager:
   - ZoneTrigger
   - Hole
   - Fire
+  - JumpPod
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Wall
   - Hole
-  - 
+  - Fire
   - 
   - 
   - 
