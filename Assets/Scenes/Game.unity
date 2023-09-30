@@ -422,7 +422,7 @@ GameObject:
 --- !u!1 &1157442056
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 9028392376296897588, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -607,6 +607,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8185547295163965791, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: gManager
+      value: 
+      objectReference: {fileID: 1472809393}
+    - target: {fileID: 8185547295163965791, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 352877023}
     - target: {fileID: 9028392376296897588, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
       propertyPath: m_Name
       value: SkillSelector
@@ -1108,6 +1116,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 204627658127853199, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: zoneNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 204627658127853199, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: playerProperties
+      value: 
+      objectReference: {fileID: 352877022}
+    - target: {fileID: 1116363964358265277, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: zoneNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116363964358265277, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: playerProperties
+      value: 
+      objectReference: {fileID: 352877022}
     - target: {fileID: 2710693842007454201, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: gManager
       value: 
@@ -1188,10 +1212,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6361854506719558178, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: zoneNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361854506719558178, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: playerProperties
+      value: 
+      objectReference: {fileID: 352877022}
     - target: {fileID: 6442428612616744105, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 7612014123097591465, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: playerProperties
+      value: 
+      objectReference: {fileID: 352877022}
+    - target: {fileID: 8533624097900141902, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: zoneNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533624097900141902, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: playerProperties
+      value: 
+      objectReference: {fileID: 352877022}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
