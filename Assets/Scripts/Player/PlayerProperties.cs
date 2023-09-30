@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerProperties : MonoBehaviour
 {
-    public List<Skill> allSkills = new List<Skill>();
     // List of available skills to equip
     private List<Skill> backpack = new List<Skill>();
 
@@ -24,6 +23,10 @@ public class PlayerProperties : MonoBehaviour
         get {
             return backpack.Union(equippedSkills).Distinct().ToList();
         }
+    }
+
+    public void PushToBackpack(Skill skill) {
+        backpack.Add(skill);
     }
 
     // The method is mandatory for use outside of this class ><
@@ -93,12 +96,12 @@ public class PlayerProperties : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        backpack.AddRange(allSkills);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

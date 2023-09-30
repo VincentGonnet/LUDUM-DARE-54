@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7907368a12abb1f40b4715fd2212924b, type: 3}
-  m_Name: Movement
+  m_Name: Jump
   m_EditorClassIdentifier: 
-  title: Movement
-  description: Allows you to move
+  title: Jump
+  description: Allows you to jump over small holes
   memory: 3
-  sprite: {fileID: 486908599, guid: 032fe5d1e96260b40a19a6f886069a31, type: 3}
+  sprite: {fileID: 2141282191, guid: 032fe5d1e96260b40a19a6f886069a31, type: 3}
   level: 1
-  type: 0
+  type: 2
