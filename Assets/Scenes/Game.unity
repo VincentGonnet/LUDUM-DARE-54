@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 1631185052}
   - component: {fileID: 1631185053}
   - component: {fileID: 1631185054}
+  - component: {fileID: 1631185055}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -866,7 +867,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 56
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -994,6 +995,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1631185055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631185047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab115cdca2a3e44db6a293bf75b3d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMemory: 10
 --- !u!1001 &1751387112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4010,6 +4024,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 2338108347932894996, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1631185055}
     - target: {fileID: 3241182748652952485, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4030,6 +4048,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 310
       objectReference: {fileID: 0}
+    - target: {fileID: 3511017884468592367, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1631185055}
     - target: {fileID: 3700754241530416497, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4150,6 +4172,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 590
       objectReference: {fileID: 0}
+    - target: {fileID: 6869233144974837521, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1631185055}
+    - target: {fileID: 7341223608735412673, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1631185055}
+    - target: {fileID: 7994434999461956995, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1631185055}
     - target: {fileID: 9028392376296897588, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
       propertyPath: m_Name
       value: SkillSelector
