@@ -20,7 +20,7 @@ public class ErrorEvent : MonoBehaviour
 
     List<string> dialogues;
 
-    Inventory inventory;
+    [SerializeField] Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,9 @@ public class ErrorEvent : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Error event triggered");
         if(other.gameObject.tag == "Player") {
+            Debug.Log("Player entered error event");
             other.gameObject.GetComponent<Inventory>().maxMemory -= 1;
             ErrorTrigger(other);
             Destroy(this.gameObject);
@@ -44,8 +46,8 @@ public class ErrorEvent : MonoBehaviour
 
 
     void ErrorTrigger(Collider2D Player) {
-        canvas = GameObject.Find("Canvas");
         errorCanvas = GameObject.Find("ErrorEvent");
+        errorCanvas.SetActive(true);
 
         int i = UnityEngine.Random.Range(0, dialogues.Count);
         errorCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogues[i];
