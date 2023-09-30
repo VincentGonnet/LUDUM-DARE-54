@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
     private string currentControlScheme;
 
+    // Camera control requierements
+    private GameObject currentZoneTrigger;
+
     public void SetupPlayer(int newPlayerID) 
     {
         this.playerID = newPlayerID;
@@ -175,8 +178,22 @@ public class PlayerController : MonoBehaviour
     {
         playerMovementBehaviour.UpdateMovementData(smoothInputMovement);
     }
+    
+    // Triggers
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("ZoneTrigger"))
+        {
+            currentZoneTrigger = other.gameObject;
+        }
+    }
 
-     void CalculateDashInputSmoothing()
+    public GameObject GetCurrentZoneTrigger()
+    {
+        return currentZoneTrigger;
+    }
+
+    void CalculateDashInputSmoothing()
     {
         smoothInputDash = Vector3.Lerp(smoothInputDash, new Vector3(lastInputMovement.x, lastInputMovement.y, 0), Time.deltaTime * dashSmoothingSpeed);
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InputPrompt
   - Garage
+  - ZoneTrigger
   layers:
   - Default
   - TransparentFX

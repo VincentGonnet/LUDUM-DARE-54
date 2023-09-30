@@ -25,9 +25,16 @@ public class GameManager : Singleton<GameManager>
     private bool isPaused;
     private PlayerController focusedPlayerController;
 
+    // UI
+    public GameObject errorCanvas;
+
     void Start()
     {
         isPaused = false;
+
+        errorCanvas = GameObject.Find("ErrorEvent");
+        errorCanvas.SetActive(false);
+
         SetupBasedOnGameState();
     }
 
