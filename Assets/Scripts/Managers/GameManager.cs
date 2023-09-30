@@ -25,9 +25,16 @@ public class GameManager : Singleton<GameManager>
     private bool isPaused;
     private PlayerController focusedPlayerController;
 
+    // UI
+    public GameObject errorCanvas;
+
     void Start()
     {
         isPaused = false;
+
+        errorCanvas = GameObject.Find("ErrorEvent");
+        errorCanvas.SetActive(false);
+
         SetupBasedOnGameState();
     }
 
@@ -77,7 +84,7 @@ public class GameManager : Singleton<GameManager>
         for(int i = 0; i < numberOfPlayers; i++)
         {
             Vector3 spawnPosition = new Vector3(0, 0, 0); // TODO: write algorithm to calculate spawn position
-            Quaternion spawnRotation = Quaternion.identity; // TODO : set a spawn rotation (if we use rotations)
+            Quaternion spawnRotation = Quaternion.identity; // TODO: set a spawn rotation (if we use rotations)
             
             GameObject spawnedPlayer = Instantiate(playerPrefab, spawnPosition, spawnRotation);
             AddPlayerToActivePlayerList(spawnedPlayer.GetComponent<PlayerController>());
