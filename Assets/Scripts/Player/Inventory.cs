@@ -16,6 +16,16 @@ public class Inventory : MonoBehaviour
     // Current memory the player is carrying
     private float currentMemory = 0f;
 
+    // The method is mandatory for use outside of this class ><
+    public void EquipSkill(SkillType backpackSkill) {
+        EquipSkill(backpack.FindIndex((sk) => sk.type == backpackSkill));
+    }
+
+    // The method is mandatory for use outside of this class ><
+    public void RemoveSkill(SkillType backpackSkill) {
+        RemoveSkill(equippedSkills.FindIndex((sk) => sk.type == backpackSkill));
+    }
+
     // Add a skill to the backpack
     public void EquipSkill(int skillIndexInBackpack)
     {

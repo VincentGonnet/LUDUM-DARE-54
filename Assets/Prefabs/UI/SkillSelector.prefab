@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 3700754241530416497}
   - component: {fileID: 6723428226455438857}
   - component: {fileID: 7502602567617638458}
+  - component: {fileID: 7994434999461956995}
   m_Layer: 5
   m_Name: Slot (1)
   m_TagString: Untagged
@@ -302,6 +303,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7994434999461956995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858827648801156610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938567ec18cc4304dbf28314487baf23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 3
+  playerInventory: {fileID: 0}
 --- !u!1 &959385788219333509
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +630,7 @@ GameObject:
   - component: {fileID: 4972878105231139133}
   - component: {fileID: 6129569784717627804}
   - component: {fileID: 1206015265076663896}
+  - component: {fileID: 2338108347932894996}
   m_Layer: 5
   m_Name: Slot (4)
   m_TagString: Untagged
@@ -681,6 +697,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2338108347932894996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355106506210632809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938567ec18cc4304dbf28314487baf23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 0
+  playerInventory: {fileID: 0}
 --- !u!1 &2563737565593798305
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +723,7 @@ GameObject:
   - component: {fileID: 4204663656144038640}
   - component: {fileID: 8327805029145613290}
   - component: {fileID: 4622215831117541954}
+  - component: {fileID: 6869233144974837521}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -773,6 +804,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipName: Attack
   tooltipDescription: Your robot can now deal damage to enemies
+--- !u!114 &6869233144974837521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2563737565593798305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938567ec18cc4304dbf28314487baf23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 1
+  playerInventory: {fileID: 0}
 --- !u!1 &2879584890582285394
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +829,7 @@ GameObject:
   - component: {fileID: 3241182748652952485}
   - component: {fileID: 293127759560195869}
   - component: {fileID: 1535504964275189403}
+  - component: {fileID: 7341223608735412673}
   m_Layer: 5
   m_Name: Slot (2)
   m_TagString: Untagged
@@ -850,6 +896,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7341223608735412673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879584890582285394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938567ec18cc4304dbf28314487baf23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 0
+  playerInventory: {fileID: 0}
 --- !u!1 &4655435888736871715
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skills
+  m_text: Knowledges
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d11e5006290975f48931f11c01f60456, type: 2}
   m_sharedMaterial: {fileID: 8373219112347526992, guid: d11e5006290975f48931f11c01f60456, type: 2}
@@ -1070,6 +1130,7 @@ GameObject:
   - component: {fileID: 1531204881209982082}
   - component: {fileID: 1690798545809452351}
   - component: {fileID: 6865421261395072000}
+  - component: {fileID: 3511017884468592367}
   m_Layer: 5
   m_Name: Slot (3)
   m_TagString: Untagged
@@ -1136,6 +1197,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3511017884468592367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501080842486727936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938567ec18cc4304dbf28314487baf23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 2
+  playerInventory: {fileID: 0}
 --- !u!1 &6664868721645491764
 GameObject:
   m_ObjectHideFlags: 0
