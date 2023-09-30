@@ -9,12 +9,20 @@ public class PlayerController : MonoBehaviour
 
     [Header("Sub Behaviours")]
     public PlayerMovementBehaviour playerMovementBehaviour;
+    public PlayerJumpBehaviour playerJumpBehaviour;
+    public PlayerDashBehaviour playerDashBehaviour;
+    public PlayerAttackBehaviour playerAttackBehaviour;
+    public PlayerRecallBehaviour playerRecallBehaviour;
 
     [Header("Input Settings")]
     public PlayerInput playerInput;
     public float movementSmoothingSpeed = 1f;
+    public float dashSmoothingSpeed = 100f;
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovement;
+    private Vector2 lastInputMovement;
+    private Vector3 rawInputDash;
+    private Vector3 smoothInputDash;
 
     //Action Maps
     private string actionMapPlayerControls = "Player Controls";
@@ -31,25 +39,66 @@ public class PlayerController : MonoBehaviour
         this.currentControlScheme = this.playerInput.currentControlScheme;
 
         playerMovementBehaviour.SetupBehaviour();
+        playerJumpBehaviour.SetupBehaviour();
+        playerDashBehaviour.SetupBehaviour();
+        playerAttackBehaviour.SetupBehaviour();
+        playerRecallBehaviour.SetupBehaviour();
     }
 
 
+    // ------------------------------------------
+    //       INPUT SYSTEM ACTION METHODS
+    // ------------------------------------------
 
-    // INPUT SYSTEM ACTION METHODS --------------
+    // Movement Action
     public void OnMovement(InputAction.CallbackContext value)
     {
-        Vector2 inputMovement = value.ReadValue<Vector2>();
-        rawInputMovement = new Vector3(inputMovement.x, inputMovement.y, 0);
+        Vector2 input = value.ReadValue<Vector2>();
+        if(input != Vector2.zero) {
+            lastInputMovement = input.normalized;
+        }
+        rawInputMovement = new Vector3(input.x, input.y, 0);
     }
 
-    // Example of a button press
+    // Jump Action
+    public void OnJump(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            // Do Jump
+            playerJumpBehaviour.Jump();
+        }
+    }
+
+    // Dash Action
+    public void OnDash(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            // Do Dash
+            playerDashBehaviour.Dash();
+        }
+    }  
+
+    // Attack Action
     public void OnAttack(InputAction.CallbackContext value)
     {
         if(value.started)
         {
             // Do Attack
+            playerAttackBehaviour.Attack();
         }
     }
+
+    // Recall Action
+    public void OnRecall(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            // Do Recall
+            playerRecallBehaviour.Recall();
+        }
+    } 
 
     public void OnTogglePause(InputAction.CallbackContext value)
     {
@@ -115,6 +164,9 @@ public class PlayerController : MonoBehaviour
     {
         CalculateMovementInputSmoothing();
         UpdatePlayerMovement();
+        
+        CalculateDashInputSmoothing();
+        UpdatePlayerDash();
     }
 
     void CalculateMovementInputSmoothing()
@@ -126,7 +178,7 @@ public class PlayerController : MonoBehaviour
     {
         playerMovementBehaviour.UpdateMovementData(smoothInputMovement);
     }
-
+    
     // Triggers
     void OnTriggerStay2D(Collider2D other)
     {
@@ -141,5 +193,15 @@ public class PlayerController : MonoBehaviour
         return currentZoneTrigger;
     }
 
+    void CalculateDashInputSmoothing()
+    {
+        smoothInputDash = Vector3.Lerp(smoothInputDash, new Vector3(lastInputMovement.x, lastInputMovement.y, 0), Time.deltaTime * dashSmoothingSpeed);
+    }
 
+    void UpdatePlayerDash()
+    {
+        // Dash in the direction the player is facing when the dash button is pressed 
+        playerDashBehaviour.UpdateDashData(new Vector3(lastInputMovement.x, lastInputMovement.y, 0));
+    }
 }
+    

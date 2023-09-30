@@ -38,6 +38,16 @@ public class GameManager : Singleton<GameManager>
         SetupBasedOnGameState();
     }
 
+    void UpdateUI() {
+        if(inScenePlayer.GetComponent<Inventory>().Can(SkillType.UIHealth)) {
+            // TODO: Update UI
+        }
+
+        if(!inScenePlayer.GetComponent<Inventory>().Can(SkillType.UIMyopia)) {
+            // TODO: Update UI
+        }
+    } 
+
     // TODO : delete this method and all multiplayer related code if not using multiplayer
     void SetupBasedOnGameState()
     {

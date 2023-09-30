@@ -33,7 +33,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         MoveThePlayer();
     }
 
-    void MoveThePlayer()
+    public void MoveThePlayer()
     {
         Vector3 movement = canMove ? movementDirection * movementSpeed * Time.deltaTime : Vector3.zero;
         playerRigidbody.MovePosition(transform.position + movement);

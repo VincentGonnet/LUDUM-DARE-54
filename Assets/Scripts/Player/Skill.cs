@@ -8,6 +8,8 @@ public enum SkillType
     Attack,
     Jump,
     Dash,
+    UIHealth,
+    UIMyopia,
 }
 
 [CreateAssetMenu(fileName = "Skill", menuName = "Skill", order = 0)]
