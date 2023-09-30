@@ -22,9 +22,15 @@ public class PlayerProperties : MonoBehaviour
 
     public void SetHealth(float newHealth)
     {
+        if(newHealth > maxHealth) newHealth = maxHealth;
+        if(newHealth < 0) {
+            newHealth = 0;
+            // TODO: Game over (death)
+        }
+
         health = newHealth;
         // Update UI
-        GameObject.Find("HealthBarFill").GetComponent<HealthBar>().UpdateHealth(health / maxHealth);
+        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health / maxHealth);
     }
     
     public List<Skill> skills {

@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     // Camera control requierements
     private GameObject currentZoneTrigger;
 
+    // PlayerProperties
+    public PlayerProperties playerProperties;
+
     // Stored Values
     private Vector3 lastMovementDirection = Vector3.zero;
     public ArrayList jumpPodsPressedPos = new ArrayList();
@@ -47,6 +50,11 @@ public class PlayerController : MonoBehaviour
         playerRecallBehaviour.SetupBehaviour();
     }
 
+    void Start()
+    {
+        playerProperties = this.GetComponent<PlayerProperties>();
+    }
+
 
     // ------------------------------------------
     //       INPUT SYSTEM ACTION METHODS
@@ -55,18 +63,20 @@ public class PlayerController : MonoBehaviour
     // Movement Action
     public void OnMovement(InputAction.CallbackContext value)
     {
-        Vector2 input = value.ReadValue<Vector2>();
-        if(input != Vector2.zero) {
-            lastInputMovement = input.normalized;
+        if(playerProperties.Can(SkillType.Movement)) {
+            Vector2 input = value.ReadValue<Vector2>();
+            if(input != Vector2.zero) {
+                lastInputMovement = input.normalized;
+            }
+            rawInputMovement = new Vector3(input.x, input.y, 0);
+            lastMovementDirection = new Vector3(lastInputMovement.x, lastInputMovement.y, 0);
         }
-        rawInputMovement = new Vector3(input.x, input.y, 0);
-        lastMovementDirection = new Vector3(lastInputMovement.x, lastInputMovement.y, 0);
     }
 
     // Jump Action
     public void OnJump(InputAction.CallbackContext value)
     {
-        if (value.started && jumpPodsPressedPos.Count > 0)
+        if (value.started && jumpPodsPressedPos.Count > 0 && playerProperties.Can(SkillType.Jump))
         {
             // Do Jump
             playerJumpBehaviour.Jump(lastMovementDirection, jumpPodsPressedPos);
@@ -76,7 +86,7 @@ public class PlayerController : MonoBehaviour
     // Dash Action
     public void OnDash(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if(value.started && playerProperties.Can(SkillType.Dash))
         {
             // Do Dash
             playerDashBehaviour.Dash();
@@ -86,7 +96,7 @@ public class PlayerController : MonoBehaviour
     // Attack Action
     public void OnAttack(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if(value.started && playerProperties.Can(SkillType.Attack))
         {
             // Do Attack
             playerAttackBehaviour.Attack();
@@ -96,7 +106,7 @@ public class PlayerController : MonoBehaviour
     // Recall Action
     public void OnRecall(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if(value.started && playerProperties.Can(SkillType.Recall))
         {
             // Do Recall
             playerRecallBehaviour.Recall();

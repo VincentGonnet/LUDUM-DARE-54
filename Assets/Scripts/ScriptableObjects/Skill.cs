@@ -8,6 +8,7 @@ public enum SkillType
     Attack,
     Jump,
     Dash,
+    Recall,
     UIHealth,
     UIMyopia,
 }
