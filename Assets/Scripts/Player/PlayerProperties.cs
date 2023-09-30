@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class PlayerProperties : MonoBehaviour
 {
-    public List<Skill> allSkills = new List<Skill>();
     // List of available skills to equip
     private List<Skill> backpack = new List<Skill>();
 
@@ -17,10 +16,17 @@ public class Inventory : MonoBehaviour
     // Current memory the player is carrying
     public float currentMemory = 0f;
 
+    public int currentZone = 0;
+    public float health = 10f;
+
     public List<Skill> skills {
         get {
             return backpack.Union(equippedSkills).Distinct().ToList();
         }
+    }
+
+    public void PushToBackpack(Skill skill) {
+        backpack.Add(skill);
     }
 
     // The method is mandatory for use outside of this class ><
@@ -90,12 +96,12 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        backpack.AddRange(allSkills);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

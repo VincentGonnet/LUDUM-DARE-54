@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6133107936279635489}
   - component: {fileID: 6223596900612390897}
+  - component: {fileID: 7140967643876624533}
   m_Layer: 0
   m_Name: ZoneTrigger
   m_TagString: ZoneTrigger
@@ -77,3 +78,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7140967643876624533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479026345525238472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cbf0e56032dab42802e328cf69807d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

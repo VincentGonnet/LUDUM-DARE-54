@@ -42,16 +42,16 @@ public class GameManager : Singleton<GameManager>
 
     void UpdateUI()
     {
-        if (inScenePlayer.GetComponent<Inventory>().Can(SkillType.UIHealth))
+        if (inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIHealth))
         {
-            // TODO: Update UI
+            GameObject.Find("HealthBar").SetActive(true);
         }
         else
         {
-            // TODO: Update UI
+            GameObject.Find("HealthBar").SetActive(false);
         }
 
-        if (!inScenePlayer.GetComponent<Inventory>().Can(SkillType.UIMyopia))
+        if (!inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIMyopia))
         {
             myopia.SetActive(true);
         }
@@ -61,7 +61,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    // TODO : delete this method and all multiplayer related code if not using multiplayer
+    // TODO: delete this method and all multiplayer related code if not using multiplayer
     void SetupBasedOnGameState()
     {
         switch (currentGameMode)
