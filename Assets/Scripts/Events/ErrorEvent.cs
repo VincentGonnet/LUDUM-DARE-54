@@ -10,6 +10,7 @@ public class ErrorEvent : MonoBehaviour
 {
 
     GameObject canvas;
+    GameObject errorCanvas;
     string errorText;
 
     [SerializeField] string diag1;
@@ -19,12 +20,12 @@ public class ErrorEvent : MonoBehaviour
 
     List<string> dialogues;
 
+    Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
     {
         dialogues = new List<string>(){diag1, diag2, diag3, diag4};
-        ErrorTrigger();
     }
 
     // Update is called once per frame
@@ -33,11 +34,22 @@ public class ErrorEvent : MonoBehaviour
         
     }
 
-    void ErrorTrigger() {
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Player") {
+            other.gameObject.GetComponent<Inventory>().maxMemory -= 1;
+            ErrorTrigger(other);
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    void ErrorTrigger(Collider2D Player) {
         canvas = GameObject.Find("Canvas");
+        errorCanvas = GameObject.Find("ErrorEvent");
 
         int i = UnityEngine.Random.Range(0, dialogues.Count);
-        canvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogues[i];
+        errorCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogues[i];
+        errorCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Your memory decreased by 1. You now have " + Player.gameObject.GetComponent<Inventory>().maxMemory + " memory.";
     }
 }
 
