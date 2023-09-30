@@ -607,14 +607,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8185547295163965791, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
-      propertyPath: gManager
-      value: 
-      objectReference: {fileID: 1472809393}
-    - target: {fileID: 8185547295163965791, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 352877023}
     - target: {fileID: 9028392376296897588, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
       propertyPath: m_Name
       value: SkillSelector
@@ -1117,17 +1109,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 204627658127853199, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
-      propertyPath: zoneNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 204627658127853199, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: playerProperties
       value: 
       objectReference: {fileID: 352877022}
-    - target: {fileID: 1116363964358265277, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
-      propertyPath: zoneNumber
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1116363964358265277, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: playerProperties
       value: 
@@ -1213,10 +1197,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6361854506719558178, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
-      propertyPath: zoneNumber
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361854506719558178, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: playerProperties
       value: 
       objectReference: {fileID: 352877022}
@@ -1228,10 +1208,6 @@ PrefabInstance:
       propertyPath: playerProperties
       value: 
       objectReference: {fileID: 352877022}
-    - target: {fileID: 8533624097900141902, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
-      propertyPath: zoneNumber
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8533624097900141902, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: playerProperties
       value: 
@@ -1251,7 +1227,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3999194280197257140, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
       propertyPath: m_Name
-      value: ErrorEvent
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 6203952747728324096, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
       propertyPath: m_Pivot.x

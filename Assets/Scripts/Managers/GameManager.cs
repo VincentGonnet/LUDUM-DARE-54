@@ -44,11 +44,11 @@ public class GameManager : Singleton<GameManager>
     {
         if (inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIHealth))
         {
-            // TODO: Update UI
+            GameObject.Find("HealthBar").SetActive(true);
         }
         else
         {
-            // TODO: Update UI
+            GameObject.Find("HealthBar").SetActive(false);
         }
 
         if (!inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIMyopia))
