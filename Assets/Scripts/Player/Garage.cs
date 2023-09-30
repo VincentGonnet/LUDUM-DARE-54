@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Garage : MonoBehaviour {
     public GameObject SkillSelector;
-    public Inventory playerInventory;
+    public PlayerProperties playerInventory;
     public GameObject buttonPrefab;
     public Transform layoutParent;
 

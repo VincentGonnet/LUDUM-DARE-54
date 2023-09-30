@@ -23,7 +23,9 @@ public class ErrorEvent : MonoBehaviour
     [SerializeField] public GameObject errorDialogue;
     [SerializeField] public GameObject errorMemoryText;
 
-    [SerializeField] public Inventory inventory;
+    [SerializeField] public GameManager pause;
+    // [SerializeField] public PlayerProperties playerProperties;
+    [SerializeField] public PlayerController playerController;
     float maxMemory;
     float currentMemory;
 
@@ -43,8 +45,8 @@ public class ErrorEvent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player") {
             Debug.Log("Player entered error event");
-            currentMemory = other.gameObject.GetComponent<Inventory>().currentMemory;
-            maxMemory = other.gameObject.GetComponent<Inventory>().maxMemory;
+            currentMemory = other.gameObject.GetComponent<PlayerProperties>().currentMemory;
+            maxMemory = other.gameObject.GetComponent<PlayerProperties>().maxMemory;
             maxMemory -= 1;
             ErrorTrigger(currentMemory, maxMemory);
             Destroy(this.gameObject);
@@ -56,6 +58,7 @@ public class ErrorEvent : MonoBehaviour
         errorCanvas.SetActive(true);
         errorCanvas.transform.GetChild(0).gameObject.SetActive(true);
         errorCanvas.transform.GetChild(1).gameObject.SetActive(false);
+        pause.TogglePauseState(playerController);
 
         Debug.Log("Current memory: " + currentMemory + " Max memory: " + maxMemory);
         if (currentMemory > maxMemory) {

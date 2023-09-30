@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class PlayerProperties : MonoBehaviour
 {
     public List<Skill> allSkills = new List<Skill>();
     // List of available skills to equip
@@ -16,6 +16,8 @@ public class Inventory : MonoBehaviour
 
     // Current memory the player is carrying
     public float currentMemory = 0f;
+
+    public float health = 10f;
 
     public List<Skill> skills {
         get {

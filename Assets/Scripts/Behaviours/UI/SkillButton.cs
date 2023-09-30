@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class SkillButton : MonoBehaviour, IPointerClickHandler {
 
     public SkillType skill;
-    public Inventory playerInventory;
+    public PlayerProperties playerInventory;
 
     public void OnPointerClick(PointerEventData eventData) {
         // toggle in player inventory
