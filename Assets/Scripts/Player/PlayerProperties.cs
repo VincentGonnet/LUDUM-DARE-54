@@ -24,7 +24,7 @@ public class PlayerProperties : MonoBehaviour
     {
         health = newHealth;
         // Update UI
-        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health / maxHealth);
+        GameObject.Find("HealthBarFill").GetComponent<HealthBar>().UpdateHealth(health / maxHealth);
     }
     
     public List<Skill> skills {
