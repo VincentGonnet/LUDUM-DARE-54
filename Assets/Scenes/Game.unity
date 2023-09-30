@@ -722,9 +722,13 @@ GameObject:
   - component: {fileID: 1631185049}
   - component: {fileID: 1631185048}
   - component: {fileID: 1631185051}
-  - component: {fileID: 1631185052}
   - component: {fileID: 1631185053}
   - component: {fileID: 1631185054}
+  - component: {fileID: 1631185052}
+  - component: {fileID: 1631185059}
+  - component: {fileID: 1631185058}
+  - component: {fileID: 1631185057}
+  - component: {fileID: 1631185056}
   - component: {fileID: 1631185055}
   m_Layer: 0
   m_Name: Player
@@ -907,6 +911,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovementBehaviour: {fileID: 1631185052}
+  playerJumpBehaviour: {fileID: 1631185059}
+  playerDashBehaviour: {fileID: 1631185057}
+  playerAttackBehaviour: {fileID: 1631185058}
+  playerRecallBehaviour: {fileID: 1631185056}
   playerInput: {fileID: 1631185048}
   movementSmoothingSpeed: 10
 --- !u!114 &1631185052
@@ -1008,6 +1016,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMemory: 10
+--- !u!114 &1631185056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631185047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72796022a8a2a3649b77d88fd793284b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 1631185053}
+  recallDistance: 3
+--- !u!114 &1631185057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631185047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1d8e363ecc6864b93930178f0a91e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 1631185053}
+  dashDistance: 3
+--- !u!114 &1631185058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631185047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b497be175823c3942b0774787c7aede5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 1631185053}
+  attackDistance: 3
+--- !u!114 &1631185059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631185047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20ffd852cb59914d8146d18837cd98c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 1631185053}
+  jumpDistance: 3
 --- !u!1001 &1751387112
 PrefabInstance:
   m_ObjectHideFlags: 0
