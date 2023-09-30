@@ -1,6 +1,5 @@
 {
-    "files.exclude":
-    {
+    "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -56,5 +55,6 @@
         "temp/": true,
         "Temp/": true,
         "**/node_modules": false
-    }
+    },
+    "dotnet.defaultSolution": "Ludum Dare 54.sln"
 }
