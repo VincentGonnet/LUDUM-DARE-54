@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
 
     private string currentControlScheme;
 
+    // Camera control requierements
+    private GameObject currentZoneTrigger;
+
     public void SetupPlayer(int newPlayerID) 
     {
         this.playerID = newPlayerID;
@@ -122,6 +125,20 @@ public class PlayerController : MonoBehaviour
     void UpdatePlayerMovement()
     {
         playerMovementBehaviour.UpdateMovementData(smoothInputMovement);
+    }
+
+    // Triggers
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("ZoneTrigger"))
+        {
+            currentZoneTrigger = other.gameObject;
+        }
+    }
+
+    public GameObject GetCurrentZoneTrigger()
+    {
+        return currentZoneTrigger;
     }
 
 

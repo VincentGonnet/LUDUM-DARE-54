@@ -87,6 +87,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
             // Interpolate the player's position between the current position and the target position.
             Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, t);
+            newPosition.z = -5f;
 
             // Move the player to the new position.
             gameObject.transform.position = newPosition;
@@ -97,6 +98,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
             // Yielding null here allows the Coroutine to continue in the next frame.
             yield return null;
         }
+        Vector3 finalPosition = targetPosition;
+        finalPosition.z = -5f;
 
         // Ensure the player reaches the exact target position.
         gameObject.transform.position = targetPosition;
