@@ -52,12 +52,12 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
         Vector3 movementDirection = (targetPosition - transform.position).normalized;
         float newXDirection = movementDirection.x > 0 
-            ? (float) Math.Ceiling(transform.position.x + movementDirection.x)
-            : (float) Math.Floor(transform.position.x + movementDirection.x);
+            ? (float) Math.Ceiling(transform.position.x + movementDirection.x*2)
+            : (float) Math.Floor(transform.position.x + movementDirection.x*2);
 
         float newYDirection = movementDirection.y > 0
-            ? (float) Math.Ceiling(transform.position.y + movementDirection.y)
-            : (float) Math.Floor(transform.position.y + movementDirection.y);
+            ? (float) Math.Ceiling(transform.position.y + movementDirection.y*2)
+            : (float) Math.Floor(transform.position.y + movementDirection.y*2);
 
         targetPosition = new Vector3(newXDirection, newYDirection, -5f);
 
