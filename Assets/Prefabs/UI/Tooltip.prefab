@@ -270,7 +270,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 400
+  m_PreferredWidth: 300
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ee96228fc211f4bb66107b5c9f99a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterWrapLimit: 80
+  characterWrapLimit: 60
 --- !u!1 &5429732881966245181
 GameObject:
   m_ObjectHideFlags: 0
