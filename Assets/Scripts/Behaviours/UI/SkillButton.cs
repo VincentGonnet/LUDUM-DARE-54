@@ -8,7 +8,10 @@ public class SkillButton : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData) {
         // toggle in player inventory
-        if (playerInventory.Can(skill)) playerInventory.RemoveSkill(skill);
-        else playerInventory.EquipSkill(skill);
+        if (playerInventory.Can(skill)) {
+            playerInventory.RemoveSkill(skill);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else transform.GetChild(1).gameObject.SetActive(!playerInventory.EquipSkill(skill));
     }
 }

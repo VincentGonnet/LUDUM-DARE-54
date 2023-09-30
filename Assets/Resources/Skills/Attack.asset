@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Attack
   description: Allows you to attack
-  weight: 3
-  sprite: {fileID: 0}
+  memory: 3
+  sprite: {fileID: -551106832, guid: 032fe5d1e96260b40a19a6f886069a31, type: 3}
   level: 1
   type: 1

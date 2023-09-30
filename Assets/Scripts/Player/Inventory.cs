@@ -1,9 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public List<Skill> allSkills = new List<Skill>();
     // List of available skills to equip
     private List<Skill> backpack = new List<Skill>();
 
@@ -16,9 +17,15 @@ public class Inventory : MonoBehaviour
     // Current memory the player is carrying
     private float currentMemory = 0f;
 
+    public List<Skill> skills {
+        get {
+            return backpack.Union(equippedSkills).Distinct().ToList();
+        }
+    }
+
     // The method is mandatory for use outside of this class ><
-    public void EquipSkill(SkillType backpackSkill) {
-        EquipSkill(backpack.FindIndex((sk) => sk.type == backpackSkill));
+    public bool EquipSkill(SkillType backpackSkill) {
+        return EquipSkill(backpack.FindIndex((sk) => sk.type == backpackSkill));
     }
 
     // The method is mandatory for use outside of this class ><
@@ -27,12 +34,13 @@ public class Inventory : MonoBehaviour
     }
 
     // Add a skill to the backpack
-    public void EquipSkill(int skillIndexInBackpack)
+    public bool EquipSkill(int skillIndexInBackpack)
     {
+        if (skillIndexInBackpack < 0) return false;
         if (currentMemory + backpack[skillIndexInBackpack].memory > maxMemory)
         {
             Debug.Log("Not enough memory to equip skill");
-            return;
+            return false;
         }
 
         // Add the skill to the equipped list
@@ -43,11 +51,13 @@ public class Inventory : MonoBehaviour
 
         // Update the current memory
         currentMemory += equippedSkills[equippedSkills.Count - 1].memory;
+        return true;
     }
 
     // Remove a skill from the backpack
     public void RemoveSkill(int skillIndexInEquipped)
     {
+        if (skillIndexInEquipped < 0) return;
         // Add the skill to the backpack
         backpack.Add(equippedSkills[skillIndexInEquipped]);
 
@@ -80,7 +90,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        backpack.AddRange(allSkills);
     }
 
     // Update is called once per frame
