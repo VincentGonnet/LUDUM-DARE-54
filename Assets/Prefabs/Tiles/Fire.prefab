@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9167613931235750166}
   - component: {fileID: 6678980794111182281}
   - component: {fileID: 6205436486530187534}
-  m_Layer: 7
-  m_Name: Hole
-  m_TagString: Hole
+  m_Layer: 8
+  m_Name: Fire
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.5188679, g: 0.29236275, b: 0.031817384, a: 1}
+  m_Color: {r: 0.8962264, g: 0.61831176, b: 0.26633143, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

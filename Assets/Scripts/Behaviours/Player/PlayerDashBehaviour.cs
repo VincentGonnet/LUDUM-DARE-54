@@ -15,7 +15,7 @@ public class PlayerDashBehaviour : MonoBehaviour
     private Vector3 dashDirection;
     public bool isDashing = false;
     private Vector3 startPosition;
-    public int holeCounters = 0;
+    private int fireCounters = 0;
 
     public void SetupBehaviour()
     {
@@ -46,50 +46,49 @@ public class PlayerDashBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         playerRigidbody.velocity = Vector3.zero;
         isDashing = false;
-        StartCoroutine(CheckHole());
+        StartCoroutine(CheckFire());
 
         playerRigidbody.gameObject.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
     }
 
-    private IEnumerator CheckHole()
+    private IEnumerator CheckFire()
     {
         yield return new WaitForSeconds(0.2f);
-        if (holeCounters > 0)
+        if (fireCounters > 0)
         {
-            Debug.Log("In hole");
             playerRigidbody.transform.position = startPosition;
         }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hole"))
+        if (collision.CompareTag("Fire"))
         {
-            holeCounters++;
+            fireCounters++;
         }
-        if (collision.CompareTag("Hole") && isDashing)
+        if (collision.CompareTag("Fire") && isDashing)
         {
-            StartCoroutine(PassThroughHole(collision));
+            StartCoroutine(PassThroughFire(collision));
         }
     }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hole") && isDashing)
+        if (collision.CompareTag("Fire") && isDashing)
         {
-            StartCoroutine(PassThroughHole(collision));
+            StartCoroutine(PassThroughFire(collision));
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hole"))
+        if (collision.CompareTag("Fire"))
         {
-            holeCounters--;
+            fireCounters--;
         }
     }
 
-    private IEnumerator PassThroughHole(Collider2D collision)
+    private IEnumerator PassThroughFire(Collider2D collision)
     {
         GameObject hole = collision.gameObject;
         Collider2D[] colliders = hole.GetComponents<Collider2D>();

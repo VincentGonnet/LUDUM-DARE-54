@@ -27,11 +27,14 @@ public class PlayerController : MonoBehaviour
     //Action Maps
     private string actionMapPlayerControls = "Player Controls";
     private string actionMapMenuControls = "Menu Controls";
-
     private string currentControlScheme;
 
     // Camera control requierements
     private GameObject currentZoneTrigger;
+
+    // Stored Values
+    private Vector3 lastMovementDirection = Vector3.zero;
+    public ArrayList jumpPodsPressedPos = new ArrayList();
 
     public void SetupPlayer(int newPlayerID) 
     {
@@ -58,15 +61,16 @@ public class PlayerController : MonoBehaviour
             lastInputMovement = input.normalized;
         }
         rawInputMovement = new Vector3(input.x, input.y, 0);
+        lastMovementDirection = new Vector3(lastInputMovement.x, lastInputMovement.y, 0);
     }
 
     // Jump Action
     public void OnJump(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if (value.started && jumpPodsPressedPos.Count > 0)
         {
             // Do Jump
-            playerJumpBehaviour.Jump();
+            playerJumpBehaviour.Jump(lastMovementDirection, jumpPodsPressedPos);
         }
     }
 
@@ -202,6 +206,22 @@ public class PlayerController : MonoBehaviour
     {
         // Dash in the direction the player is facing when the dash button is pressed 
         playerDashBehaviour.UpdateDashData(new Vector3(lastInputMovement.x, lastInputMovement.y, 0));
+    }
+    public Vector3 GetLastMovementDirection()
+    {
+        return lastMovementDirection;
+    }
+
+    // JUMP METHODS --------------
+
+    public void AddPodPressed(Vector3 podPos)
+    {
+        jumpPodsPressedPos.Add(podPos);
+    }
+
+    public void RemovePodPressed(Vector3 podPos)
+    {
+        jumpPodsPressedPos.Remove(podPos);
     }
 }
     
