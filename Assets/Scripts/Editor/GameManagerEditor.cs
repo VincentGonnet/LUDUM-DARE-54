@@ -20,6 +20,8 @@ public class GameManagerEditor : Editor
     private SerializedProperty playerPrefabProperty;
     private SerializedProperty numberOfPlayersProperty;
 
+    private SerializedProperty myopiaProperty;
+
     void OnEnable()
     {
         //Game Mode
@@ -32,6 +34,8 @@ public class GameManagerEditor : Editor
         //Local Multiplayer
         playerPrefabProperty = serializedObject.FindProperty("playerPrefab");
         numberOfPlayersProperty = serializedObject.FindProperty("numberOfPlayers");
+
+        myopiaProperty = serializedObject.FindProperty("myopia");
     }
 
 
@@ -57,6 +61,12 @@ public class GameManagerEditor : Editor
         {
             DrawLocalMultiplayerGUI();
         }
+
+        DrawSpaceGUI(3);
+
+        EditorGUILayout.LabelField("UI Settings", EditorStyles.boldLabel);
+
+        EditorGUILayout.PropertyField(myopiaProperty);
 
         serializedObject.ApplyModifiedProperties();
     }
