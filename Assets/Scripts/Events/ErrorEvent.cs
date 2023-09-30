@@ -10,7 +10,6 @@ public class ErrorEvent : MonoBehaviour
 {
 
     GameObject canvas;
-    GameObject errorCanvas;
     string errorText;
 
     [SerializeField] string diag1;
@@ -20,7 +19,14 @@ public class ErrorEvent : MonoBehaviour
 
     List<string> dialogues;
 
-    [SerializeField] Inventory inventory;
+    [SerializeField] public GameObject errorCanvas;
+    [SerializeField] public GameObject errorDialogue;
+    [SerializeField] public GameObject errorMemoryText;
+
+    [SerializeField] public Inventory inventory;
+    float maxMemory;
+    float currentMemory;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,23 +41,31 @@ public class ErrorEvent : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Error event triggered");
         if(other.gameObject.tag == "Player") {
             Debug.Log("Player entered error event");
-            other.gameObject.GetComponent<Inventory>().maxMemory -= 1;
-            ErrorTrigger(other);
+            currentMemory = other.gameObject.GetComponent<Inventory>().currentMemory;
+            maxMemory = other.gameObject.GetComponent<Inventory>().maxMemory;
+            maxMemory -= 1;
+            ErrorTrigger(currentMemory, maxMemory);
             Destroy(this.gameObject);
         }
     }
 
 
-    void ErrorTrigger(Collider2D Player) {
-        errorCanvas = GameObject.Find("ErrorEvent");
+    void ErrorTrigger(float currentMemory, float maxMemory) {
         errorCanvas.SetActive(true);
+        errorCanvas.transform.GetChild(0).gameObject.SetActive(true);
+        errorCanvas.transform.GetChild(1).gameObject.SetActive(false);
+
+        Debug.Log("Current memory: " + currentMemory + " Max memory: " + maxMemory);
+        if (currentMemory > maxMemory) {
+            errorCanvas.transform.GetChild(1).gameObject.SetActive(true);
+            errorCanvas.transform.position = new Vector3(errorCanvas.transform.position.x, errorCanvas.transform.position.y + 100, errorCanvas.transform.position.z);
+        }
 
         int i = UnityEngine.Random.Range(0, dialogues.Count);
-        errorCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogues[i];
-        errorCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "Your memory decreased by 1. You now have " + Player.gameObject.GetComponent<Inventory>().maxMemory + " memory.";
+        errorDialogue.GetComponent<TextMeshProUGUI>().text = dialogues[i];
+        errorMemoryText.GetComponent<TextMeshProUGUI>().text = "Your memory decreased by 1. You now have " + maxMemory + " memory.";
     }
 }
 

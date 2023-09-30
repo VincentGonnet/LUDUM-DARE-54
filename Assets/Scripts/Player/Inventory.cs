@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] public float maxMemory = 10f;
 
     // Current memory the player is carrying
-    private float currentMemory = 0f;
+    public float currentMemory = 0f;
 
     public List<Skill> skills {
         get {
