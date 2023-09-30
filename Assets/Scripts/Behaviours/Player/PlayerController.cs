@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovement;
     private Vector2 lastInputMovement;
-    private Vector3 rawInputDash;
     private Vector3 smoothInputDash;
 
     //Action Maps

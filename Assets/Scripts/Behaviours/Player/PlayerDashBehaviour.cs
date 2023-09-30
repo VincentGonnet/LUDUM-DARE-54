@@ -43,7 +43,7 @@ public class PlayerDashBehaviour : MonoBehaviour
     private IEnumerator DashCoroutine()
     {
         
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.22f);
         playerRigidbody.velocity = Vector3.zero;
         isDashing = false;
         StartCoroutine(CheckFire());

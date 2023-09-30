@@ -505,9 +505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 8915476065750387232}
-  dashForce: 15
+  dashForce: 13
   isDashing: 0
-  holeCounters: 0
 --- !u!50 &8915476065750387232
 Rigidbody2D:
   serializedVersion: 4
@@ -604,7 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab115cdca2a3e44db6a293bf75b3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allSkills: []
   maxMemory: 10
   currentMemory: 0
+  currentZone: 0
   health: 10
+  maxHealth: 10

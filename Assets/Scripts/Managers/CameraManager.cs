@@ -18,9 +18,13 @@ public class CameraManager : Singleton<CameraManager>
     {
         float targetWidth = targetTriggerGameObject.GetComponent<BoxCollider2D>().size.x;
         float targetHeight = targetTriggerGameObject.GetComponent<BoxCollider2D>().size.y;
+        Debug.Log("targetWidth: " + targetWidth);
+        Debug.Log("targetHeight: " + targetHeight);
 
         float cameraWidth = gameplayCameraObject.GetComponent<Camera>().orthographicSize * gameplayCameraObject.GetComponent<Camera>().aspect * 2f;
         float cameraHeight = gameplayCameraObject.GetComponent<Camera>().orthographicSize * 2f;
+        Debug.Log("cameraWidth: " + cameraWidth);
+        Debug.Log("cameraHeight: " + cameraHeight);
 
         float currentZoneTriggerX = targetTriggerGameObject.transform.position.x;
         float currentZoneTriggerY = targetTriggerGameObject.transform.position.y;
@@ -45,10 +49,10 @@ public class CameraManager : Singleton<CameraManager>
             if (cameraWidth < targetWidth) {
                 if (movementDirection.x > 0)
                 {
-                    targetPosition.x = (float) Math.Ceiling(minCameraX + cameraWidth/2f);
+                    targetPosition.x = (float) Math.Ceiling(minCameraX + cameraWidth/2f) - 0.5f; // TODO: try changing to 0.5f if it stutters
                 } else
                 {
-                    targetPosition.x = (float) Math.Floor(maxCameraX - cameraWidth/2f);
+                    targetPosition.x = (float) Math.Floor(maxCameraX - cameraWidth/2f) + 0.5f;
                 }
             }
         }
@@ -57,17 +61,19 @@ public class CameraManager : Singleton<CameraManager>
             // Movement is vertical
             targetPosition.x = gameplayCameraObject.transform.position.x;
             if (cameraHeight < targetHeight) {
+                Debug.Log("cameraHeight < targetHeight");
                 if (movementDirection.y > 0)
                 {
-                    targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f);
+                    targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f) - 0.5f;
                 } else
                 {
-                    targetPosition.y = (float) Math.Floor(maxCameraY - cameraHeight/2f);
+                    targetPosition.y = (float) Math.Floor(maxCameraY - cameraHeight/2f) + 0.5f;
                 }
             }
         }
 
         StartCoroutine(SlideToCoroutine(targetPosition, slideSpeed));
+        Debug.Log("targetPosition: " + targetPosition);
     }
 
     private IEnumerator SlideToCoroutine(Vector3 targetPosition, float slideSpeed)
