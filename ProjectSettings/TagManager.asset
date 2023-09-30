@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - InputPrompt
+  - ZoneTrigger
   layers:
   - Default
   - TransparentFX
