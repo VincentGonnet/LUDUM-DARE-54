@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Jump
   description: Allows you to jump over small holes
   memory: 3
-  sprite: {fileID: 21300000, guid: 7902d07837b17d34cb7a511e0ebdd501, type: 3}
+  sprite: {fileID: 21300000, guid: 3ba0182a359ffe847b609f7253f67413, type: 3}
   level: 1
   type: 2
   cooldown: 0
