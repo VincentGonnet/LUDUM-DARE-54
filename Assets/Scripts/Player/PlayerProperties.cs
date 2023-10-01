@@ -17,7 +17,6 @@ public class PlayerProperties : MonoBehaviour
     public float currentMemory = 0f;
 
     public GameObject healthBar;
-    public GameObject deathOverlay;
 
     public int currentZone = 0;
 
@@ -36,7 +35,7 @@ public class PlayerProperties : MonoBehaviour
             if(!isDead){
                 // Player is dead
                 isDead = true;
-                GameObject.Find("DeathWinAnim").GetComponent<DeathWinManager>().StartOverlay();
+                GameObject.Find("DeathWinAnim").GetComponent<DeathWinManager>().StartOverlay(false);
                 newHealth = maxHealth;
                 // TP to last checkpoint using StartRecall()
                 this.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
@@ -131,9 +130,6 @@ public class PlayerProperties : MonoBehaviour
     }
 
     public bool Can(SkillType skillType) {
-        if(skillType == SkillType.UIHealth) return true;
-
-
         foreach (Skill skill in equippedSkills) {
             if (skill.type == skillType) {
                 return true;

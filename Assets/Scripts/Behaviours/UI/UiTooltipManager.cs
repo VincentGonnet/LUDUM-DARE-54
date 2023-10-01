@@ -8,8 +8,8 @@ public class UiTooltipManager : MonoBehaviour {
         instance = this;
     }
 
-    public static void Show(string content, string header) {
-        instance.tooltip.SetText(content, header);
+    public static void Show(string memory, string content, string header) {
+        instance.tooltip.SetText(memory, content, header);
         instance.tooltip.gameObject.SetActive(true);
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DeathWinManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class DeathWinManager : MonoBehaviour
     private GameObject title;
     private GameObject message;
     public float duration = 1f;
+    private bool isWin = false;
+    private bool inAnimation = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +25,15 @@ public class DeathWinManager : MonoBehaviour
         logo.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f);
         message.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255f, 255f, 255f, 0f);
         title.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255f, 255f, 255f, 0f);
-
-        player.GetComponent<PlayerController>().EnablePauseMenuControls();
     }
 
-    public void StartOverlay(){
+    public void StartOverlay(bool isWin){
+        if(inAnimation) return;
+        this.inAnimation = true;
+        this.isWin = isWin;
+        
+        player.GetComponent<PlayerController>().EnablePauseMenuControls();
+        
         // Start FadeIn Animation
         this.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0f);
         
@@ -45,7 +52,13 @@ public class DeathWinManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         // Show Logo
-        logo.SetActive(true);
+        if(isWin){
+            logo.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/GrowingPlant/plant1");
+            logo.GetComponent<Animator>().enabled = true;
+        } else {
+            logo.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/skull");
+            logo.GetComponent<Animator>().enabled = false;
+        }
         logo.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f);
         StartCoroutine(FadeInLogo());
     }
@@ -59,15 +72,26 @@ public class DeathWinManager : MonoBehaviour
             yield return null;
         }
 
+        // If win start growing plant animation
+        if(isWin){
+            yield return new WaitForSeconds(1f);
+            logo.GetComponent<Animator>().Play("GrowingPlant");
+        }
+
         // Show Title
         title.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255f, 255f, 255f, 1f);
-        StartCoroutine(this.GetComponent<TypeText>().Type("You are dead!", title.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeInMessage())));
+        StartCoroutine(this.GetComponent<TypeText>().Type(isWin ? "You win!" : "You are dead!", title.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeInMessage())));
     }
 
     IEnumerator FadeInMessage(){
         yield return new WaitForSeconds(0.6f);
         message.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255f, 255f, 255f, 1f);
-        StartCoroutine(this.GetComponent<TypeText>().Type("System reset..............................OK", message.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeInMessage2())));
+        StartCoroutine(this.GetComponent<TypeText>().Type(isWin ? "The World is now better!" : "System reset..............................OK", message.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(isWin ? GoToMainMenu()  : FadeInMessage2())));
+    }
+
+    IEnumerator GoToMainMenu(){
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("MainMenu");
     }
 
     IEnumerator FadeInMessage2(){
@@ -82,12 +106,7 @@ public class DeathWinManager : MonoBehaviour
     
     IEnumerator FadeInMessage4(){
         yield return new WaitForSeconds(1f);
-        StartCoroutine(this.GetComponent<TypeText>().Type("Redeployment............................OK", message.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeInMessage5())));
-    }
-
-    IEnumerator FadeInMessage5(){
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(this.GetComponent<TypeText>().Type("Welcome back, pilot!", message.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeOut())));
+        StartCoroutine(this.GetComponent<TypeText>().Type("Redeployment............................OK", message.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeOut())));
     }
 
     IEnumerator FadeOut(){
@@ -146,5 +165,7 @@ public class DeathWinManager : MonoBehaviour
         player.GetComponent<PlayerController>().EnableGameplayControls();
 
         player.GetComponent<PlayerProperties>().isDead = false;
+
+        this.inAnimation = false;
     }
 }

@@ -39,6 +39,9 @@ public class GameManager : Singleton<GameManager>
         numberOfTrashPickedUp = value;
         if (numberOfTrashPickedUp >= maxNumberOfTrash){
             Debug.Log("You win!");
+
+            // Start Overlay as win
+            GameObject.Find("DeathWinAnim").GetComponent<DeathWinManager>().StartOverlay(true);
         }
     }
     public int getNumberOfTrashPickedUp(){

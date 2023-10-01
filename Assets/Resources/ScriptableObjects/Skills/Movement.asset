@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Movement
   description: Allows you to move
-  memory: 3
+  memory: 2.62
   sprite: {fileID: 486908599, guid: 032fe5d1e96260b40a19a6f886069a31, type: 3}
   level: 1
   type: 0
+  cooldown: 0
