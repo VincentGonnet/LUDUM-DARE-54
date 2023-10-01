@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &123218420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6102811717146618049, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+  m_PrefabInstance: {fileID: 6861911427207002364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &340117430 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3066960240199154377, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
@@ -221,6 +226,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7092806509686072542, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 123218420}
+    - target: {fileID: 7092806509686072542, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
       propertyPath: allSkills.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -232,10 +241,6 @@ PrefabInstance:
       propertyPath: allSkills.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: db6f313fabcd85b46baef0d99fe6438d, type: 2}
-    - target: {fileID: 7754388910480940125, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
-      propertyPath: playerProperties
-      value: 
-      objectReference: {fileID: 352877022}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -268,6 +273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2702b2987e56fa54b8e0dee11b0885d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &371959101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5494671560389593579, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+  m_PrefabInstance: {fileID: 6861911427207002364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &459652819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
@@ -902,6 +912,14 @@ PrefabInstance:
       propertyPath: myopia
       value: 
       objectReference: {fileID: 340117430}
+    - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
+      propertyPath: skillsUI
+      value: 
+      objectReference: {fileID: 371959101}
+    - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 123218420}
     - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
       propertyPath: inScenePlayer
       value: 
@@ -35968,6 +35986,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6385806444732870705, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a7f18c9da3195c4a9a03038dea16dc5, type: 3}
+    - target: {fileID: 8176057951988802854, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
