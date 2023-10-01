@@ -22,7 +22,9 @@ public class HealthBar : MonoBehaviour
         RectTransform rt = this.transform.GetChild(1).GetComponent<RectTransform>();
         rt.localPosition = new Vector3(-188.3f + 274.7f * healthPercent, rt.localPosition.y, rt.localPosition.z);
 
-
-        this.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>().text = (healthPercent * 100).ToString() + "%";
+        Animator animator = this.transform.GetChild(2).GetChild(0).GetComponent<Animator>();
+        animator.SetFloat("HealthRate", healthPercent);
+        animator.SetTrigger("UpdateHealth");
+        // this.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>().text = (healthPercent * 100).ToString() + "%";
     }
 }
