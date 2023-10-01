@@ -151,9 +151,10 @@ public class PlayerController : MonoBehaviour
     // Recall Action
     public void OnRecall(InputAction.CallbackContext value)
     {
-        if(value.started && playerProperties.Can(SkillType.Recall))
+        if(value.started && playerProperties.Can(SkillType.Recall) && !CooldownManager.Instance.IsOnCooldown(SkillType.Recall))
         {
             // Do Recall
+            CooldownManager.Instance.StartCooldown(SkillType.Recall);
             playerRecallBehaviour.StartRecall();
         }
     } 

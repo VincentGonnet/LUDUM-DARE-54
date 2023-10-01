@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRecallBehaviour : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerRecallBehaviour : MonoBehaviour
     public GameObject player;
     private Vector3 checkpointPosition;
     private float waitSystem;
+
+    [Header("Timer Settings")]
+    [SerializeField] private float recallTime = 2f;
+    [SerializeField] Image timerImage;
 
     public void SetupBehaviour()
     {
@@ -37,21 +42,23 @@ public class PlayerRecallBehaviour : MonoBehaviour
 
 
     public void StartRecall(){
-        Debug.Log("Recall");
+        timerImage.gameObject.transform.parent.gameObject.SetActive(true);
         player.GetComponent<PlayerController>().setIsRecalling(true);
         player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
-        StartCoroutine(WaitRecall(2f));
+        StartCoroutine(WaitRecall(recallTime));
     }
     
     IEnumerator WaitRecall(float seconds){
         waitSystem = seconds;
         while(waitSystem > 0){
             if(player.GetComponent<PlayerController>().isAttackedWhileRecall){
-                Debug.Log("Stop recall");
+                timerImage.gameObject.transform.parent.gameObject.SetActive(false);
                 StopAllCoroutines();
                 player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
+                player.GetComponent<PlayerController>().setIsRecalling(false);
                 player.GetComponent<PlayerController>().setIsAttackedWhileRecall(false);
             }
+            timerImage.fillAmount = waitSystem / seconds;
             waitSystem -= Time.deltaTime;
             yield return null;
         }
