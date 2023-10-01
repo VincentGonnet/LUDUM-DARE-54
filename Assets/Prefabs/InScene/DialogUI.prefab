@@ -353,9 +353,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'New Text
 
-    fsdfdfsqf
+    Very Beautiful text
 
-    fdqqffsd'
+    Roses are blue, and we have 13
+    hours left.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

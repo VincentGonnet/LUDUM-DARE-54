@@ -100,6 +100,7 @@ MonoBehaviour:
   errorCanvas: {fileID: 0}
   healthBar: {fileID: 0}
   skillsUI: {fileID: 0}
+  tutorialManager: {fileID: 532884831268849496}
   numberOfTrashPickedUp: 0
   maxNumberOfTrash: 3
 --- !u!1 &5894852719776869167
@@ -185,7 +186,7 @@ MonoBehaviour:
   dialogCanvas: {fileID: 0}
   dialogText: {fileID: 0}
   portrait: {fileID: 0}
-  charactersPerSecond: 10
+  charactersPerSecond: 20
   isInDialog: 0
   dialogId: -1
   dialogLine: -1

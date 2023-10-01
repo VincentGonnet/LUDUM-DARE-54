@@ -655,7 +655,7 @@
             "actions": [
                 {
                     "name": "Left Click",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "aad91709-ec95-4a61-baf8-2b98085ca149",
                     "expectedControlType": "Button",
                     "processors": "",

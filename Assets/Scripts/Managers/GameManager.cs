@@ -32,6 +32,7 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject healthBar;
     public GameObject skillsUI;
+    public TutorialManager tutorialManager;
 
     public int numberOfTrashPickedUp = 0;
     public void setNumberOfTrashPickedUp(int value){

@@ -11,7 +11,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Canvas dialogCanvas;
     [SerializeField] private TextMeshProUGUI dialogText;
     [SerializeField] private Image portrait;
-    [SerializeField] private float charactersPerSecond = 10f;
+    [SerializeField] private float charactersPerSecond = 20f;
     
     // Stored Values
     public bool isInDialog = false;
@@ -21,11 +21,11 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("TutorialManager.Start");
-        Debug.Log("TutorialManager.Start: dialogUI = " + dialogCanvas.gameObject.name);
+        DisableCanvas();
+    }
+
+    public void DisableCanvas() {
         dialogCanvas.enabled = false;
-        dialogText.text = "hey";  
-        StartCoroutine(waitThePlay());
     }
 
     public void OnSubmit(InputAction.CallbackContext value)
@@ -35,12 +35,6 @@ public class TutorialManager : MonoBehaviour
             NextLine();
         }
     } 
-
-    private IEnumerator waitThePlay()
-    {
-        yield return new WaitForSeconds(2);
-        PlayTutorial(1);
-    }
 
     public void PlayTutorial(int dialogId)
     {
@@ -53,10 +47,7 @@ public class TutorialManager : MonoBehaviour
         GameManager.Instance.ToggleDialogControls(playerController, true);
 
         string dialogPath = "Dialogs/Tutorial/Step" + dialogId;
-        Debug.Log("TutorialManager.PlayTutorial: dialogPath = " + dialogPath);
-
         DialogSet dialogSet = Resources.Load<DialogSet>(dialogPath);
-        Debug.Log("TutorialManager.PlayTutorial: dialogSet = " + dialogSet.name);
 
         portrait.sprite = dialogSet.portrait;
         this.dialogId = dialogId;
