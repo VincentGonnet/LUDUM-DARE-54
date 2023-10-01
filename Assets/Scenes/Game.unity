@@ -830,7 +830,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 352877021}
-<<<<<<< HEAD
     - target: {fileID: 3847245085251000650, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.87
@@ -839,8 +838,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -8.43
       objectReference: {fileID: 0}
-=======
->>>>>>> 7b0dc2079d8c3465a10794712d95561ba15c5077
     - target: {fileID: 5066704763584361791, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -923,24 +920,6 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 3158142231064659576, guid: ed1c4eeed07e8d649ab0c62a3736fc85, type: 3}
   m_PrefabInstance: {fileID: 1384000516}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
---- !u!1 &871565077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5683499351989158908, guid: 51ec390f0e2dfa643985988b716b2534, type: 3}
-  m_PrefabInstance: {fileID: 3400082328685659715}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &871565080 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 417970113589781540, guid: 51ec390f0e2dfa643985988b716b2534, type: 3}
-  m_PrefabInstance: {fileID: 3400082328685659715}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871565077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-=======
 --- !u!1001 &860277842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1002,7 +981,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4677e5be960434ab9146c4a3b36dac, type: 3}
->>>>>>> 7b0dc2079d8c3465a10794712d95561ba15c5077
 --- !u!1001 &976886586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2759,9 +2737,6 @@ SceneRoots:
   - {fileID: 976886586}
   - {fileID: 7974576336321823914}
   - {fileID: 845791190}
-<<<<<<< HEAD
-=======
   - {fileID: 801718860}
   - {fileID: 860277842}
->>>>>>> 7b0dc2079d8c3465a10794712d95561ba15c5077
   - {fileID: 3400082328685659715}
