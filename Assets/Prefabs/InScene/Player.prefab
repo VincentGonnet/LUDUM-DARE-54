@@ -714,6 +714,12 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -7036130629101655914, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
     value: {fileID: 3342508000056483503}
+  - key: {fileID: -529122578109643524, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5324147151132291681, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -658337529472517462, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 3342508000056483503}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &3342508000056483503
@@ -731,6 +737,7 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 025afcd77de1d454db6ab2035e001a6c, type: 2}
+    - {fileID: 11400000, guid: 34ac4897997e3394abac4cd5b3373f8b, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -742,6 +749,20 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3516252323649823016}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

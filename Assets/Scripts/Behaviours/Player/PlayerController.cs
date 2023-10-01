@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class PlayerController : MonoBehaviour
 {
@@ -90,6 +91,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.tutorialManager.PlayTutorial(i);
 
     }
+
 
     void Start()
     {
