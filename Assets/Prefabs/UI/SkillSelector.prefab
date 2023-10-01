@@ -926,3 +926,4 @@ MonoBehaviour:
   playerController: {fileID: 0}
   buttonPrefab: {fileID: 1960383883140840337, guid: 44e05e0cc38751b4e9a438200d0dbd9b, type: 3}
   ClosingKey: 27
+  playerProperties: {fileID: 0}

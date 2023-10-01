@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
 
     // Player controllers
     public List<PlayerController> activePlayerControllers; // List of all active players, referencing their PlayerController scripts
-    private bool isPaused;
+    public bool isPaused;
     private PlayerController focusedPlayerController;
 
     // UI

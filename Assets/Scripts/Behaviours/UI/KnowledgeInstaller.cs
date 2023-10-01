@@ -10,6 +10,7 @@ public class KnowledgeInstaller : MonoBehaviour {
     public PlayerController playerController;
     public GameObject buttonPrefab;
     public KeyCode ClosingKey;
+    public PlayerProperties playerProperties;
 
     public void SetMemoryData(int currentUsedMemory, int currentMaxMemory) {
         slots.SetText($"{currentUsedMemory}");
@@ -22,7 +23,8 @@ public class KnowledgeInstaller : MonoBehaviour {
         for (int i = 0; i < layout.transform.childCount; i++)
             Destroy(layout.transform.GetChild(layout.transform.childCount - 1 - i).gameObject);
         SetMemoryData(Mathf.RoundToInt(playerInventory.currentMemory), Mathf.RoundToInt(playerInventory.maxMemory));
-        gManager.TogglePauseState(playerController);
+        if(!gManager.isPaused)
+            gManager.TogglePauseState(playerController);
         foreach (var skill in playerInventory.skills) {
             GameObject go = Instantiate(buttonPrefab, layout.transform);
             go.transform.GetChild(0).GetComponent<Image>().sprite = skill.sprite;
@@ -35,7 +37,7 @@ public class KnowledgeInstaller : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(ClosingKey)) {
+        if (Input.GetKeyDown(ClosingKey)  && playerProperties.currentMemory <= playerProperties.maxMemory) {
             gameObject.SetActive(false);
             gManager.TogglePauseState(playerController);
             UiTooltipManager.Hide();

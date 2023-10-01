@@ -24,8 +24,9 @@ public class ErrorEvent : MonoBehaviour
     [SerializeField] public GameObject errorMemoryText;
 
     [SerializeField] public GameManager pause;
-    // [SerializeField] public PlayerProperties playerProperties;
+    [SerializeField] public PlayerProperties playerProperties;
     [SerializeField] public PlayerController playerController;
+    [SerializeField] public KeyCode ClosingKey;
     float maxMemory;
     float currentMemory;
 
@@ -39,7 +40,11 @@ public class ErrorEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape) && playerProperties.currentMemory <= playerProperties.maxMemory) {
+            Debug.Log("Closing error event");
+            errorCanvas.SetActive(false);
+            pause.TogglePauseState(playerController);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -58,7 +63,8 @@ public class ErrorEvent : MonoBehaviour
         errorCanvas.SetActive(true);
         errorCanvas.transform.GetChild(0).gameObject.SetActive(true);
         errorCanvas.transform.GetChild(1).gameObject.SetActive(false);
-        pause.TogglePauseState(playerController);
+        if(!GameManager.Instance.isPaused)
+            pause.TogglePauseState(playerController);
 
         Debug.Log("Current memory: " + currentMemory + " Max memory: " + maxMemory);
         if (currentMemory > maxMemory) {

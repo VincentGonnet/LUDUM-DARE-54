@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour {
         if(isAnimated) animator.SetBool("walking", false);
 
         InvokeRepeating("canAttack", 1f, attackSpeed);
-
+    
     }
 
     // Update is called once per frame
