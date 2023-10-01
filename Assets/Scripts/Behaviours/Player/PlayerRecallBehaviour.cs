@@ -31,7 +31,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
         this.checkpointPosition = position;
     }
 
-    Vector3 GetCurrentCheckpoint(){
+    public Vector3 GetCurrentCheckpoint(){
         return this.checkpointPosition;
     }
 
@@ -42,7 +42,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
         player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
         StartCoroutine(WaitRecall(2f));
     }
-
+    
     IEnumerator WaitRecall(float seconds){
         waitSystem = seconds;
         while(waitSystem > 0){
