@@ -53,6 +53,11 @@ MonoBehaviour:
   attackSpeed: 0
   isRanged: 0
   isMelee: 0
+  wanderDistance: 8
+  detectionDistance: 10
+  attackMaxDistance: 6
+  attackMinDistance: 4
+  currentZone: 0
   player: {fileID: 0}
   projectile: {fileID: 0}
 --- !u!212 &7445138231536110471
