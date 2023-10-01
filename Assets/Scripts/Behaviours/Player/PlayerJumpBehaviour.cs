@@ -51,7 +51,7 @@ public class PlayerJumpBehaviour : MonoBehaviour
             0
         );
 
-        Debug.Log("Pod Position: " + podPosition);
+        // Debug.Log("Pod Position: " + podPosition);
 
         // Check if the pod position is in the list of pressed pods
         bool podPressed = false;
@@ -70,7 +70,7 @@ public class PlayerJumpBehaviour : MonoBehaviour
             }
         }
 
-        Debug.Log("Pod Pressed: " + podPressed);
+        // Debug.Log("Pod Pressed: " + podPressed);
 
         if (!podPressed) return;
 
