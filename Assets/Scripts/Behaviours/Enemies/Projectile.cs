@@ -34,5 +34,10 @@ public class Projectile : MonoBehaviour
             enemyController.Attack();
             Destroy(this.gameObject);
         }
+
+        // If Object is in Layer Wall, destroy projectile
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall")) {
+            Destroy(this.gameObject);
+        }
     }
 }

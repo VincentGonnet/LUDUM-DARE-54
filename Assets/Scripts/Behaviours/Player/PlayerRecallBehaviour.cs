@@ -45,6 +45,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
         timerImage.gameObject.transform.parent.gameObject.SetActive(true);
         player.GetComponent<PlayerController>().setIsRecalling(true);
         player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
+        player.GetComponent<PlayerController>().SetSpriteDirection(new Vector2(-1,-1)); 
         StartCoroutine(WaitRecall(recallTime));
     }
     
