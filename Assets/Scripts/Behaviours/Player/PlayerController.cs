@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (value.started && jumpPodsPressedPos.Count > 0 && playerProperties.Can(SkillType.Jump))
         {
             // Do Jump
+            Debug.Log("Jumping");
             playerJumpBehaviour.Jump(lastMovementDirection, jumpPodsPressedPos);
         }
     }
