@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
     public ArrayList jumpPodsPressedPos = new ArrayList();
 
     public bool isRecalling = false;
+    public bool isPickingUp = false;
     public void setIsRecalling(bool val){
         isRecalling = val;
     }
@@ -168,9 +169,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnPickUp(InputAction.CallbackContext value){
         if(value.started){
+            // Yes I use Pickup to interact with Garage. I'm sorry :(
+            isPickingUp = true;
 
             //Do Pickup
             playerPickUpBehaviour.PickUp();
+        } else {
+            isPickingUp = false;
         }
     }
 

@@ -5,7 +5,9 @@ public class Garage : MonoBehaviour {
     public PlayerProperties playerInventory;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) SkillSelector.Load(playerInventory);
+        if (other.CompareTag("Player") && other.GetComponent<PlayerController>().isPickingUp) {
+            SkillSelector.Load(playerInventory);
+        }
     }
 
 }
