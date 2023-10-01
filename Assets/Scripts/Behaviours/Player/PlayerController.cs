@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     // Movement Action
     public void OnMovement(InputAction.CallbackContext value)
     {
-        if(playerProperties.Can(SkillType.Movement) || true) {
+        if(playerProperties.Can(SkillType.Movement)) {
             Vector2 input = value.ReadValue<Vector2>();
             if(input != Vector2.zero) {
                 lastInputMovement = input.normalized;

@@ -24,6 +24,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
         // Is called when the player is setup in the GameManager
         player = GameObject.FindWithTag("Player");
         SetCurrentCheckpoint(player.transform.position);
+        timerImage.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other) {

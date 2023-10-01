@@ -151,7 +151,12 @@ public class PlayerProperties : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Add Movement skill to the backpack by default using the ScriptableObject
+        Skill[] skills = Resources.LoadAll<Skill>("ScriptableObjects/Skills");
+        PushToBackpack(skills.First((sk) => sk.type == SkillType.Movement));
 
+        // Equip it
+        EquipSkill(0);
     }
 
     // Update is called once per frame
