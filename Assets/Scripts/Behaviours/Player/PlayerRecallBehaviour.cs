@@ -24,6 +24,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
         // Is called when the player is setup in the GameManager
         player = GameObject.FindWithTag("Player");
         SetCurrentCheckpoint(player.transform.position);
+        timerImage.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -42,7 +43,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
 
 
     public void StartRecall(){
-        timerImage.gameObject.transform.parent.gameObject.SetActive(true);
+        timerImage.gameObject.SetActive(true);
         player.GetComponent<PlayerController>().setIsRecalling(true);
         player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
         player.GetComponent<PlayerController>().SetSpriteDirection(new Vector2(-1,-1)); 
@@ -53,7 +54,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
         waitSystem = seconds;
         while(waitSystem > 0){
             if(player.GetComponent<PlayerController>().isAttackedWhileRecall){
-                timerImage.gameObject.transform.parent.gameObject.SetActive(false);
+                timerImage.gameObject.SetActive(false);
                 StopAllCoroutines();
                 player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
                 player.GetComponent<PlayerController>().setIsRecalling(false);

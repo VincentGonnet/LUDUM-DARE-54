@@ -1,19 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class PlayerJumpBehaviour : MonoBehaviour
 {
-
-    [Header("Component References")]
-    public Rigidbody2D playerRigidbody;
-
-    [Header("Jump Settings")]
-    public float jumpDistance = 3f;
-
     //Stored Values
     private Vector3 jumpDirection;
+
+    private float maxDistanceCheck = 5f;
 
 
     public void SetupBehaviour()
@@ -70,50 +66,51 @@ public class PlayerJumpBehaviour : MonoBehaviour
             }
         }
 
-        // Debug.Log("Pod Pressed: " + podPressed);
+        Debug.Log("Pod Pressed: " + podPressed);
 
         if (!podPressed) return;
 
         podPosition -= new Vector3(0.5f, 0.5f, 0);
+        
+        Debug.Log("Pod Position: " + podPosition);
+        Debug.Log("Jump! " + jumpDirection);
 
-        // Raycast in the jump direction, 1 unit
-        RaycastHit2D foundHole = Physics2D.Raycast(podPosition, jumpDirection, 1f, LayerMask.GetMask("Hole"));
+        // From pod position, raycast in the jump direction to find the next pod
+        Debug.DrawRay(podPosition, jumpDirection * maxDistanceCheck, Color.red, 1000f, false);
+        RaycastHit2D[] pods = Physics2D.RaycastAll(podPosition, jumpDirection, maxDistanceCheck, LayerMask.GetMask("JumpPod"));
 
-        // If the raycast hits nothing, return
-        if (foundHole.collider == null) {
-            // Debug.Log("No hole found");
+        Debug.Log("Pods found: " + pods.Length);
+
+        // If no pod found, return
+        if (pods.Length == 0 || pods[0].collider == null)
+        {
+            Debug.Log("No pod found");
             return;
         }
 
-        RaycastHit2D hitWall = Physics2D.Raycast(podPosition, jumpDirection, 2f, LayerMask.GetMask("Wall"));
-        RaycastHit2D hitFire = Physics2D.Raycast(podPosition, jumpDirection, 2f, LayerMask.GetMask("Fire"));
+        Debug.Log("Pod found: " + pods[0].collider.gameObject.name + " at " + pods[0].collider.gameObject.transform.position);
 
-        // If the raycast hits an obstacle, return
+        // Find the closest pod center coordonates with a closestDistance (that is greater than 1f) and teleport to it
 
-        if (hitWall.collider != null) {
-            // Debug.Log("Wall found");
-            return;
-        }
-        if (hitFire.collider != null) {
-            // Debug.Log("Fire found");
-            return;
-        }
-
-        RaycastHit2D[] holes = Physics2D.RaycastAll(podPosition, jumpDirection, 2f, LayerMask.GetMask("Hole"));
-
-        // If hit more than 1 hole, return
-        if (holes.Length > 2) { // 2 because the raycast, for an unknown reason, hits each hole twice
-            // Debug.Log("More than 1 hole found");
-            return;
+        float closestDistance = maxDistanceCheck;
+        Vector3 closestPod = Vector3.zero;
+        foreach (RaycastHit2D pod in pods)
+        {
+            Vector3 podCenter = pod.collider.gameObject.transform.position;
+            float distance = Vector3.Distance(podCenter, podPosition);
+            if (distance < closestDistance && distance > 1f)
+            {
+                closestDistance = distance;
+                closestPod = podCenter;
+            }
         }
 
-        // If the raycast hits only one hole, jump
+        if(closestPod == Vector3.zero) return;
 
         // Calculate the jump position
-        Vector3 jumpPosition = podPosition + jumpDirection * 2f;
+        Vector3 jumpPosition = closestPod;
 
-        // Debug.Log("Pod Position: " + podPosition);
-        // Debug.Log("Jump! " + jumpDirection);
+        Debug.Log("Send to " + jumpPosition);
 
         GetComponent<PlayerController>().SetSpriteDirection(jumpDirection);
         transform.position = jumpPosition;
