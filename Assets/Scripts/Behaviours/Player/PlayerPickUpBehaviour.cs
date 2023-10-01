@@ -6,7 +6,7 @@ public class PlayerPickUpBehaviour : MonoBehaviour
 {
 
     [Header("Component References")]
-    private List<Collider2D> trashList;
+    private List<Collider2D> trashList = new List<Collider2D>();
     private Dictionary<Collider2D, GameObject> trashPromptDict = new Dictionary<Collider2D, GameObject>();
 
     public void SetupBehaviour()
