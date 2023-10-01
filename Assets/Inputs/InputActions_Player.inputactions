@@ -299,11 +299,11 @@
                 },
                 {
                     "name": "Cancel",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "146e681c-77dd-4ff0-9ad5-f4351fea14cc",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {

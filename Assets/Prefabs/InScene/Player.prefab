@@ -357,7 +357,19 @@ MonoBehaviour:
     m_ActionId: 5f571f6a-e9e7-4120-ae3c-79f846bdd202
     m_ActionName: Menu Controls/Submit[/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
+        m_TargetAssemblyTypeName: ErrorEvent, Assembly-CSharp
+        m_MethodName: OnCancel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 146e681c-77dd-4ff0-9ad5-f4351fea14cc
     m_ActionName: Menu Controls/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
@@ -429,7 +441,19 @@ MonoBehaviour:
     m_ActionId: 9ce412a8-1548-426b-85c3-d6d6bfed1310
     m_ActionName: Player Controls/PickUp[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: OnSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: aad91709-ec95-4a61-baf8-2b98085ca149
     m_ActionName: Dialog Controls/Left Click[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -527,7 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 8915476065750387232}
-  attackDistance: 3
+  attackDistance: 2
+  attackTargets: []
 --- !u!114 &7984305897031274643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +668,7 @@ MonoBehaviour:
   currentMemory: 0
   healthBar: {fileID: 0}
   currentZone: 0
+  strength: 3
   health: 0
   maxHealth: 10
 --- !u!114 &1913872650521470174

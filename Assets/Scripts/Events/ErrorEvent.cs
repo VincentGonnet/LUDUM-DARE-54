@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
-using UnityEditor.PackageManager;
-using System;
+using UnityEngine.InputSystem;
 
 public class ErrorEvent : MonoBehaviour
 {
@@ -30,6 +27,9 @@ public class ErrorEvent : MonoBehaviour
     float maxMemory;
     float currentMemory;
 
+    // Stored Values
+    private bool hasBeenTriggered = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,14 +37,14 @@ public class ErrorEvent : MonoBehaviour
         dialogues = new List<string>(){diag1, diag2, diag3, diag4};
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && playerProperties.currentMemory <= playerProperties.maxMemory) {
-            Debug.Log("Closing error event");
+    public void OnCancel(InputAction.CallbackContext value) {
+        Debug.Log("Closing error event");
+        if (value.started && hasBeenTriggered) {
             errorCanvas.SetActive(false);
             pause.TogglePauseState(playerController);
+            Destroy(this.gameObject);
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -54,7 +54,7 @@ public class ErrorEvent : MonoBehaviour
             maxMemory = other.gameObject.GetComponent<PlayerProperties>().maxMemory;
             maxMemory -= 1;
             ErrorTrigger(currentMemory, maxMemory);
-            Destroy(this.gameObject);
+            hasBeenTriggered = true;
         }
     }
 

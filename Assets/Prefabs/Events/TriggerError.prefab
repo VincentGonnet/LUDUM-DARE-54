@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8801305347343372129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16, y: -0.5, z: 0.059887607}
+  m_LocalPosition: {x: -0.16, y: -2.5, z: 0.059887607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,3 +94,10 @@ MonoBehaviour:
   diag2: catalina
   diag3: windows
   diag4: linux
+  errorCanvas: {fileID: 0}
+  errorDialogue: {fileID: 0}
+  errorMemoryText: {fileID: 0}
+  pause: {fileID: 0}
+  playerProperties: {fileID: 0}
+  playerController: {fileID: 0}
+  ClosingKey: 0

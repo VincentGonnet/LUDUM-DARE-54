@@ -170,16 +170,19 @@ public class PlayerController : MonoBehaviour
 
     public void EnableGameplayControls()
     {
+        Debug.Log("Enabling Gameplay Controls");
         playerInput.SwitchCurrentActionMap(actionMapPlayerControls);  
     }
 
     public void EnablePauseMenuControls()
     {
+        Debug.Log("Enabling Pause Menu Controls");
         playerInput.SwitchCurrentActionMap(actionMapMenuControls);
     }
 
     public void EnableDialogControls()
     {
+        Debug.Log("Enabling Dialog Controls");
         playerInput.SwitchCurrentActionMap(actionMapDialogControls);
     }
 
