@@ -17,6 +17,7 @@ public class PlayerProperties : MonoBehaviour
     public float currentMemory = 0f;
 
     public GameObject healthBar;
+    public GameObject deathOverlay;
 
     public int currentZone = 0;
 
@@ -26,13 +27,23 @@ public class PlayerProperties : MonoBehaviour
     }
     public float health = 10f;
     public float maxHealth = 10f;
+    public bool isDead = false;
 
     public void SetHealth(float newHealth)
     {
         if(newHealth > maxHealth) newHealth = maxHealth;
-        if(newHealth < 0) {
-            newHealth = 0;
-            // TODO: Game over (death)
+        if(newHealth <= 0) {
+            if(!isDead){
+                // Player is dead
+                isDead = true;
+                GameObject.Find("DeathWinAnim").GetComponent<DeathWinManager>().StartOverlay();
+                newHealth = maxHealth;
+                // TP to last checkpoint using StartRecall()
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+                this.transform.position = this.gameObject.GetComponent<PlayerRecallBehaviour>().GetCurrentCheckpoint();
+            } else {
+                newHealth = 0;
+            }
         }
 
         health = newHealth;
