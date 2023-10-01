@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1105387553060791716}
   - component: {fileID: 9167613931235750166}
   - component: {fileID: 1100773009521661621}
-  - component: {fileID: 1419452414997504252}
   m_Layer: 0
   m_Name: Garage
   m_TagString: Garage
@@ -131,17 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1419452414997504252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3631777011850446648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b31ba6acc7241a4f9a35299f094d101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillSelector: {fileID: 0}
-  playerInventory: {fileID: 0}
