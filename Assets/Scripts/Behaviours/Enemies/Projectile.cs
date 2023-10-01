@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,13 @@ public class Projectile : MonoBehaviour
         StartCoroutine(TravelTime());
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        Vector3 vel = GetComponent<Rigidbody2D>().velocity;
+        double tan = vel.y / (vel.x == 0 ? 0.001f : vel.x);
+        double angle = (Math.Atan(tan) * (180 / Math.PI));
+        angle += vel.x > 0 ? 0 : 180;
+        this.transform.rotation = Quaternion.Euler(0, 0, (float)(angle));
     }
 
     IEnumerator TravelTime()
