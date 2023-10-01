@@ -48,6 +48,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
+        tutorialManager.DisableCanvas();
         isPaused = false;
 
         errorCanvas = GameObject.Find("ErrorEvent");
@@ -149,7 +150,7 @@ public class GameManager : Singleton<GameManager>
     {
         for (int i = 0; i < activePlayerControllers.Count; i++)
         {
-            activePlayerControllers[i].SetupPlayer(i);
+            activePlayerControllers[i].SetupPlayer();
         }
     }
 

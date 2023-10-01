@@ -65,4 +65,26 @@ public class CameraFollowPlayer : MonoBehaviour
             transform.position = newCameraPosition;
         }
     }
+
+    public void ZoomIn(bool zoomIn) {
+
+        StartCoroutine(ZoomInCoroutine(zoomIn));
+
+    }
+
+    IEnumerator ZoomInCoroutine(bool zoomIn) {
+
+        float duration = 0.5f;
+        float t = 0;
+        while (t < duration) {
+            t += Time.deltaTime;
+            if (zoomIn) {
+                Camera.main.orthographicSize = Mathf.SmoothStep(2f, 5f, t / duration);
+            } else {
+                Camera.main.orthographicSize = Mathf.SmoothStep(5f, 2f, t / duration);
+            }
+            yield return null;
+        }
+
+    }
 }

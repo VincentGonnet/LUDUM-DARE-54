@@ -23,11 +23,6 @@ public class TutorialManager : MonoBehaviour
     public int dialogLine = -1;
     public bool isTyping = false;
 
-    void Start()
-    {
-        DisableCanvas();
-    }
-
     public void DisableCanvas() {
         dialogCanvas.enabled = false;
     }

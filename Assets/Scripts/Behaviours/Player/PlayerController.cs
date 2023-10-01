@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private int playerID;
 
     //[Header("Sub Behaviours")]
     PlayerMovementBehaviour playerMovementBehaviour{
@@ -73,9 +72,8 @@ public class PlayerController : MonoBehaviour
         isAttackedWhileRecall = val;
     }
 
-    public void SetupPlayer(int newPlayerID) 
+    public void SetupPlayer() 
     {
-        this.playerID = newPlayerID;
         this.currentControlScheme = this.playerInput.currentControlScheme;
 
         playerMovementBehaviour.SetupBehaviour();
@@ -84,6 +82,13 @@ public class PlayerController : MonoBehaviour
         playerAttackBehaviour.SetupBehaviour();
         playerRecallBehaviour.SetupBehaviour();
         playerPickUpBehaviour.SetupBehaviour();
+
+    }
+
+    public void CutscenesLaunch(int i) {
+
+        GameManager.Instance.tutorialManager.PlayTutorial(i);
+
     }
 
     void Start()
@@ -210,10 +215,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Get Data ----
-    public int GetPlayerID()
-    {
-        return playerID;
-    }
 
     public InputActionAsset GetActionAsset()
     {
