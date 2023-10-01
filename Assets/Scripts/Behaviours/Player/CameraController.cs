@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private bool firstLoad = true;
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (firstLoad)
+        {
+            firstLoad = false;
+            return;
+        }
         if(other.CompareTag("ZoneTrigger"))
         {
             gameObject.GetComponent<PlayerMovementBehaviour>().Slide1UnitToward(other.gameObject.transform.position);

@@ -36,6 +36,7 @@ public class PlayerDashBehaviour : MonoBehaviour
         isDashing = true;
         startPosition = playerRigidbody.transform.position;
         playerRigidbody.AddForce(dash, ForceMode2D.Impulse);
+        GetComponent<PlayerController>().SetSpriteDirection(dash);
 
         StartCoroutine(DashCoroutine());
 

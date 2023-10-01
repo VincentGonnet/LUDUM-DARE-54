@@ -20,11 +20,19 @@ public class KnowledgeInstaller : MonoBehaviour {
 
     public void Load(PlayerProperties playerInventory) {
         gameObject.SetActive(true);
+
+        if (GameManager.Instance.tutorialManager.tutorialStep == 0) {
+            Canvas tutorialCanvas = gameObject.transform.GetChild(2).gameObject.GetComponent<Canvas>();
+            tutorialCanvas.enabled = true;
+        }
+
         for (int i = 0; i < layout.transform.childCount; i++)
             Destroy(layout.transform.GetChild(layout.transform.childCount - 1 - i).gameObject);
+
         SetMemoryData(Mathf.RoundToInt(playerInventory.currentMemory), Mathf.RoundToInt(playerInventory.maxMemory));
         if(!gManager.isPaused)
             gManager.TogglePauseState(playerController);
+
         foreach (var skill in playerInventory.skills) {
             GameObject go = Instantiate(buttonPrefab, layout.transform);
             go.transform.GetChild(0).GetComponent<Image>().sprite = skill.sprite;
@@ -33,6 +41,7 @@ public class KnowledgeInstaller : MonoBehaviour {
             go.GetComponent<SkillButton>().skill = skill.type;
             go.GetComponentInChildren<UiTooltip>().tooltipName = skill.name;
             go.GetComponentInChildren<UiTooltip>().tooltipDescription = skill.description;
+            go.GetComponentInChildren<UiTooltip>().tooltipMemory = skill.memory.ToString();
         }
     }
 
@@ -41,6 +50,11 @@ public class KnowledgeInstaller : MonoBehaviour {
             gameObject.SetActive(false);
             gManager.TogglePauseState(playerController);
             UiTooltipManager.Hide();
+            if (GameManager.Instance.tutorialManager.tutorialStep == 0) {
+                Canvas tutorialCanvas = gameObject.transform.GetChild(2).gameObject.GetComponent<Canvas>();
+                tutorialCanvas.enabled = false;
+                GameManager.Instance.tutorialManager.tutorialStep++;
+            }
         }
     }
 }

@@ -16,12 +16,17 @@ public class UiTooltipMaterial : MonoBehaviour
         transform.position = Input.mousePosition + new Vector3(10, -20);
     }
 
-    public void SetText(string content, string title) {
+    public void SetText(string memory, string content, string title) {
         if (string.IsNullOrEmpty(title)) transform.GetChild(0).gameObject.SetActive(false);
         else {
             transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(title);
         }
         transform.GetChild(1).GetComponent<TextMeshProUGUI>().SetText(content);
+        if(string.IsNullOrEmpty(memory)) transform.GetChild(2).gameObject.SetActive(false);
+        else {
+            transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText("memory: " + memory);
+        }
     }
 }
