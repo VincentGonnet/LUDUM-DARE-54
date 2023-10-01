@@ -29,11 +29,6 @@ public class TutorialManager : MonoBehaviour
     private bool isInDashTutorial = false;
     private bool isInAttackTutorial = false;
 
-    void Start()
-    {
-        DisableCanvas();
-    }
-
     public void DisableCanvas() {
         dialogCanvas.enabled = false;
     }
@@ -98,6 +93,14 @@ public class TutorialManager : MonoBehaviour
         GameManager.Instance.TogglePauseState(playerController);
     }
 
+    // public void GetRootPlayable(int dialogId) {
+
+    //     string dialogPath = "Dialogs/Tutorial/Step" + dialogId;
+    //     DialogSet dialogSet = Resources.Load<DialogSet>(dialogPath);
+    //     dialogSet.playableGraph.GetRootPlayable(0).SetSpeed(0);
+
+    // }
+
     public void PlayTutorial(int dialogId)
     {
         if (!isInDialog)
@@ -121,6 +124,11 @@ public class TutorialManager : MonoBehaviour
     private void TypeCallback()
     {
         isTyping = false;
+        string dialogPath = "Dialogs/Tutorial/Step" + dialogId;
+        DialogSet dialogSet = Resources.Load<DialogSet>(dialogPath);
+        if (dialogLine >= dialogSet.dialogs.Count) {
+            
+        }
     }
     private IEnumerator TypeText(string line, System.Action callback)
     {

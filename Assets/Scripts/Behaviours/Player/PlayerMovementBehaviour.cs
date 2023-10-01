@@ -38,6 +38,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         Vector3 movement = canMove ? movementDirection * movementSpeed * Time.deltaTime : Vector3.zero;
         if (movement != Vector3.zero) {
             playerRigidbody.MovePosition(transform.position + movement);
+            GetComponent<PlayerController>().SetSpriteDirection(movement);
         }
     }
 

@@ -187,6 +187,8 @@ GameObject:
   - component: {fileID: 7092806509686072542}
   - component: {fileID: 1913872650521470174}
   - component: {fileID: 5316765474582899274}
+  - component: {fileID: 3516252323649823016}
+  - component: {fileID: 3342508000056483503}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -695,3 +697,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaadc430732151e4ca363e7596b1d6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!320 &3516252323649823016
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -7036130629101655914, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 3342508000056483503}
+  - key: {fileID: -529122578109643524, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5324147151132291681, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -658337529472517462, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 3342508000056483503}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &3342508000056483503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 025afcd77de1d454db6ab2035e001a6c, type: 2}
+    - {fileID: 11400000, guid: 34ac4897997e3394abac4cd5b3373f8b, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7754388910480940125}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: CutscenesLaunch
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3516252323649823016}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

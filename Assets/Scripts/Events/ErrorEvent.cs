@@ -30,7 +30,6 @@ public class ErrorEvent : MonoBehaviour
     // Stored Values
     private bool hasBeenTriggered = false;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +56,6 @@ public class ErrorEvent : MonoBehaviour
             hasBeenTriggered = true;
         }
     }
-
 
     void ErrorTrigger(float currentMemory, float maxMemory) {
         errorCanvas.SetActive(true);
