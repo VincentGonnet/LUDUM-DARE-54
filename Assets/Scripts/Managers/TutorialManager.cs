@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System;
+using System.Runtime.CompilerServices;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -53,10 +55,14 @@ public class TutorialManager : MonoBehaviour
         this.dialogId = dialogId;
         dialogLine = 0;
         isTyping = true;
-        StartCoroutine(TypeText(dialogSet.dialogs[0]));
+        StartCoroutine(TypeText(dialogSet.dialogs[0], TypeCallback));
     }
 
-    private IEnumerator TypeText(string line)
+    private void TypeCallback()
+    {
+        isTyping = false;
+    }
+    private IEnumerator TypeText(string line, System.Action callback)
     {
         string textBuffer = null;
         foreach (char c in line)
@@ -70,7 +76,7 @@ public class TutorialManager : MonoBehaviour
             dialogText.text = textBuffer;
             yield return new WaitForSeconds(1 / charactersPerSecond);
         }
-        isTyping = false;
+        callback();
     }
 
     public void NextLine()
@@ -87,7 +93,7 @@ public class TutorialManager : MonoBehaviour
         if (dialogLine < dialogSet.dialogs.Count)
         {
             isTyping = true;
-            StartCoroutine(TypeText(dialogSet.dialogs[dialogLine]));
+            StartCoroutine(TypeText(dialogSet.dialogs[dialogLine], TypeCallback));
         }
         else
         {
