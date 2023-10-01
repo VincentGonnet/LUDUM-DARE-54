@@ -18,7 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 4768679099383317665, guid: 1b092c7abad08c3488d1922656116b1b, type: 3}
     - target: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_Name
-      value: Enemy Variant
+      value: Plante
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445138231536110471, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91038abc7231a1e4ba3fcb99ae984a92, type: 3}
+    - target: {fileID: 7445138231536110471, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7536049543176676033, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_LocalScale.x

@@ -90,14 +90,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9fc928df6adda44b0383e25da0f63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diag1: macos
-  diag2: catalina
-  diag3: windows
-  diag4: linux
+  diag1: '[Memory Leak] 5 -12 bytes: AnsiString x1'
+  diag2: '[404 Error] RAM not found'
+  diag3: '[Merge Conflict : Game.unity needs to be resolved] '
+  diag4: '[java.lang.StackOverflow.Error] Drop memory'
   errorCanvas: {fileID: 0}
   errorDialogue: {fileID: 0}
   errorMemoryText: {fileID: 0}
   pause: {fileID: 0}
   playerProperties: {fileID: 0}
   playerController: {fileID: 0}
-  ClosingKey: 0
+  ClosingKey: 27

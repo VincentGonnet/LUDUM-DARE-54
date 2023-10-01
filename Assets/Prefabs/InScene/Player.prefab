@@ -252,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -525,6 +525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 8915476065750387232}
   player: {fileID: 6996792250485383104}
+  recallTime: 2
+  timerImage: {fileID: 0}
 --- !u!114 &5645429585195383139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +712,20 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -658337529472517462, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
     value: {fileID: 3342508000056483503}
+  - key: {fileID: 5623894603758223239, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 866700888766951571, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8386366623179949165, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7274151338267398734, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1829793337856869657, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6810993309758697590, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 9084631333449649272, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &3342508000056483503
