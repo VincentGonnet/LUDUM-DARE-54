@@ -59,7 +59,7 @@ public class CameraManager : Singleton<CameraManager>
             if (cameraHeight < targetHeight) {
                 if (movementDirection.y > 0)
                 {
-                    targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f) - 0.5f;
+                    targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f - 0.5f);
                 } else
                 {
                     targetPosition.y = (float) Math.Floor(maxCameraY - cameraHeight/2f) + 0.5f;
