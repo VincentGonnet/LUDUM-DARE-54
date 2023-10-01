@@ -123,7 +123,6 @@ public class PlayerController : MonoBehaviour
         if (value.started && jumpPodsPressedPos.Count > 0 && playerProperties.Can(SkillType.Jump))
         {
             // Do Jump
-            CooldownManager.Instance.StartCooldown(SkillType.Jump);
             playerJumpBehaviour.Jump(lastMovementDirection, jumpPodsPressedPos);
         }
     }

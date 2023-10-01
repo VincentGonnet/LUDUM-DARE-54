@@ -4342,6 +4342,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 352877021}
+    - target: {fileID: 4008113117952689409, guid: 9f11dc47f0d2a0a48ba6f8a77bf4eba3, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.1792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008113117952689409, guid: 9f11dc47f0d2a0a48ba6f8a77bf4eba3, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.1725283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008113117952689409, guid: 9f11dc47f0d2a0a48ba6f8a77bf4eba3, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.16825384
+      objectReference: {fileID: 0}
     - target: {fileID: 5767089427027817995, guid: 9f11dc47f0d2a0a48ba6f8a77bf4eba3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -14806,6 +14818,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 444471857379789743, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 965669162471215909, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

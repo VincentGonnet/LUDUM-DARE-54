@@ -40,7 +40,7 @@ public class PlayerDashBehaviour : MonoBehaviour
 
         StartCoroutine(DashCoroutine());
 
-        
+        CooldownManager.Instance.StartCooldown(SkillType.Dash);
     }
 
     private IEnumerator DashCoroutine()
