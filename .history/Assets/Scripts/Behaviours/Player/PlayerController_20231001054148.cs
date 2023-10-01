@@ -8,32 +8,32 @@ public class PlayerController : MonoBehaviour
     private int playerID;
 
     //[Header("Sub Behaviours")]
-    PlayerMovementBehaviour playerMovementBehaviour{
+    [SerializeField] PlayerMovementBehaviour playerMovementBehaviour{
         get{
             return GetComponent<PlayerMovementBehaviour>();
         }
     }
-    PlayerJumpBehaviour playerJumpBehaviour{
+    [SerializeField] PlayerJumpBehaviour playerJumpBehaviour{
         get{
             return GetComponent<PlayerJumpBehaviour>();
         }
     }
-    PlayerDashBehaviour playerDashBehaviour{
+    [SerializeField] PlayerDashBehaviour playerDashBehaviour{
         get{
             return GetComponent<PlayerDashBehaviour>();
         }
     }
-    PlayerAttackBehaviour playerAttackBehaviour{
+    [SerializeField] PlayerAttackBehaviour playerAttackBehaviour{
         get{
             return GetComponent<PlayerAttackBehaviour>();
         }
     }
-    PlayerRecallBehaviour playerRecallBehaviour{
+    [SerializeField] PlayerRecallBehaviour playerRecallBehaviour{
         get{
             return GetComponent<PlayerRecallBehaviour>();
         }
     }
-    PlayerPickUpBehaviour playerPickUpBehaviour{
+    [SerializeField] PlayerPickUpBehaviour playerPickUpBehaviour{
         get{
             return GetComponent<PlayerPickUpBehaviour>();
         }
@@ -157,8 +157,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void OnPickUp(InputAction.CallbackContext value){
+    public void onPickUp(InputAction.CallbackContext value){
         if(value.started){
+            Debug.Log("PickUp");
 
             //Do Pickup
             playerPickUpBehaviour.PickUp();

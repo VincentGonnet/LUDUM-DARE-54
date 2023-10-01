@@ -23,6 +23,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Garage")){
+            Debug.Log("In garage");
             SetCurrentCheckpoint(other.transform.position);
         }
     }

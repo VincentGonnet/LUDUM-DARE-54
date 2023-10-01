@@ -33,18 +33,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject healthBar;
     public GameObject skillsUI;
 
-    public int numberOfTrashPickedUp = 0;
-    public void setNumberOfTrashPickedUp(int value){
-        numberOfTrashPickedUp = value;
-        Debug.Log(numberOfTrashPickedUp);
-        if (numberOfTrashPickedUp >= maxNumberOfTrash){
-            Debug.Log("You win!");
-        }
-    }
-    public int getNumberOfTrashPickedUp(){
-        return numberOfTrashPickedUp;
-    }
-    public int maxNumberOfTrash = 3;
+    [SerializeField]
 
     void Start()
     {

@@ -86,8 +86,6 @@ public class GameManagerEditor : Editor
 
         EditorGUILayout.PropertyField(numberOfTrashPickedUpProperty);
 
-        EditorGUILayout.PropertyField(maxNumberOfTrashProperty);
-
         serializedObject.ApplyModifiedProperties();
     }
 

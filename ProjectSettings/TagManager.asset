@@ -10,6 +10,7 @@ TagManager:
   - Hole
   - Fire
   - JumpPod
+  - TrashPickUp
   layers:
   - Default
   - TransparentFX

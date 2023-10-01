@@ -157,8 +157,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void OnPickUp(InputAction.CallbackContext value){
+    public void onPickUp(InputAction.CallbackContext value){
         if(value.started){
+            Debug.Log("PickUp");
 
             //Do Pickup
             playerPickUpBehaviour.PickUp();

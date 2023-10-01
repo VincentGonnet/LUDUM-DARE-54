@@ -7,33 +7,33 @@ public class PlayerController : MonoBehaviour
 {
     private int playerID;
 
-    //[Header("Sub Behaviours")]
-    PlayerMovementBehaviour playerMovementBehaviour{
+    [Header("Sub Behaviours")]
+    public PlayerMovementBehaviour playerMovementBehaviour{
         get{
             return GetComponent<PlayerMovementBehaviour>();
         }
     }
-    PlayerJumpBehaviour playerJumpBehaviour{
+    public PlayerJumpBehaviour playerJumpBehaviour{
         get{
             return GetComponent<PlayerJumpBehaviour>();
         }
     }
-    PlayerDashBehaviour playerDashBehaviour{
+    public PlayerDashBehaviour playerDashBehaviour{
         get{
             return GetComponent<PlayerDashBehaviour>();
         }
     }
-    PlayerAttackBehaviour playerAttackBehaviour{
+    public PlayerAttackBehaviour playerAttackBehaviour{
         get{
             return GetComponent<PlayerAttackBehaviour>();
         }
     }
-    PlayerRecallBehaviour playerRecallBehaviour{
+    public PlayerRecallBehaviour playerRecallBehaviour{
         get{
             return GetComponent<PlayerRecallBehaviour>();
         }
     }
-    PlayerPickUpBehaviour playerPickUpBehaviour{
+    public PlayerPickUpBehaviour playerPickUpBehaviour{
         get{
             return GetComponent<PlayerPickUpBehaviour>();
         }
@@ -157,8 +157,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void OnPickUp(InputAction.CallbackContext value){
+    public void onPickUp(InputAction.CallbackContext value){
         if(value.started){
+            Debug.Log("PickUp");
 
             //Do Pickup
             playerPickUpBehaviour.PickUp();

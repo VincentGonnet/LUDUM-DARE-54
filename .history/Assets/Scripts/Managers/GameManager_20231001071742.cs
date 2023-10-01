@@ -33,7 +33,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject healthBar;
     public GameObject skillsUI;
 
-    public int numberOfTrashPickedUp = 0;
+    [SerializeField] int numberOfTrashPickedUp = 0;
     public void setNumberOfTrashPickedUp(int value){
         numberOfTrashPickedUp = value;
         Debug.Log(numberOfTrashPickedUp);
