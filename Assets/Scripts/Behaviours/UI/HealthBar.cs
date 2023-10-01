@@ -17,10 +17,10 @@ public class HealthBar : MonoBehaviour
         // rt.localScale = new Vector3(healthPercent, 1, 1);
 
         // Remove using Fill Amount and move recttransform to the left
-        this.transform.GetChild(1).GetComponent<Image>().fillAmount = healthPercent;
+        this.transform.GetChild(1).GetComponent<Image>().fillAmount = healthPercent + 0.085f * (1 - healthPercent);
 
         RectTransform rt = this.transform.GetChild(1).GetComponent<RectTransform>();
-        rt.localPosition = new Vector3(-177.7f + 263.7f * healthPercent, rt.localPosition.y, rt.localPosition.z);
+        rt.localPosition = new Vector3(-188.3f + 274.7f * healthPercent, rt.localPosition.y, rt.localPosition.z);
 
 
         this.transform.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>().text = (healthPercent * 100).ToString() + "%";
