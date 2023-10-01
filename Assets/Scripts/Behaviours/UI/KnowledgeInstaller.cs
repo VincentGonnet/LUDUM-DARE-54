@@ -35,8 +35,8 @@ public class KnowledgeInstaller : MonoBehaviour {
 
         foreach (var skill in playerInventory.skills) {
             GameObject go = Instantiate(buttonPrefab, layout.transform);
-            go.transform.GetChild(0).GetComponent<Image>().sprite = skill.sprite;
-            go.transform.GetChild(1).gameObject.SetActive(!playerInventory.Can(skill.type));
+            go.transform.GetChild(1).GetComponent<Image>().sprite = skill.sprite;
+            go.transform.GetChild(0).gameObject.SetActive(playerInventory.Can(skill.type));
             go.GetComponent<SkillButton>().playerInventory = playerInventory;
             go.GetComponent<SkillButton>().skill = skill.type;
             go.GetComponentInChildren<UiTooltip>().tooltipName = skill.name;

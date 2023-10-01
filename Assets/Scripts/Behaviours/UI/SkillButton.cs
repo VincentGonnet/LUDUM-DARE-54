@@ -13,7 +13,7 @@ public class SkillButton : MonoBehaviour, IPointerClickHandler {
     }
     private GameObject Mask {
         get {
-            return transform.GetChild(1).gameObject;
+            return transform.GetChild(0).gameObject;
         }
     }
 
@@ -21,9 +21,9 @@ public class SkillButton : MonoBehaviour, IPointerClickHandler {
         // toggle in player inventory
         if (playerInventory.Can(skill)) {
             playerInventory.RemoveSkill(skill);
-            Mask.SetActive(true);
+            Mask.SetActive(false);
         }
-        else Mask.SetActive(!playerInventory.EquipSkill(skill));
+        else Mask.SetActive(playerInventory.EquipSkill(skill));
 
         // Update memory
         Installer.SetMemoryData(Mathf.RoundToInt(playerInventory.currentMemory), Mathf.RoundToInt(playerInventory.maxMemory));
