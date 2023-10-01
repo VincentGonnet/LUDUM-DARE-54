@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     //Action Maps
     private string actionMapPlayerControls = "Player Controls";
     private string actionMapMenuControls = "Menu Controls";
+    private string actionMapDialogControls = "Dialog Controls";
     private string currentControlScheme;
 
     // Camera control requierements
@@ -175,6 +176,11 @@ public class PlayerController : MonoBehaviour
     public void EnablePauseMenuControls()
     {
         playerInput.SwitchCurrentActionMap(actionMapMenuControls);
+    }
+
+    public void EnableDialogControls()
+    {
+        playerInput.SwitchCurrentActionMap(actionMapDialogControls);
     }
 
     public void SetInputActiveState(bool gameIsPaused)

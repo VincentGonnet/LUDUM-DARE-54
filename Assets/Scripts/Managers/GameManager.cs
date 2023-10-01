@@ -189,6 +189,15 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = newTimeScale;
     }
 
+    public void ToggleDialogControls(PlayerController newlyFocusedPlayerController, bool toggle) {
+        focusedPlayerController = newlyFocusedPlayerController;
+        if (toggle) {
+            focusedPlayerController.EnableDialogControls();
+        } else {
+            focusedPlayerController.EnableGameplayControls();
+        }
+    }
+
     void SwitchFocusedPlayerControlScheme()
     {
         switch (isPaused)

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2843785147678374051
 Transform:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6165537614450904568
 Transform:
   m_ObjectHideFlags: 0
@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 2702001395606795274}
   - component: {fileID: 4450065634703085324}
   - component: {fileID: 7092806509686072542}
+  - component: {fileID: 1913872650521470174}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -410,8 +411,44 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f791ba6d-7429-41a3-9bb7-1ce4d4604a52
     m_ActionName: Player Controls/Recall[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7754388910480940125}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9ce412a8-1548-426b-85c3-d6d6bfed1310
+    m_ActionName: Player Controls/PickUp[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aad91709-ec95-4a61-baf8-2b98085ca149
+    m_ActionName: Dialog Controls/Left Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: OnSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fe801614-4cf3-45bd-944a-ac9fdd5672df
+    m_ActionName: Dialog Controls/Submit[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard And Mouse
   m_DefaultActionMap: Player Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -427,15 +464,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2702b2987e56fa54b8e0dee11b0885d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementBehaviour: {fileID: 2664985784235940499}
-  playerJumpBehaviour: {fileID: 5645429585195383139}
-  playerDashBehaviour: {fileID: 7984305897031274643}
-  playerAttackBehaviour: {fileID: 2977818489075068097}
-  playerRecallBehaviour: {fileID: 2385310381195193233}
   playerInput: {fileID: 4185711516987643425}
   movementSmoothingSpeed: 10
   dashSmoothingSpeed: 100
   playerProperties: {fileID: 7092806509686072542}
+  isRecalling: 0
+  isAttackedWhileRecall: 0
 --- !u!114 &2664985784235940499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,5 +642,17 @@ MonoBehaviour:
   currentMemory: 0
   healthBar: {fileID: 0}
   currentZone: 0
-  health: 10
+  health: 0
   maxHealth: 10
+--- !u!114 &1913872650521470174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaadc430732151e4ca363e7596b1d6e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
