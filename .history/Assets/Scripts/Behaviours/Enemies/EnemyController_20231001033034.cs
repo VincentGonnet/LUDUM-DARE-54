@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if (nav != null) {
-            if(isAnimated) animator.SetBool("walking", true);
+            animator.SetBool("walking", true);
 
             float playerEnemyDistance = Vector3.Distance(this.transform.position, player.transform.position);
             if (playerEnemyDistance >= attackMaxDistance && playerEnemyDistance < detectionDistance) nav.SetDestination(player.transform.position);
@@ -92,12 +92,12 @@ public class EnemyController : MonoBehaviour {
             if (isMelee && playerEnemyDistance < attackMinDistance)
             {
                 Attack();
-                if(isAnimated) animator.SetTrigger("atk");
+                animator.SetTrigger("atk");
             }
             else if (isRanged && attackMinDistance < playerEnemyDistance && playerEnemyDistance < attackMaxDistance)
             {
-                if(!isAnimated) RangedAttack();
-                else animator.SetTrigger("atk"); //Function RangedAttack() started from AnimationEvent
+                RangedAttack();
+                animator.SetTrigger("atk");
             }
         }
 

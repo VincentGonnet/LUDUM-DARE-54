@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour {
 
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject projectile;
-    [SerializeField] bool isAnimated;
     private GameObject projectileInstance;
     Vector3 direction;
 
@@ -31,11 +30,8 @@ public class EnemyController : MonoBehaviour {
     }
 
 
-    private Animator animator{
-        get{
-            return GetComponent<Animator>();
-        }
-    }
+    private Animator animator;
+    private Rigidbody2D rb;
 
 
     // Start is called before the first frame update
@@ -50,7 +46,9 @@ public class EnemyController : MonoBehaviour {
         this.isRanged = enemyData.isRanged;
         this.isMelee = enemyData.isMelee;
 
-        if(isAnimated) animator.SetBool("walking", false);
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        animator.SetBool("isWalking", false);
 
         InvokeRepeating("canAttack", 1f, attackSpeed);
 
@@ -75,8 +73,7 @@ public class EnemyController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if (nav != null) {
-            if(isAnimated) animator.SetBool("walking", true);
-
+            animator.SetBool("isWalking", true);
             float playerEnemyDistance = Vector3.Distance(this.transform.position, player.transform.position);
             if (playerEnemyDistance >= attackMaxDistance && playerEnemyDistance < detectionDistance) nav.SetDestination(player.transform.position);
             else if (playerEnemyDistance < attackMinDistance) nav.SetDestination(player.transform.position - this.transform.position);
@@ -92,12 +89,13 @@ public class EnemyController : MonoBehaviour {
             if (isMelee && playerEnemyDistance < attackMinDistance)
             {
                 Attack();
-                if(isAnimated) animator.SetTrigger("atk");
             }
             else if (isRanged && attackMinDistance < playerEnemyDistance && playerEnemyDistance < attackMaxDistance)
             {
-                if(!isAnimated) RangedAttack();
-                else animator.SetTrigger("atk"); //Function RangedAttack() started from AnimationEvent
+                direction = (player.transform.position - this.transform.position).normalized*10f;
+                projectileInstance = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(direction));
+                projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
+                projectileInstance.GetComponent<Projectile>().enemyController = this;
             }
         }
 
@@ -106,13 +104,6 @@ public class EnemyController : MonoBehaviour {
     public void Attack()
     {
         player.GetComponent<PlayerProperties>().SetHealth(player.GetComponent<PlayerProperties>().health - attackDamage);
-    }
-
-    public void RangedAttack(){
-        direction = (player.transform.position - this.transform.position).normalized*10f;
-        projectileInstance = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(direction));
-        projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
-        projectileInstance.GetComponent<Projectile>().enemyController = this;
     }
 
     private void OnDrawGizmos() {

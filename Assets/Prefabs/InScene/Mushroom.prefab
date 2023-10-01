@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6996792250485383104, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9eaddcf29316dc249b009c19de3f27ea, type: 2}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 4768679099383317665, guid: 1b092c7abad08c3488d1922656116b1b, type: 3}
     - target: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_Name
       value: Mushroom

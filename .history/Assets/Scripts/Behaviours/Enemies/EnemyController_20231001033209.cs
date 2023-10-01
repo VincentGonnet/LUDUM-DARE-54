@@ -96,8 +96,8 @@ public class EnemyController : MonoBehaviour {
             }
             else if (isRanged && attackMinDistance < playerEnemyDistance && playerEnemyDistance < attackMaxDistance)
             {
-                if(!isAnimated) RangedAttack();
-                else animator.SetTrigger("atk"); //Function RangedAttack() started from AnimationEvent
+                RangedAttack();
+                if(isAnimated) animator.SetTrigger("atk");
             }
         }
 

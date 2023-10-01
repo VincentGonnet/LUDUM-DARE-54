@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour {
 
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject projectile;
-    [SerializeField] bool isAnimated;
     private GameObject projectileInstance;
     Vector3 direction;
 
@@ -31,11 +30,7 @@ public class EnemyController : MonoBehaviour {
     }
 
 
-    private Animator animator{
-        get{
-            return GetComponent<Animator>();
-        }
-    }
+    private Animator animator;
 
 
     // Start is called before the first frame update
@@ -50,7 +45,8 @@ public class EnemyController : MonoBehaviour {
         this.isRanged = enemyData.isRanged;
         this.isMelee = enemyData.isMelee;
 
-        if(isAnimated) animator.SetBool("walking", false);
+        animator = GetComponent<Animator>();
+        animator.SetBool("walking", false);
 
         InvokeRepeating("canAttack", 1f, attackSpeed);
 
@@ -75,7 +71,7 @@ public class EnemyController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if (nav != null) {
-            if(isAnimated) animator.SetBool("walking", true);
+            animator.SetBool("walking", true);
 
             float playerEnemyDistance = Vector3.Distance(this.transform.position, player.transform.position);
             if (playerEnemyDistance >= attackMaxDistance && playerEnemyDistance < detectionDistance) nav.SetDestination(player.transform.position);
@@ -92,12 +88,12 @@ public class EnemyController : MonoBehaviour {
             if (isMelee && playerEnemyDistance < attackMinDistance)
             {
                 Attack();
-                if(isAnimated) animator.SetTrigger("atk");
+                animator.SetTrigger("atk");
             }
             else if (isRanged && attackMinDistance < playerEnemyDistance && playerEnemyDistance < attackMaxDistance)
             {
-                if(!isAnimated) RangedAttack();
-                else animator.SetTrigger("atk"); //Function RangedAttack() started from AnimationEvent
+                RangedAttack();
+                animator.SetTrigger("atk");
             }
         }
 
