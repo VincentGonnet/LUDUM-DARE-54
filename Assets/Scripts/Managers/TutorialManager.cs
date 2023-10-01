@@ -11,17 +11,23 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
     [SerializeField] private Canvas dialogCanvas;
+    [SerializeField] private Canvas dashTutorialCanvas;
+    [SerializeField] private Canvas attackTutorialCanvas;
     [SerializeField] private TextMeshProUGUI dialogText;
     [SerializeField] private Image portrait;
     [SerializeField] private float charactersPerSecond = 20f;
 
     public int tutorialStep = 0;
+    public bool hasSeenDashTutorial = false;
+    public bool hasSeenAttackTutorial = false;
     
     // Stored Values
     public bool isInDialog = false;
     public int dialogId = -1;
     public int dialogLine = -1;
     public bool isTyping = false;
+    private bool isInDashTutorial = false;
+    private bool isInAttackTutorial = false;
 
     void Start()
     {
@@ -32,13 +38,65 @@ public class TutorialManager : MonoBehaviour
         dialogCanvas.enabled = false;
     }
 
+    public void OnCancel(InputAction.CallbackContext value)
+    {
+        if (value.started && isInDashTutorial)
+        {
+            HideDashTutorial();
+        }
+        if (value.started && isInAttackTutorial)
+        {
+            HidAttackTutorial();
+        }
+    }
+
+
     public void OnSubmit(InputAction.CallbackContext value)
     {
         if(value.started && isInDialog)
         {
             NextLine();
         }
-    } 
+
+        if (value.started && isInDashTutorial)
+        {
+            HideDashTutorial();
+        }
+        if (value.started && isInAttackTutorial)
+        {
+            HidAttackTutorial();
+        }
+    }
+
+    public void DisplayAttackTutorial()
+    {
+        attackTutorialCanvas.enabled = true;
+        hasSeenAttackTutorial = true;
+        isInAttackTutorial = true;
+        GameManager.Instance.TogglePauseState(playerController);
+    }
+
+    public void DisplayDashTutorial()
+    {
+        dashTutorialCanvas.enabled = true;
+        isInDashTutorial = true;
+        hasSeenDashTutorial = true;
+        GameManager.Instance.TogglePauseState(playerController);
+    }
+
+    private void HideDashTutorial()
+    {
+        dashTutorialCanvas.enabled = false;
+        isInDashTutorial = false;
+        GameManager.Instance.TogglePauseState(playerController);
+    }
+
+    private void HidAttackTutorial()
+    {
+        attackTutorialCanvas.enabled = false;
+        isInAttackTutorial = false;
+        GameManager.Instance.TogglePauseState(playerController);
+    }
 
     public void PlayTutorial(int dialogId)
     {
