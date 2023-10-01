@@ -46,8 +46,8 @@ public class PlayerJumpBehaviour : MonoBehaviour
 
         // Calculate the pod position
         Vector3 podPosition = new Vector3(
-            (float) Math.Ceiling(transform.position.x - 0.5f),
-            (float) Math.Ceiling(transform.position.y - 0.5f),
+            (float) Math.Ceiling(transform.position.x),
+            (float) Math.Ceiling(transform.position.y),
             0
         );
 
@@ -58,8 +58,8 @@ public class PlayerJumpBehaviour : MonoBehaviour
         foreach (Vector3 pod in jumpPodsPressedPos)
         {
             Vector3 testPos = new Vector3(
-                (float) Math.Round(pod.x),
-                (float) Math.Round(pod.y),
+                (float) Math.Ceiling(pod.x),
+                (float) Math.Ceiling(pod.y),
                 0
             );
 
@@ -73,6 +73,8 @@ public class PlayerJumpBehaviour : MonoBehaviour
         // Debug.Log("Pod Pressed: " + podPressed);
 
         if (!podPressed) return;
+
+        podPosition -= new Vector3(0.5f, 0.5f, 0);
 
         // Raycast in the jump direction, 1 unit
         RaycastHit2D foundHole = Physics2D.Raycast(podPosition, jumpDirection, 1f, LayerMask.GetMask("Hole"));
