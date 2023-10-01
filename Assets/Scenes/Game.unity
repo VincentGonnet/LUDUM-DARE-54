@@ -1406,10 +1406,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 103350245899843846, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 204627658127853199, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: playerProperties
       value: 
       objectReference: {fileID: 352877022}
+    - target: {fileID: 211317818003914683, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: db6f313fabcd85b46baef0d99fe6438d, type: 2}
     - target: {fileID: 309077322068710973, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: m_TagString
       value: Garage
@@ -35994,10 +36002,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.09127426
       objectReference: {fileID: 0}
+    - target: {fileID: 892720986105355884, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b2fb60d94c7a074da1164722c1728b9, type: 2}
     - target: {fileID: 1116363964358265277, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: playerProperties
       value: 
       objectReference: {fileID: 352877022}
+    - target: {fileID: 1144611318930790609, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1623020251239710024, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.505
@@ -36117,6 +36133,14 @@ PrefabInstance:
     - target: {fileID: 6442428612616744105, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471998935746014254, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: 338e795fbeca44e41a58525e75a63384, type: 2}
+    - target: {fileID: 6507917319044508307, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7612014123097591465, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: playerProperties

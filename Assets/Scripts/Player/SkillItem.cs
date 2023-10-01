@@ -10,7 +10,7 @@ public class SkillItem : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
             other.GetComponent<PlayerProperties>().PushToBackpack(skill);
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }
