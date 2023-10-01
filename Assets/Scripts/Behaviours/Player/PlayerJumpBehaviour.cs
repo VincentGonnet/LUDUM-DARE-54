@@ -43,12 +43,15 @@ public class PlayerJumpBehaviour : MonoBehaviour
             jumpDirection.x = 0;
         }
 
+
         // Calculate the pod position
         Vector3 podPosition = new Vector3(
-            (float)(Math.Floor(transform.position.x) + 0.5f),
-            (float)(Math.Floor(transform.position.y) + 0.5f),
+            (float) Math.Ceiling(transform.position.x - 0.5f),
+            (float) Math.Ceiling(transform.position.y - 0.5f),
             0
         );
+
+        // Debug.Log("Pod Position: " + podPosition);
 
         // Check if the pod position is in the list of pressed pods
         bool podPressed = false;
@@ -61,6 +64,8 @@ public class PlayerJumpBehaviour : MonoBehaviour
             }
         }
 
+        // Debug.Log("Pod Pressed: " + podPressed);
+
         if (!podPressed) return;
 
         // Raycast in the jump direction, 1 unit
@@ -68,7 +73,7 @@ public class PlayerJumpBehaviour : MonoBehaviour
 
         // If the raycast hits nothing, return
         if (foundHole.collider == null) {
-            Debug.Log("No hole found");
+            // Debug.Log("No hole found");
             return;
         }
 
@@ -78,11 +83,11 @@ public class PlayerJumpBehaviour : MonoBehaviour
         // If the raycast hits an obstacle, return
 
         if (hitWall.collider != null) {
-            Debug.Log("Wall found");
+            // Debug.Log("Wall found");
             return;
         }
         if (hitFire.collider != null) {
-            Debug.Log("Fire found");
+            // Debug.Log("Fire found");
             return;
         }
 
@@ -90,7 +95,7 @@ public class PlayerJumpBehaviour : MonoBehaviour
 
         // If hit more than 1 hole, return
         if (holes.Length > 2) { // 2 because the raycast, for an unknown reason, hits each hole twice
-            Debug.Log("More than 1 hole found");
+            // Debug.Log("More than 1 hole found");
             return;
         }
 
@@ -99,8 +104,8 @@ public class PlayerJumpBehaviour : MonoBehaviour
         // Calculate the jump position
         Vector3 jumpPosition = podPosition + jumpDirection * 2f;
 
-        Debug.Log("Pod Position: " + podPosition);
-        Debug.Log("Jump! " + jumpDirection);
+        // Debug.Log("Pod Position: " + podPosition);
+        // Debug.Log("Jump! " + jumpDirection);
 
         transform.position = jumpPosition;
     }

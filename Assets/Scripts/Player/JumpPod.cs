@@ -6,13 +6,13 @@ public class JumpPod : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
-            other.GetComponent<PlayerController>().AddPodPressed(transform.position);
+            other.GetComponent<PlayerController>().AddPodPressed(gameObject.transform.position);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Player") {
-            other.GetComponent<PlayerController>().RemovePodPressed(transform.position);
+            other.GetComponent<PlayerController>().RemovePodPressed(gameObject.transform.position);
         }
     }
 }
