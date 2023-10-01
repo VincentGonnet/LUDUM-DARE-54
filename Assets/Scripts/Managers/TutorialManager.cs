@@ -23,11 +23,6 @@ public class TutorialManager : MonoBehaviour
     public int dialogLine = -1;
     public bool isTyping = false;
 
-    void Start()
-    {
-        DisableCanvas();
-    }
-
     public void DisableCanvas() {
         dialogCanvas.enabled = false;
     }
@@ -39,6 +34,14 @@ public class TutorialManager : MonoBehaviour
             NextLine();
         }
     } 
+
+    // public void GetRootPlayable(int dialogId) {
+
+    //     string dialogPath = "Dialogs/Tutorial/Step" + dialogId;
+    //     DialogSet dialogSet = Resources.Load<DialogSet>(dialogPath);
+    //     dialogSet.playableGraph.GetRootPlayable(0).SetSpeed(0);
+
+    // }
 
     public void PlayTutorial(int dialogId)
     {
@@ -63,6 +66,11 @@ public class TutorialManager : MonoBehaviour
     private void TypeCallback()
     {
         isTyping = false;
+        string dialogPath = "Dialogs/Tutorial/Step" + dialogId;
+        DialogSet dialogSet = Resources.Load<DialogSet>(dialogPath);
+        if (dialogLine >= dialogSet.dialogs.Count) {
+            
+        }
     }
     private IEnumerator TypeText(string line, System.Action callback)
     {
