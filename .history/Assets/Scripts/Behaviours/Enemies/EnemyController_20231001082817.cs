@@ -22,8 +22,6 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] public GameObject projectile;
     [SerializeField] bool isAnimated;
     private GameObject projectileInstance;
-    private Vector3 knockbackForce;
-    private SpriteRenderer spriteRenderer;
     Vector3 direction;
 
     private NavMeshAgent nav {
@@ -86,17 +84,8 @@ public class EnemyController : MonoBehaviour {
     }
 
 
-    public void takeHit(){
-        health -= player.GetComponent<PlayerProperties>().getStrength();
-        if(spriteRenderer = this.GetComponent<SpriteRenderer>()) StartCoroutine(ColorBlink());
-        Debug.Log("Enemy " + this.name + " took " + player.GetComponent<PlayerProperties>().getStrength() + " damage. Health left : " + health +". Knockback applied.");
-        //TODO : Récupérer la direction du coup pour le knockback
-    }
-
-    IEnumerator ColorBlink(){
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
+    void takeHit(){
+        health -= player.GetComponent<PlayerProperties>().attackDamage;
     }
 
 

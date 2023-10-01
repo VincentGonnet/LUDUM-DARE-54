@@ -19,11 +19,6 @@ public class PlayerProperties : MonoBehaviour
     public GameObject healthBar;
 
     public int currentZone = 0;
-
-    [SerializeField] float strength = 3f;
-    public float getStrength(){
-        return strength;
-    }
     public float health = 10f;
     public float maxHealth = 10f;
 

@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour {
     public void takeHit(){
         health -= player.GetComponent<PlayerProperties>().getStrength();
         if(spriteRenderer = this.GetComponent<SpriteRenderer>()) StartCoroutine(ColorBlink());
-        Debug.Log("Enemy " + this.name + " took " + player.GetComponent<PlayerProperties>().getStrength() + " damage. Health left : " + health +". Knockback applied.");
+        Debug.Log("Enemy " + this.name + " took " + player.GetComponent<PlayerProperties>().getStrength() + " damage. Health left : " + health);
         //TODO : Récupérer la direction du coup pour le knockback
     }
 
