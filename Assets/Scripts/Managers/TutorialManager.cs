@@ -14,6 +14,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogText;
     [SerializeField] private Image portrait;
     [SerializeField] private float charactersPerSecond = 20f;
+
+    public int tutorialStep = 0;
     
     // Stored Values
     public bool isInDialog = false;
