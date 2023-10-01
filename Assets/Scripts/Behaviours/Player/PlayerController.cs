@@ -233,6 +233,8 @@ public class PlayerController : MonoBehaviour
         
         CalculateDashInputSmoothing();
         UpdatePlayerDash();
+
+        DisplayInputPrompt();
     }
 
     void CalculateMovementInputSmoothing()
@@ -284,6 +286,22 @@ public class PlayerController : MonoBehaviour
     public void RemovePodPressed(Vector3 podPos)
     {
         jumpPodsPressedPos.Remove(podPos);
+    }
+
+    private GameObject jumpPrompt;
+    private void DisplayInputPrompt()
+    {
+        if (jumpPodsPressedPos.Count > 0 && playerProperties.Can(SkillType.Jump))
+        {
+            if (jumpPrompt == null) {
+                jumpPrompt = GameObject.Instantiate(Resources.Load<GameObject>("InputPrompts/JumpPrompt"));
+            }
+            jumpPrompt.transform.position = transform.position + new Vector3(0, 1, 0);
+        } else if (jumpPrompt != null)
+        {
+            Destroy(jumpPrompt);
+            jumpPrompt = null;
+        }
     }
 }
     
