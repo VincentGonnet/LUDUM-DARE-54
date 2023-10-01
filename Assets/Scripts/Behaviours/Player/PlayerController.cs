@@ -285,5 +285,10 @@ public class PlayerController : MonoBehaviour
     {
         jumpPodsPressedPos.Remove(podPos);
     }
+
+    public void SetSpriteDirection(Vector2 direction) {
+        GetComponent<Animator>().SetFloat("DirectionX", direction.x);
+        GetComponent<Animator>().SetFloat("DirectionY", direction.y);
+    }
 }
     

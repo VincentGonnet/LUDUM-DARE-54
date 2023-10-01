@@ -113,6 +113,7 @@ public class PlayerJumpBehaviour : MonoBehaviour
         // Debug.Log("Pod Position: " + podPosition);
         // Debug.Log("Jump! " + jumpDirection);
 
+        GetComponent<PlayerController>().SetSpriteDirection(jumpDirection);
         transform.position = jumpPosition;
     }
 }
