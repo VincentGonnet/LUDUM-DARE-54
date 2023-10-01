@@ -9,6 +9,12 @@ public class PlayerPickUpBehaviour : MonoBehaviour
     private List<Collider2D> trashList = new List<Collider2D>();
     private Dictionary<Collider2D, GameObject> trashPromptDict = new Dictionary<Collider2D, GameObject>();
 
+    private List<Collider2D> garageList = new List<Collider2D>();
+    private Dictionary<Collider2D, GameObject> garagePromptDict = new Dictionary<Collider2D, GameObject>();
+
+    public KnowledgeInstaller skillSelector;
+    public PlayerProperties playerInventory;
+
     public void SetupBehaviour()
     {
         // Potentially setup any other components here
@@ -25,17 +31,29 @@ public class PlayerPickUpBehaviour : MonoBehaviour
             trashPromptDict.Remove(trash);
             GameManager.Instance.setNumberOfTrashPickedUp(GameManager.Instance.getNumberOfTrashPickedUp() + 1);
         }
+
+        if(garageList.Count > 0){
+           skillSelector.Load(playerInventory);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("TrashPickUp")){
-            Debug.Log(other);
             trashList.Add(other);
 
             Vector3 trashPos = other.gameObject.transform.position;
             trashPos.y += 1f;
             GameObject keyPrompt = GameObject.Instantiate(Resources.Load<GameObject>("InputPrompts/F_key"), trashPos, Quaternion.identity);
             trashPromptDict.Add(other, keyPrompt);
+        }
+
+        if(other.CompareTag("Garage")){
+            garageList.Add(other);
+
+            Vector3 garagePos = other.gameObject.transform.position;
+            garagePos.y += 1f;
+            GameObject keyPrompt = GameObject.Instantiate(Resources.Load<GameObject>("InputPrompts/F_key"), garagePos, Quaternion.identity);
+            garagePromptDict.Add(other, keyPrompt);
         }
     }
 
@@ -48,6 +66,18 @@ public class PlayerPickUpBehaviour : MonoBehaviour
                 trashPromptDict.Remove(other);
             }
             
+        }
+
+        if(other.CompareTag("Garage")){
+            if (garageList.Count > 0)
+            {
+                garageList.Clear();
+                foreach (KeyValuePair<Collider2D, GameObject> entry in garagePromptDict)
+                {
+                    Destroy(entry.Value);
+                }
+                garagePromptDict.Clear();
+            }
         }
     }
 }
