@@ -34,8 +34,6 @@ public class PlayerAttackBehaviour : MonoBehaviour
         foreach (var target in attackTargets)
         {
             target.GetComponent<EnemyController>().takeHit();
-            UpdateAttackData((transform.position - target.transform.position).normalized);
-            target.GetComponent<Rigidbody2D>().AddForce(attackDirection * -10000000f);
         }
             
         

@@ -30,14 +30,14 @@ public class PlayerAttackBehaviour : MonoBehaviour
 
     public void Attack()
     {
+        Debug.Log("Attack launched");
         attackTargets = Physics2D.OverlapCircleAll(transform.position, attackDistance, LayerMask.GetMask("Enemies"));
         foreach (var target in attackTargets)
         {
-            target.GetComponent<EnemyController>().takeHit();
-            UpdateAttackData((transform.position - target.transform.position).normalized);
-            target.GetComponent<Rigidbody2D>().AddForce(attackDirection * -10000000f);
-        }
             
+        }
+            Debug.Log("Attack hit : " + target.name);
+            target.GetComponent<EnemyController>().takeHit();
         
     }
 }

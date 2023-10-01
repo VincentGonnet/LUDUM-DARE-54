@@ -32,7 +32,6 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject healthBar;
     public GameObject skillsUI;
-    public TutorialManager tutorialManager;
 
     public int numberOfTrashPickedUp = 0;
     public void setNumberOfTrashPickedUp(int value){
@@ -187,15 +186,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         Time.timeScale = newTimeScale;
-    }
-
-    public void ToggleDialogControls(PlayerController newlyFocusedPlayerController, bool toggle) {
-        focusedPlayerController = newlyFocusedPlayerController;
-        if (toggle) {
-            focusedPlayerController.EnableDialogControls();
-        } else {
-            focusedPlayerController.EnableGameplayControls();
-        }
     }
 
     void SwitchFocusedPlayerControlScheme()

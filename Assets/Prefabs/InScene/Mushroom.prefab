@@ -17,12 +17,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9eaddcf29316dc249b009c19de3f27ea, type: 2}
     - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: isAnimated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 4768679099383317665, guid: 1b092c7abad08c3488d1922656116b1b, type: 3}
     - target: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7445138231536110471, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_Sprite
@@ -34,11 +42,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7536049543176676033, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.498194
       objectReference: {fileID: 0}
     - target: {fileID: 7536049543176676033, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.7717285
       objectReference: {fileID: 0}
     - target: {fileID: 7536049543176676033, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -79,6 +87,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6370693193284404578}
+    - targetCorrespondingSourceObject: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1363712078196175013}
   m_SourcePrefab: {fileID: 100100000, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
 --- !u!1 &5110238985680335991 stripped
 GameObject:
@@ -106,3 +117,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &1363712078196175013
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110238985680335991}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

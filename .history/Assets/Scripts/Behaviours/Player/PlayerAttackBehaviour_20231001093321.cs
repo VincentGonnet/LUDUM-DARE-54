@@ -35,6 +35,7 @@ public class PlayerAttackBehaviour : MonoBehaviour
         {
             target.GetComponent<EnemyController>().takeHit();
             UpdateAttackData((transform.position - target.transform.position).normalized);
+            Debug.Log("Knockback applied to " + target.name + " : " + -attackDirection + " *1000");
             target.GetComponent<Rigidbody2D>().AddForce(attackDirection * -10000000f);
         }
             

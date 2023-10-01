@@ -30,14 +30,10 @@ public class PlayerAttackBehaviour : MonoBehaviour
 
     public void Attack()
     {
+        Debug.Log("Attack launched")
         attackTargets = Physics2D.OverlapCircleAll(transform.position, attackDistance, LayerMask.GetMask("Enemies"));
-        foreach (var target in attackTargets)
-        {
+        for (Collider2D target : attackTargets){
             target.GetComponent<EnemyController>().takeHit();
-            UpdateAttackData((transform.position - target.transform.position).normalized);
-            target.GetComponent<Rigidbody2D>().AddForce(attackDirection * -10000000f);
         }
-            
-        
     }
 }
