@@ -171,10 +171,8 @@ public class TutorialManager : MonoBehaviour
             isInDialog = false;
             GameManager.Instance.ToggleDialogControls(playerController, false);
 
-            Debug.Log("On est là");
             PlayableDirector cutscene;
             currentCutscene.TryGetTarget(out cutscene);
-            Debug.Log(cutscene);
             cutscene?.Resume();
         }
     }
