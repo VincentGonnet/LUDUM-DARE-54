@@ -65,6 +65,7 @@ public class TutorialManager : MonoBehaviour
 
     public void DisplayAttackTutorial()
     {
+        Debug.Log("Displaying attack tutorial");
         attackTutorialCanvas.enabled = true;
         hasSeenAttackTutorial = true;
         isInAttackTutorial = true;

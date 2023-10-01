@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1105387553060791716}
   - component: {fileID: 6678980794111182281}
   - component: {fileID: -3751510558930900693}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RoomEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
