@@ -572,11 +572,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!1 &1124268525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2294368382364084885, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
-  m_PrefabInstance: {fileID: 6861911427207002364}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1157442056
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +818,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 352877023}
+    - target: {fileID: 8350595053761514877, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
+      propertyPath: playerProperties
+      value: 
+      objectReference: {fileID: 352877022}
     - target: {fileID: 9028392376296897588, guid: 2935ea5bc61a3354f940ad99b2f0e523, type: 3}
       propertyPath: m_Name
       value: SkillSelector
@@ -909,7 +908,8 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6898963598463306446, guid: 9f11dc47f0d2a0a48ba6f8a77bf4eba3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f11dc47f0d2a0a48ba6f8a77bf4eba3, type: 3}
@@ -1172,7 +1172,7 @@ PrefabInstance:
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorCanvas
       value: 
-      objectReference: {fileID: 1124268525}
+      objectReference: {fileID: 0}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorDialogue
       value: 
