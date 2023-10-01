@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 using System;
 using System.Runtime.CompilerServices;
 
@@ -16,6 +17,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogText;
     [SerializeField] private Image portrait;
     [SerializeField] private float charactersPerSecond = 20f;
+    public WeakReference<PlayableDirector> currentCutscene = new(null);
 
     public int tutorialStep = 0;
     public bool hasSeenDashTutorial = false;
@@ -127,9 +129,6 @@ public class TutorialManager : MonoBehaviour
         isTyping = false;
         string dialogPath = "Dialogs/Tutorial/Step" + dialogId;
         DialogSet dialogSet = Resources.Load<DialogSet>(dialogPath);
-        if (dialogLine >= dialogSet.dialogs.Count) {
-            
-        }
     }
     private IEnumerator TypeText(string line, System.Action callback)
     {
@@ -171,6 +170,12 @@ public class TutorialManager : MonoBehaviour
             this.dialogLine = -1;
             isInDialog = false;
             GameManager.Instance.ToggleDialogControls(playerController, false);
+
+            Debug.Log("On est là");
+            PlayableDirector cutscene;
+            currentCutscene.TryGetTarget(out cutscene);
+            Debug.Log(cutscene);
+            cutscene?.Resume();
         }
     }
 }

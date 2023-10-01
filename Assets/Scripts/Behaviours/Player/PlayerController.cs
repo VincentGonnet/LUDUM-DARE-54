@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerProperties = this.GetComponent<PlayerProperties>();
+        GameManager.Instance.tutorialManager.currentCutscene.SetTarget(GetComponent<PlayableDirector>());
     }
 
 

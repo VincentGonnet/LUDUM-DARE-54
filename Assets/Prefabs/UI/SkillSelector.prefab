@@ -54,6 +54,7 @@ MonoBehaviour:
   tooltipName: Memory used
   tooltipDescription: The memory used by all your installed skills (on the memory
     available)
+  tooltipMemory: 
 --- !u!1 &2062889665316222825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1279,7 @@ GameObject:
   - component: {fileID: 5150922207573155233}
   - component: {fileID: 3554220180315957552}
   - component: {fileID: 8350595053761514877}
+  - component: {fileID: 9056594002919505365}
   m_Layer: 5
   m_Name: SkillSelector
   m_TagString: Untagged
@@ -1390,3 +1392,21 @@ MonoBehaviour:
   buttonPrefab: {fileID: 1960383883140840337, guid: 44e05e0cc38751b4e9a438200d0dbd9b, type: 3}
   ClosingKey: 27
   playerProperties: {fileID: 0}
+--- !u!114 &9056594002919505365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028392376296897588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 0ecf9e526757c264a90a0db75b3f4a12, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls: []
