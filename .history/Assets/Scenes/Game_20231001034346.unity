@@ -481,6 +481,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &860277842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,6 +574,9 @@ NavMeshAgent:
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1124268525 stripped
+=======
+--- !u!1 &843814476 stripped
+>>>>>>> dddb2afe40b7177d0a2e7e5abaca77234f29ea0e
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2294368382364084885, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
   m_PrefabInstance: {fileID: 6861911427207002364}
@@ -1172,7 +1176,7 @@ PrefabInstance:
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorCanvas
       value: 
-      objectReference: {fileID: 1124268525}
+      objectReference: {fileID: 843814476}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorDialogue
       value: 
@@ -1206,10 +1210,6 @@ PrefabInstance:
       propertyPath: playerProperties
       value: 
       objectReference: {fileID: 352877022}
-    - target: {fileID: 309077322068710973, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
-      propertyPath: m_TagString
-      value: Garage
-      objectReference: {fileID: 0}
     - target: {fileID: 507511708370572155, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
       propertyPath: m_Size.x
       value: 15.660981

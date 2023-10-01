@@ -10,7 +10,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
 
     [Header("Recall Settings")]
     public GameObject player;
-    private Vector3 checkpointPosition;
+    private Vector2 checkpointPosition;
     private float waitSystem;
 
     public void SetupBehaviour()
@@ -29,11 +29,11 @@ public class PlayerRecallBehaviour : MonoBehaviour
         }
     }
 
-    void SetCurrentCheckpoint(Vector3 position){
+    void SetCurrentCheckpoint(Vector2 position){
         this.checkpointPosition = position;
     }
 
-    Vector3 GetCurrentCheckpoint(){
+    Vector2 GetCurrentCheckpoint(){
         return this.checkpointPosition;
     }
 
@@ -65,7 +65,6 @@ public class PlayerRecallBehaviour : MonoBehaviour
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         player.transform.position = GetCurrentCheckpoint();
         player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
-        player.GetComponent<PlayerController>().setIsRecalling(false);
         yield return 0;
     }
 }

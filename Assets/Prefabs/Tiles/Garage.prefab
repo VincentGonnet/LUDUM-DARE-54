@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1419452414997504252}
   m_Layer: 0
   m_Name: Garage
-  m_TagString: Untagged
+  m_TagString: Garage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillSelector: {fileID: 0}
   playerInventory: {fileID: 0}
-  buttonPrefab: {fileID: 1960383883140840337, guid: 44e05e0cc38751b4e9a438200d0dbd9b, type: 3}
-  layoutParent: {fileID: 0}
-  gManager: {fileID: 0}
-  playerController: {fileID: 0}

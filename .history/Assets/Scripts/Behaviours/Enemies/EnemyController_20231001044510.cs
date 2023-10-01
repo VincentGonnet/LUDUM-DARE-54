@@ -105,8 +105,9 @@ public class EnemyController : MonoBehaviour {
 
     public void Attack()
     {
-        if(player.GetComponent<PlayerController>().isRecalling) player.GetComponent<PlayerController>().setIsAttackedWhileRecall(true);
+        player.GetComponent<PlayerController>().setIsAttacked(true);
         player.GetComponent<PlayerProperties>().SetHealth(player.GetComponent<PlayerProperties>().health - attackDamage);
+        player.GetComponent<PlayerController>().setIsAttacked(false);
     }
 
     public void RangedAttack(){

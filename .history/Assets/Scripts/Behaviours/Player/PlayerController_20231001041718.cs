@@ -38,15 +38,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastMovementDirection = Vector3.zero;
     public ArrayList jumpPodsPressedPos = new ArrayList();
 
-    public bool isRecalling = false;
-    public void setIsRecalling(bool val){
-        isRecalling = val;
-    }
-    public bool isAttackedWhileRecall = false;
-    public void setIsAttackedWhileRecall(bool val){
-        isAttackedWhileRecall = val;
-    }
-
     public void SetupPlayer(int newPlayerID) 
     {
         this.playerID = newPlayerID;
@@ -118,7 +109,7 @@ public class PlayerController : MonoBehaviour
         if(value.started && playerProperties.Can(SkillType.Recall))
         {
             // Do Recall
-            playerRecallBehaviour.StartRecall();
+            playerRecallBehaviour.Recall();
         }
     } 
 

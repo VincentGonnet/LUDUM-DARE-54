@@ -65,7 +65,6 @@ public class PlayerRecallBehaviour : MonoBehaviour
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         player.transform.position = GetCurrentCheckpoint();
         player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
-        player.GetComponent<PlayerController>().setIsRecalling(false);
         yield return 0;
     }
 }

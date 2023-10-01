@@ -10,8 +10,7 @@ public class PlayerRecallBehaviour : MonoBehaviour
 
     [Header("Recall Settings")]
     public GameObject player;
-    private Vector3 checkpointPosition;
-    private float waitSystem;
+    private Vector2 checkpointPosition;
 
     public void SetupBehaviour()
     {
@@ -29,43 +28,27 @@ public class PlayerRecallBehaviour : MonoBehaviour
         }
     }
 
-    void SetCurrentCheckpoint(Vector3 position){
+    void SetCurrentCheckpoint(Vector2 position){
         this.checkpointPosition = position;
     }
 
-    Vector3 GetCurrentCheckpoint(){
+    Vector2 GetCurrentCheckpoint(){
         return this.checkpointPosition;
     }
 
 
     public void StartRecall(){
         Debug.Log("Recall");
-        player.GetComponent<PlayerController>().setIsRecalling(true);
-        player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
-        StartCoroutine(WaitRecall(2f));
+        
     }
 
-    IEnumerator WaitRecall(float seconds){
-        waitSystem = seconds;
-        while(waitSystem > 0){
-            if(player.GetComponent<PlayerController>().isAttackedWhileRecall){
-                Debug.Log("Stop recall");
-                StopAllCoroutines();
-                player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
-                player.GetComponent<PlayerController>().setIsAttackedWhileRecall(false);
-            }
-            waitSystem -= Time.deltaTime;
-            yield return null;
-        }
-        yield return StartCoroutine(Recall());
+    IEnumerator WaitRecall(){
         
+        yield return StartCoroutine(Recall());
     }
 
     IEnumerator Recall(){
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         player.transform.position = GetCurrentCheckpoint();
-        player.GetComponent<PlayerMovementBehaviour>().ToggleMovement();
-        player.GetComponent<PlayerController>().setIsRecalling(false);
-        yield return 0;
     }
 }

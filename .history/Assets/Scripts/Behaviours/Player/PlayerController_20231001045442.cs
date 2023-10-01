@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public void setIsRecalling(bool val){
         isRecalling = val;
     }
+
     public bool isAttackedWhileRecall = false;
     public void setIsAttackedWhileRecall(bool val){
         isAttackedWhileRecall = val;
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
     // Recall Action
     public void OnRecall(InputAction.CallbackContext value)
     {
-        if(value.started && playerProperties.Can(SkillType.Recall))
+        if(value.started /*&& playerProperties.Can(SkillType.Recall)*/)
         {
             // Do Recall
             playerRecallBehaviour.StartRecall();
