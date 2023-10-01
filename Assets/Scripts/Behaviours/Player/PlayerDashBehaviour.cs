@@ -38,6 +38,8 @@ public class PlayerDashBehaviour : MonoBehaviour
         playerRigidbody.AddForce(dash, ForceMode2D.Impulse);
 
         StartCoroutine(DashCoroutine());
+
+        CooldownManager.Instance.StartCooldown(SkillType.Dash);
     }
 
     private IEnumerator DashCoroutine()

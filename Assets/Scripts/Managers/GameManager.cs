@@ -30,6 +30,9 @@ public class GameManager : Singleton<GameManager>
     // UI
     public GameObject errorCanvas;
 
+    public GameObject healthBar;
+    public GameObject skillsUI;
+
     void Start()
     {
         isPaused = false;
@@ -38,26 +41,35 @@ public class GameManager : Singleton<GameManager>
         errorCanvas.SetActive(false);
 
         SetupBasedOnGameState();
+
+        UpdateUI();
+
+        // Instanciate Cooldown Manager
+        CooldownManager.Instance.InitScriptableObjects();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIHealth))
         {
-            GameObject.Find("HealthBar").SetActive(true);
+            healthBar.SetActive(true);
+            skillsUI.SetActive(true);
         }
         else
         {
-            GameObject.Find("HealthBar").SetActive(false);
+            healthBar.SetActive(false);
+            skillsUI.SetActive(false);
         }
 
         if (!inScenePlayer.GetComponent<PlayerProperties>().Can(SkillType.UIMyopia))
         {
             myopia.SetActive(true);
+            GameObject.Find("Global Light 2D").GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0f;
         }
         else
         {
             myopia.SetActive(false);
+            GameObject.Find("Global Light 2D").GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1f;
         }
     }
 

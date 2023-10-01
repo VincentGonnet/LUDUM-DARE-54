@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     // Movement Action
     public void OnMovement(InputAction.CallbackContext value)
     {
-        if(playerProperties.Can(SkillType.Movement)) {
+        if(playerProperties.Can(SkillType.Movement) || true) {
             Vector2 input = value.ReadValue<Vector2>();
             if(input != Vector2.zero) {
                 lastInputMovement = input.normalized;
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     // Dash Action
     public void OnDash(InputAction.CallbackContext value)
     {
-        if(value.started && playerProperties.Can(SkillType.Dash))
+        if(value.started && playerProperties.Can(SkillType.Dash) && !CooldownManager.Instance.IsOnCooldown(SkillType.Dash))
         {
             // Do Dash
             playerDashBehaviour.Dash();

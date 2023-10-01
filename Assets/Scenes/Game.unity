@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &340117430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3066960240199154377, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+  m_PrefabInstance: {fileID: 352877020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &352877020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +232,10 @@ PrefabInstance:
       propertyPath: allSkills.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: db6f313fabcd85b46baef0d99fe6438d, type: 2}
+    - target: {fileID: 7754388910480940125, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+      propertyPath: playerProperties
+      value: 
+      objectReference: {fileID: 352877022}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -441,9 +450,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1124268525 stripped
+--- !u!1 &843814476 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3999194280197257140, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2294368382364084885, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
   m_PrefabInstance: {fileID: 6861911427207002364}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1157442056
@@ -892,7 +901,7 @@ PrefabInstance:
     - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
       propertyPath: myopia
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 340117430}
     - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
       propertyPath: inScenePlayer
       value: 
@@ -1006,7 +1015,7 @@ PrefabInstance:
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorCanvas
       value: 
-      objectReference: {fileID: 1124268525}
+      objectReference: {fileID: 843814476}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorDialogue
       value: 

@@ -435,6 +435,7 @@ MonoBehaviour:
   playerInput: {fileID: 4185711516987643425}
   movementSmoothingSpeed: 10
   dashSmoothingSpeed: 100
+  playerProperties: {fileID: 7092806509686072542}
 --- !u!114 &2664985784235940499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,6 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMemory: 10
   currentMemory: 0
+  healthBar: {fileID: 0}
   currentZone: 0
   health: 10
   maxHealth: 10

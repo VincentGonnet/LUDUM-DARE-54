@@ -16,6 +16,8 @@ public class PlayerProperties : MonoBehaviour
     // Current memory the player is carrying
     public float currentMemory = 0f;
 
+    public GameObject healthBar;
+
     public int currentZone = 0;
     public float health = 10f;
     public float maxHealth = 10f;
@@ -30,7 +32,7 @@ public class PlayerProperties : MonoBehaviour
 
         health = newHealth;
         // Update UI
-        GameObject.Find("HealthBar").GetComponent<HealthBar>().UpdateHealth(health / maxHealth);
+        healthBar.GetComponent<HealthBar>().UpdateHealth(health / maxHealth);
     }
     
     public List<Skill> skills {
@@ -71,6 +73,8 @@ public class PlayerProperties : MonoBehaviour
 
         // Update the current memory
         currentMemory += equippedSkills[equippedSkills.Count - 1].memory;
+        
+        OnEquipSkillChange();
         return true;
     }
 
@@ -86,9 +90,34 @@ public class PlayerProperties : MonoBehaviour
 
         // Update the current memory
         currentMemory -= backpack[backpack.Count - 1].memory;
+
+        OnEquipSkillChange();
+    }
+
+    public void OnEquipSkillChange() {
+        // Rebuild UI
+        GameManager.Instance.UpdateUI();
+
+        // Update the ActiveSkillsUI
+        // ---
+        // We have 8 slots to fill in the ActiveSkillsUI
+        if(Can(SkillType.UIHealth)) {
+            // First, we clear the UI
+            for (int i = 0; i < 8; i++) {
+                GameObject.Find($"SkillUI{i + 1}").GetComponent<SkillUI>().Clear();
+            }
+
+            // Then, we fill it with the equipped skills
+            for (int i = 0; i < equippedSkills.Count; i++) {
+                GameObject.Find($"SkillUI{i + 1}").GetComponent<SkillUI>().SetSkill(equippedSkills[i]);
+            }
+        }
     }
 
     public bool Can(SkillType skillType) {
+        if(skillType == SkillType.UIHealth) return true;
+
+
         foreach (Skill skill in equippedSkills) {
             if (skill.type == skillType) {
                 return true;
