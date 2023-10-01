@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Lighting module
   description: Brightens the world around you
   memory: 3
-  sprite: {fileID: -971419230, guid: 032fe5d1e96260b40a19a6f886069a31, type: 3}
+  sprite: {fileID: 21300000, guid: 64eb14eaa3a98d34699152667c278df4, type: 3}
   level: 1
   type: 6
   cooldown: 0
