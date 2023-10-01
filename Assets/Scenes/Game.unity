@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &123218420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6102811717146618049, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+  m_PrefabInstance: {fileID: 6861911427207002364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &340117430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3066960240199154377, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+  m_PrefabInstance: {fileID: 352877020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &352877020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,6 +226,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7092806509686072542, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 123218420}
+    - target: {fileID: 7092806509686072542, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
       propertyPath: allSkills.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -259,6 +273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2702b2987e56fa54b8e0dee11b0885d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &371959101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5494671560389593579, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+  m_PrefabInstance: {fileID: 6861911427207002364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &459652819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
@@ -462,6 +481,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &860277842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -554,8 +574,11 @@ NavMeshAgent:
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1124268525 stripped
+=======
+--- !u!1 &843814476 stripped
+>>>>>>> dddb2afe40b7177d0a2e7e5abaca77234f29ea0e
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3999194280197257140, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2294368382364084885, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
   m_PrefabInstance: {fileID: 6861911427207002364}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1157442056
@@ -1031,7 +1054,15 @@ PrefabInstance:
     - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
       propertyPath: myopia
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 340117430}
+    - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
+      propertyPath: skillsUI
+      value: 
+      objectReference: {fileID: 371959101}
+    - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 123218420}
     - target: {fileID: 4732098504067227470, guid: 30787ddb80f7e9f4ea89207a77b7e110, type: 3}
       propertyPath: inScenePlayer
       value: 
@@ -1145,7 +1176,7 @@ PrefabInstance:
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorCanvas
       value: 
-      objectReference: {fileID: 1124268525}
+      objectReference: {fileID: 843814476}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorDialogue
       value: 
@@ -36098,6 +36129,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6385806444732870705, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a7f18c9da3195c4a9a03038dea16dc5, type: 3}
+    - target: {fileID: 8176057951988802854, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -21,6 +21,8 @@ public class GameManagerEditor : Editor
     private SerializedProperty numberOfPlayersProperty;
 
     private SerializedProperty myopiaProperty;
+    private SerializedProperty healthBarProperty;
+    private SerializedProperty skillsUIProperty;
 
     void OnEnable()
     {
@@ -36,6 +38,10 @@ public class GameManagerEditor : Editor
         numberOfPlayersProperty = serializedObject.FindProperty("numberOfPlayers");
 
         myopiaProperty = serializedObject.FindProperty("myopia");
+
+        healthBarProperty = serializedObject.FindProperty("healthBar");
+
+        skillsUIProperty = serializedObject.FindProperty("skillsUI");
     }
 
 
@@ -67,6 +73,10 @@ public class GameManagerEditor : Editor
         EditorGUILayout.LabelField("UI Settings", EditorStyles.boldLabel);
 
         EditorGUILayout.PropertyField(myopiaProperty);
+
+        EditorGUILayout.PropertyField(healthBarProperty);
+
+        EditorGUILayout.PropertyField(skillsUIProperty);
 
         serializedObject.ApplyModifiedProperties();
     }
