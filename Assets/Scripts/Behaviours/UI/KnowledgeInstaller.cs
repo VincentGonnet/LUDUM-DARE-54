@@ -41,7 +41,7 @@ public class KnowledgeInstaller : MonoBehaviour {
             go.GetComponent<SkillButton>().skill = skill.type;
             go.GetComponentInChildren<UiTooltip>().tooltipName = skill.name;
             go.GetComponentInChildren<UiTooltip>().tooltipDescription = skill.description;
-             go.GetComponentInChildren<UiTooltip>().tooltipMemory = skill.memory.ToString();
+            go.GetComponentInChildren<UiTooltip>().tooltipMemory = skill.memory.ToString();
         }
     }
 
