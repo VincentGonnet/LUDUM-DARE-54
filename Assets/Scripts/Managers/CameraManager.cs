@@ -45,10 +45,10 @@ public class CameraManager : Singleton<CameraManager>
             if (cameraWidth < targetWidth) {
                 if (movementDirection.x > 0)
                 {
-                    targetPosition.x = (float) Math.Ceiling(minCameraX + cameraWidth/2f) - 0.5f; // TODO: try changing to 0.5f if it stutters
+                    targetPosition.x = (float) Math.Ceiling(minCameraX + cameraWidth/2f); // TODO: try changing to 0.5f if it stutters
                 } else
                 {
-                    targetPosition.x = (float) Math.Floor(maxCameraX - cameraWidth/2f) + 0.5f;
+                    targetPosition.x = (float) Math.Floor(maxCameraX - cameraWidth/2f + 0.5f);
                 }
             }
         }
@@ -59,10 +59,10 @@ public class CameraManager : Singleton<CameraManager>
             if (cameraHeight < targetHeight) {
                 if (movementDirection.y > 0)
                 {
-                    targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f - 0.5f);
+                    targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f);
                 } else
                 {
-                    targetPosition.y = (float) Math.Floor(maxCameraY - cameraHeight/2f) + 0.5f;
+                    targetPosition.y = (float) Math.Floor(maxCameraY - cameraHeight/2f);
                 }
             }
         }

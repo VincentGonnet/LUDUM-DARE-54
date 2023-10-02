@@ -247,6 +247,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -662988057, guid: 21fade831a0664449ac0fd777df31d9b, type: 3}
+    - target: {fileID: 1913872650521470174, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+      propertyPath: skillSelector
+      value: 
+      objectReference: {fileID: 1351996628}
+    - target: {fileID: 1913872650521470174, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 352877022}
     - target: {fileID: 2702001395606795274, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
       propertyPath: m_Size.y
       value: 0.704854
@@ -2737,6 +2745,5 @@ SceneRoots:
   - {fileID: 976886586}
   - {fileID: 7974576336321823914}
   - {fileID: 845791190}
-  - {fileID: 801718860}
   - {fileID: 860277842}
   - {fileID: 3400082328685659715}
