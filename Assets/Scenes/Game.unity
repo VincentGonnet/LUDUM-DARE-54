@@ -184,6 +184,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2050389817}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
+      propertyPath: skillSelector
+      value: 
+      objectReference: {fileID: 475320156}
+    - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorMemoryText
       value: 
       objectReference: {fileID: 774848128}
@@ -596,6 +600,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &590784729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8801305347343372129, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
+  m_PrefabInstance: {fileID: 798336059786620989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +1951,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2050389817}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
+      propertyPath: skillSelector
+      value: 
+      objectReference: {fileID: 475320156}
+    - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorMemoryText
       value: 
       objectReference: {fileID: 774848128}
@@ -2371,6 +2384,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2050389817}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
+      propertyPath: skillSelector
+      value: 
+      objectReference: {fileID: 475320156}
+    - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorMemoryText
       value: 
       objectReference: {fileID: 774848128}
@@ -2467,6 +2484,10 @@ PrefabInstance:
       propertyPath: errorDialogue
       value: 
       objectReference: {fileID: 2050389817}
+    - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
+      propertyPath: skillSelector
+      value: 
+      objectReference: {fileID: 590784729}
     - target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: errorMemoryText
       value: 

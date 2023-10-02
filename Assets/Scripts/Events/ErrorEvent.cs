@@ -63,7 +63,6 @@ public class ErrorEvent : MonoBehaviour
     void ErrorTrigger(float currentMemory, float maxMemory) {
         errorCanvas.SetActive(true);
         errorCanvas.transform.GetChild(0).gameObject.SetActive(true);
-        errorCanvas.transform.GetChild(1).gameObject.SetActive(false);
         if(!GameManager.Instance.isPaused)
             pause.TogglePauseState();
 
