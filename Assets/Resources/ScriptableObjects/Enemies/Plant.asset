@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Plant
   health: 10
-  sprite: {fileID: 21300000, guid: b678ecaac17c14444aff3b78373b444e, type: 3}
+  sprite: {fileID: 21300000, guid: 91038abc7231a1e4ba3fcb99ae984a92, type: 3}
   attackDamage: 2
   attackSpeed: 3
   isRanged: 1

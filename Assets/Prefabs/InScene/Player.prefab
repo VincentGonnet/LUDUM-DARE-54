@@ -494,6 +494,7 @@ MonoBehaviour:
   movementSmoothingSpeed: 10
   dashSmoothingSpeed: 100
   playerProperties: {fileID: 7092806509686072542}
+  lastMovementDirection: {x: 0, y: 0, z: 0}
   isRecalling: 0
   isAttackedWhileRecall: 0
 --- !u!114 &2664985784235940499
@@ -539,8 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20ffd852cb59914d8146d18837cd98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidbody: {fileID: 8915476065750387232}
-  jumpDistance: 3
 --- !u!114 &2977818489075068097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b497be175823c3942b0774787c7aede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidbody: {fileID: 8915476065750387232}
+  player: {fileID: 0}
   attackDistance: 2
   attackTargets: []
 --- !u!114 &7984305897031274643

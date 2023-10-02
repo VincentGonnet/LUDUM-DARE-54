@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1771609544493746712, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.40625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771609544493746712, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.40625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6996792250485383104, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
     - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: enemyData
       value: 
