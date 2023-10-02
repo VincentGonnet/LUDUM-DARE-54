@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.40625
       objectReference: {fileID: 0}
+    - target: {fileID: 2844032557454886254, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: player
       value: 
@@ -28,6 +32,22 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 4768679099383317665, guid: 1b092c7abad08c3488d1922656116b1b, type: 3}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: wanderDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: attackMaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: attackMinDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698524728662551583, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: detectionDistance
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5258143399681681359, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_Name
       value: Plante
@@ -90,6 +110,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7536049543176676033, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958181936750560891, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
+      propertyPath: m_Speed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8958181936750560891, guid: 687108f47cc7787469d69d5f7263dab7, type: 3}
