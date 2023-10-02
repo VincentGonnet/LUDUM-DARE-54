@@ -157,6 +157,11 @@ public class PlayerProperties : MonoBehaviour
 
         // Equip it
         EquipSkill(0);
+
+        PushToBackpack(skills.First((sk) => sk.type == SkillType.UIMyopia));
+
+        // Equip it
+        EquipSkill(1);
     }
 
     // Update is called once per frame
