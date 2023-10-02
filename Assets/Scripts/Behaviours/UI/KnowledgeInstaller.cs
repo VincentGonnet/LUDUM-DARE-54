@@ -31,7 +31,7 @@ public class KnowledgeInstaller : MonoBehaviour {
 
         SetMemoryData(Mathf.RoundToInt(playerInventory.currentMemory), Mathf.RoundToInt(playerInventory.maxMemory));
         if(!gManager.isPaused)
-            gManager.TogglePauseState(playerController);
+            gManager.TogglePauseState();
 
         foreach (var skill in playerInventory.skills) {
             GameObject go = Instantiate(buttonPrefab, layout.transform);
@@ -48,7 +48,7 @@ public class KnowledgeInstaller : MonoBehaviour {
     private void Update() {
         if (Input.GetKeyDown(ClosingKey)  && playerProperties.currentMemory <= playerProperties.maxMemory) {
             gameObject.SetActive(false);
-            gManager.TogglePauseState(playerController);
+            gManager.TogglePauseState();
             UiTooltipManager.Hide();
             if (GameManager.Instance.tutorialManager.tutorialStep == 0) {
                 Canvas tutorialCanvas = gameObject.transform.GetChild(2).gameObject.GetComponent<Canvas>();

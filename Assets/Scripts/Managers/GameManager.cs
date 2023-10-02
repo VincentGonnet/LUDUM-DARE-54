@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameMode
 {
@@ -35,6 +36,8 @@ public class GameManager : Singleton<GameManager>
     public GameObject healthBar;
     public GameObject skillsUI;
     public TutorialManager tutorialManager;
+    public bool memoryOverload = false;
+    [SerializeField] private GameObject pauseMenu;
 
     public int numberOfTrashPickedUp = 0;
     public void setNumberOfTrashPickedUp(int value){
@@ -95,16 +98,7 @@ public class GameManager : Singleton<GameManager>
     // TODO: delete this method and all multiplayer related code if not using multiplayer
     void SetupBasedOnGameState()
     {
-        switch (currentGameMode)
-        {
-            case GameMode.SinglePlayer:
-                SetupSinglePlayer(); // to extract if no multiplayer
-                break;
-
-            case GameMode.LocalMultiplayer:
-                SetupLocalMultiplayer();
-                break;
-        }
+        SetupSinglePlayer();
     }
 
     void SetupSinglePlayer()
@@ -118,31 +112,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         SetupActivePlayers();
-    }
-
-    void SetupLocalMultiplayer()
-    {
-        if (inScenePlayer == true)
-        {
-            Destroy(inScenePlayer);
-        }
-
-        SpawnPlayers();
-        SetupActivePlayers();
-    }
-
-    void SpawnPlayers()
-    {
-        activePlayerControllers = new List<PlayerController>();
-
-        for (int i = 0; i < numberOfPlayers; i++)
-        {
-            Vector3 spawnPosition = new Vector3(0, 0, 0); // TODO: write algorithm to calculate spawn position
-            Quaternion spawnRotation = Quaternion.identity; // TODO: set a spawn rotation (if we use rotations)
-
-            GameObject spawnedPlayer = Instantiate(playerPrefab, spawnPosition, spawnRotation);
-            AddPlayerToActivePlayerList(spawnedPlayer.GetComponent<PlayerController>());
-        }
     }
 
     void AddPlayerToActivePlayerList(PlayerController newPlayer)
@@ -162,19 +131,29 @@ public class GameManager : Singleton<GameManager>
 
     // Pause methods
 
-    public void TogglePauseState(PlayerController newFocusedPlayerController)
+    public void TogglePauseState(bool pauseMenu = false)
     {
-        focusedPlayerController = newFocusedPlayerController;
+
+        PlayerController playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
         isPaused = !isPaused;
 
         ToggleTimeScale();
 
-        UpdateActivePlayerInputs(); // Will only deactivate input on the player's current action map
+        // UpdateActivePlayerInputs(); // Will only deactivate input on the player's current action map
 
-        SwitchFocusedPlayerControlScheme(); // Switch the action map for the player that triggered the pause
+        switch (isPaused)
+        {
+            case true:
+                playerController.EnablePauseMenuControls();
+                break;
 
-        // UpdateUIMenu();
+            case false:
+                playerController.EnableGameplayControls();
+                break;
+        }
+
+        if (pauseMenu) UpdateUIMenu();
     }
 
     void ToggleTimeScale()
@@ -204,30 +183,14 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    void SwitchFocusedPlayerControlScheme()
+    void UpdateUIMenu()
     {
-        switch (isPaused)
-        {
-            case true:
-                focusedPlayerController.EnablePauseMenuControls();
-                break;
-
-            case false:
-                focusedPlayerController.EnableGameplayControls();
-                break;
-        }
+        pauseMenu.SetActive(isPaused);
     }
 
-    // Deactivate input for all players if paused, activate if not paused
-    void UpdateActivePlayerInputs()
+    public void ToMainMenu()
     {
-        for (int i = 0; i < activePlayerControllers.Count; i++)
-        {
-            if (activePlayerControllers[i] != focusedPlayerController)
-            {
-                activePlayerControllers[i].SetInputActiveState(isPaused);
-            }
-
-        }
+        TogglePauseState(true);
+        SceneManager.LoadScene("MainMenu");
     }
 }

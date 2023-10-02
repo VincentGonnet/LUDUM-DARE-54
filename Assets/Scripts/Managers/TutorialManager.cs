@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
         attackTutorialCanvas.enabled = true;
         hasSeenAttackTutorial = true;
         isInAttackTutorial = true;
-        GameManager.Instance.TogglePauseState(playerController);
+        GameManager.Instance.TogglePauseState();
     }
 
     public void DisplayDashTutorial()
@@ -79,21 +79,21 @@ public class TutorialManager : MonoBehaviour
         dashTutorialCanvas.enabled = true;
         isInDashTutorial = true;
         hasSeenDashTutorial = true;
-        GameManager.Instance.TogglePauseState(playerController);
+        GameManager.Instance.TogglePauseState();
     }
 
     private void HideDashTutorial()
     {
         dashTutorialCanvas.enabled = false;
         isInDashTutorial = false;
-        GameManager.Instance.TogglePauseState(playerController);
+        GameManager.Instance.TogglePauseState();
     }
 
     private void HidAttackTutorial()
     {
         attackTutorialCanvas.enabled = false;
         isInAttackTutorial = false;
-        GameManager.Instance.TogglePauseState(playerController);
+        GameManager.Instance.TogglePauseState();
     }
 
     // public void GetRootPlayable(int dialogId) {

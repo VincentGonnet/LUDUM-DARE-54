@@ -23,6 +23,7 @@ public class ErrorEvent : MonoBehaviour
     [SerializeField] public GameManager pause;
     [SerializeField] public PlayerProperties playerProperties;
     [SerializeField] public PlayerController playerController;
+    [SerializeField] private GameObject skillSelector;
     float maxMemory;
     float currentMemory;
 
@@ -38,8 +39,13 @@ public class ErrorEvent : MonoBehaviour
     public void CancelError() {
         Debug.Log("Closing error event");
         errorCanvas.SetActive(false);
-        pause.TogglePauseState(playerController);
+        pause.TogglePauseState();
         Destroy(this.gameObject);
+        if (GameManager.Instance.memoryOverload) {
+            GameManager.Instance.memoryOverload = false;
+            skillSelector.SetActive(true);
+            skillSelector.GetComponent<KnowledgeInstaller>().Load(playerProperties);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -57,14 +63,12 @@ public class ErrorEvent : MonoBehaviour
     void ErrorTrigger(float currentMemory, float maxMemory) {
         errorCanvas.SetActive(true);
         errorCanvas.transform.GetChild(0).gameObject.SetActive(true);
-        errorCanvas.transform.GetChild(1).gameObject.SetActive(false);
         if(!GameManager.Instance.isPaused)
-            pause.TogglePauseState(playerController);
+            pause.TogglePauseState();
 
         Debug.Log("Current memory: " + currentMemory + " Max memory: " + maxMemory);
         if (currentMemory > maxMemory) {
-            errorCanvas.transform.GetChild(1).gameObject.SetActive(true);
-            errorCanvas.transform.position = new Vector3(errorCanvas.transform.position.x, errorCanvas.transform.position.y + 100, errorCanvas.transform.position.z);
+            GameManager.Instance.memoryOverload = true;
         }
 
         int i = UnityEngine.Random.Range(0, dialogues.Count);

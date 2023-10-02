@@ -28,8 +28,8 @@ public class CameraFollowPlayer : MonoBehaviour
             float screenHeigth = Camera.main.orthographicSize;
             float screenWidth = screenHeigth * Camera.main.aspect;
 
-            Debug.Log("Screen Height: " + screenHeigth);
-            Debug.Log("Screen Width: " + screenWidth);
+            // Debug.Log("Screen Height: " + screenHeigth);
+            // Debug.Log("Screen Width: " + screenWidth);
 
             // Get the bounds of the camera's view
             float upperSeen = transform.position.y + screenHeigth;
