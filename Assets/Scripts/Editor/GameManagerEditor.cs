@@ -26,6 +26,7 @@ public class GameManagerEditor : Editor
     private SerializedProperty numberOfTrashPickedUpProperty;
     private SerializedProperty maxNumberOfTrashProperty;
     private SerializedProperty tutorialManagerProperty;
+    private SerializedProperty pauseMenuProperty;
 
     void OnEnable()
     {
@@ -50,6 +51,8 @@ public class GameManagerEditor : Editor
 
         maxNumberOfTrashProperty = serializedObject.FindProperty("maxNumberOfTrash");
         tutorialManagerProperty = serializedObject.FindProperty("tutorialManager");
+
+        pauseMenuProperty = serializedObject.FindProperty("pauseMenu");
     }
 
 
@@ -91,6 +94,8 @@ public class GameManagerEditor : Editor
         EditorGUILayout.PropertyField(maxNumberOfTrashProperty);
 
         EditorGUILayout.PropertyField(tutorialManagerProperty);
+
+        EditorGUILayout.PropertyField(pauseMenuProperty);
 
         serializedObject.ApplyModifiedProperties();
     }

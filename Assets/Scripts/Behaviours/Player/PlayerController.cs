@@ -175,11 +175,21 @@ public class PlayerController : MonoBehaviour
         }
     } 
 
-    public void OnTogglePause(InputAction.CallbackContext value)
+    // Here we dissociate two actions, because we want to check if the player is pressing the pause when already in another pause instance (SkillSelector or Dialog)
+    // We don't want to trigger the pause menu in this case, plus it won't close the other pause instance, leading to glitches and exploits (like being able to move while in the SkillSelector)
+    public void OnStartPause(InputAction.CallbackContext value) // via press of P key
+    {
+        if(value.started && !GameManager.Instance.isPaused)
+        {
+            GameManager.Instance.TogglePauseState(true);
+        }
+    }
+
+    public void OnEndPause(InputAction.CallbackContext value) // via press of P key
     {
         if(value.started)
         {
-            GameManager.Instance.TogglePauseState(this);
+            GameManager.Instance.TogglePauseState(true);
         }
     }
 
@@ -196,6 +206,9 @@ public class PlayerController : MonoBehaviour
     public void EnableGameplayControls()
     {
         Debug.Log("Enabling Gameplay Controls");
+        // Enable action map
+        playerInput.SwitchCurrentActionMap(actionMapPlayerControls);
+
         playerInput.SwitchCurrentActionMap(actionMapPlayerControls);  
     }
 
@@ -211,19 +224,19 @@ public class PlayerController : MonoBehaviour
         playerInput.SwitchCurrentActionMap(actionMapDialogControls);
     }
 
-    public void SetInputActiveState(bool gameIsPaused)
-    {
-        switch (gameIsPaused)
-        {
-            case true:
-                playerInput.DeactivateInput();
-                break;
+    // public void SetInputActiveState(bool gameIsPaused)
+    // {
+    //     switch (gameIsPaused)
+    //     {
+    //         case true:
+    //             playerInput.DeactivateInput();
+    //             break;
 
-            case false:
-                playerInput.ActivateInput();
-                break;
-        }
-    }
+    //         case false:
+    //             playerInput.ActivateInput();
+    //             break;
+    //     }
+    // }
 
     // INPUT SYSTEM AUTOMATIC CALLBACKS --------------
     public void OnControlsChanged()
