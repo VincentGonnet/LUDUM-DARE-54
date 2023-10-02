@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3991995129764997607}
   m_Layer: 0
   m_Name: TriggerError
-  m_TagString: Untagged
+  m_TagString: TriggerError
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,4 +100,4 @@ MonoBehaviour:
   pause: {fileID: 0}
   playerProperties: {fileID: 0}
   playerController: {fileID: 0}
-  ClosingKey: 27
+  hasBeenTriggered: 0

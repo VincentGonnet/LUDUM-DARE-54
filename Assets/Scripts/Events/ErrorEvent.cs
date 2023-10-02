@@ -23,7 +23,6 @@ public class ErrorEvent : MonoBehaviour
     [SerializeField] public GameManager pause;
     [SerializeField] public PlayerProperties playerProperties;
     [SerializeField] public PlayerController playerController;
-    [SerializeField] public KeyCode ClosingKey;
     float maxMemory;
     float currentMemory;
 
@@ -36,14 +35,11 @@ public class ErrorEvent : MonoBehaviour
         dialogues = new List<string>(){diag1, diag2, diag3, diag4};
     }
 
-    public void OnCancel(InputAction.CallbackContext value) {
-        if (value.started && hasBeenTriggered) {
-            Debug.Log("Closing error event");
-            errorCanvas.SetActive(false);
-            pause.TogglePauseState(playerController);
-            Destroy(this.gameObject);
-        }
-        
+    public void CancelError() {
+        Debug.Log("Closing error event");
+        errorCanvas.SetActive(false);
+        pause.TogglePauseState(playerController);
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

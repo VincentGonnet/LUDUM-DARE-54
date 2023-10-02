@@ -11,6 +11,7 @@ TagManager:
   - Fire
   - JumpPod
   - TrashPickUp
+  - TriggerError
   layers:
   - Default
   - TransparentFX

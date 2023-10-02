@@ -25,11 +25,17 @@ public class CameraFollowPlayer : MonoBehaviour
             float playerX = player.transform.position.x;
             float playerY = player.transform.position.y;
 
+            float screenHeigth = Camera.main.orthographicSize;
+            float screenWidth = screenHeigth * Camera.main.aspect;
+
+            Debug.Log("Screen Height: " + screenHeigth);
+            Debug.Log("Screen Width: " + screenWidth);
+
             // Get the bounds of the camera's view
-            float upperSeen = transform.position.y + Camera.main.orthographicSize;
-            float lowerSeen = transform.position.y - Camera.main.orthographicSize;
-            float rightSeen = transform.position.x + Camera.main.orthographicSize * Camera.main.aspect;
-            float leftSeen = transform.position.x - Camera.main.orthographicSize * Camera.main.aspect;
+            float upperSeen = transform.position.y + screenHeigth;
+            float lowerSeen = transform.position.y - screenHeigth;
+            float rightSeen = transform.position.x + screenWidth;
+            float leftSeen = transform.position.x - screenWidth;
 
             // Move the camera to the player's position smoothly
             float cameraX = Mathf.Lerp(transform.position.x, playerX, 0.1f);

@@ -117,6 +117,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Exit trigger event
+    public void OnCancel(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            GameObject[] errorTriggers = GameObject.FindGameObjectsWithTag("TriggerError");
+            foreach(GameObject errorTrigger in errorTriggers) {
+                if(errorTrigger.GetComponent<ErrorEvent>().hasBeenTriggered) {
+                    errorTrigger.GetComponent<ErrorEvent>().CancelError();
+                }
+            }
+        }
+    }
+
     // Jump Action
     public void OnJump(InputAction.CallbackContext value)
     {
