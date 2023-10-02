@@ -48,6 +48,7 @@ public class ErrorEvent : MonoBehaviour
             currentMemory = other.gameObject.GetComponent<PlayerProperties>().currentMemory;
             maxMemory = other.gameObject.GetComponent<PlayerProperties>().maxMemory;
             maxMemory -= 1;
+            other.gameObject.GetComponent<PlayerProperties>().maxMemory = maxMemory;
             hasBeenTriggered = true;
             ErrorTrigger(currentMemory, maxMemory);
         }
