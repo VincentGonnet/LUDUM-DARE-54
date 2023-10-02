@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Dash
   description: Dash forward. Allows you to go through fire.
-  memory: 3
+  memory: 2
   sprite: {fileID: 21300000, guid: bbc9a64abd3c86a42827c3c4a1a0b46c, type: 3}
   level: 1
   type: 3

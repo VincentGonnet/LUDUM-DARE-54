@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Jump
   description: Allows you to jump over small holes
-  memory: 3
+  memory: 2
   sprite: {fileID: 21300000, guid: 7902d07837b17d34cb7a511e0ebdd501, type: 3}
   level: 1
   type: 2

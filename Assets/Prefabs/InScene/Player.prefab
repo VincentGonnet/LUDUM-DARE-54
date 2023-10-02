@@ -49,7 +49,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -70,8 +70,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 2
-  m_PointLightOuterRadius: 5
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 8
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 1913872650521470174}
   - component: {fileID: 3516252323649823016}
   - component: {fileID: 3342508000056483503}
+  - component: {fileID: 4977777869639378988}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -253,7 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -662988057, guid: 21fade831a0664449ac0fd777df31d9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -359,8 +360,20 @@ MonoBehaviour:
     m_ActionName: Menu Controls/Submit[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3991995129764997607, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
-        m_TargetAssemblyTypeName: ErrorEvent, Assembly-CSharp
+      - m_Target: {fileID: 7754388910480940125}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnCancel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: OnCancel
         m_Mode: 0
         m_Arguments:
@@ -511,7 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   playerRigidbody: {fileID: 8915476065750387232}
-  movementSpeed: 10
+  movementSpeed: 5
 --- !u!114 &2385310381195193233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b497be175823c3942b0774787c7aede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 6996792250485383104}
   attackDistance: 2
   attackTargets: []
 --- !u!114 &7984305897031274643
@@ -629,7 +642,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.147573}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -640,7 +653,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.704854}
   m_EdgeRadius: 0
 --- !u!114 &4450065634703085324
 MonoBehaviour:
@@ -687,7 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillSelector: {fileID: 0}
-  playerInventory: {fileID: 0}
+  playerInventory: {fileID: 7092806509686072542}
 --- !u!320 &3516252323649823016
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -708,23 +721,23 @@ PlayableDirector:
   - key: {fileID: -529122578109643524, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
     value: {fileID: 0}
   - key: {fileID: -5324147151132291681, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 4977777869639378988}
   - key: {fileID: -658337529472517462, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
     value: {fileID: 3342508000056483503}
   - key: {fileID: 5623894603758223239, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
     value: {fileID: 0}
   - key: {fileID: 866700888766951571, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3342508000056483503}
   - key: {fileID: -8386366623179949165, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 7274151338267398734, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -1829793337856869657, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3342508000056483503}
   - key: {fileID: 6810993309758697590, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
     value: {fileID: 0}
   - key: {fileID: 9084631333449649272, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 7274151338267398734, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 3342508000056483503}
+  - key: {fileID: -1829793337856869657, guid: 9d27e9e28c00d48488d831f7ad691922, type: 2}
+    value: {fileID: 3342508000056483503}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &3342508000056483503
@@ -743,6 +756,9 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 025afcd77de1d454db6ab2035e001a6c, type: 2}
     - {fileID: 11400000, guid: 34ac4897997e3394abac4cd5b3373f8b, type: 2}
+    - {fileID: 11400000, guid: b0bf1f388f5f161428d1e4409a67ae78, type: 2}
+    - {fileID: 11400000, guid: a4f4f7ad534f2ec40a30719b74e91ca8, type: 2}
+    - {fileID: 11400000, guid: 5f4d196b74b1a9547815b0359f4efc41, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -772,3 +788,66 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7754388910480940125}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: CutscenesLaunch
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7754388910480940125}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: CutscenesLaunch
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7754388910480940125}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: CutscenesLaunch
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!95 &4977777869639378988
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996792250485383104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e6a1f5097ffc324193a28a43a308ffe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
