@@ -39,7 +39,7 @@ public class ErrorEvent : MonoBehaviour
     public void CancelError() {
         Debug.Log("Closing error event");
         errorCanvas.SetActive(false);
-        pause.TogglePauseState(playerController);
+        pause.TogglePauseState();
         Destroy(this.gameObject);
         if (GameManager.Instance.memoryOverload) {
             GameManager.Instance.memoryOverload = false;
@@ -65,7 +65,7 @@ public class ErrorEvent : MonoBehaviour
         errorCanvas.transform.GetChild(0).gameObject.SetActive(true);
         errorCanvas.transform.GetChild(1).gameObject.SetActive(false);
         if(!GameManager.Instance.isPaused)
-            pause.TogglePauseState(playerController);
+            pause.TogglePauseState();
 
         Debug.Log("Current memory: " + currentMemory + " Max memory: " + maxMemory);
         if (currentMemory > maxMemory) {
