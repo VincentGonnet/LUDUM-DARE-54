@@ -28,7 +28,7 @@ public class ErrorEvent : MonoBehaviour
     float currentMemory;
 
     // Stored Values
-    private bool hasBeenTriggered = false;
+    public bool hasBeenTriggered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +37,8 @@ public class ErrorEvent : MonoBehaviour
     }
 
     public void OnCancel(InputAction.CallbackContext value) {
-        Debug.Log("Closing error event");
         if (value.started && hasBeenTriggered) {
+            Debug.Log("Closing error event");
             errorCanvas.SetActive(false);
             pause.TogglePauseState(playerController);
             Destroy(this.gameObject);
@@ -52,8 +52,8 @@ public class ErrorEvent : MonoBehaviour
             currentMemory = other.gameObject.GetComponent<PlayerProperties>().currentMemory;
             maxMemory = other.gameObject.GetComponent<PlayerProperties>().maxMemory;
             maxMemory -= 1;
-            ErrorTrigger(currentMemory, maxMemory);
             hasBeenTriggered = true;
+            ErrorTrigger(currentMemory, maxMemory);
         }
     }
 

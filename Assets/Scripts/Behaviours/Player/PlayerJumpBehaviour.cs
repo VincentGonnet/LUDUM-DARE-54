@@ -64,29 +64,29 @@ public class PlayerJumpBehaviour : MonoBehaviour
             }
         }
 
-        Debug.Log("Pod Pressed: " + podPressed);
+        // Debug.Log("Pod Pressed: " + podPressed);
 
         if (!podPressed) return;
 
         podPosition -= new Vector3(0.5f, 0.5f, 0);
         
-        Debug.Log("Pod Position: " + podPosition);
-        Debug.Log("Jump! " + jumpDirection);
+        // Debug.Log("Pod Position: " + podPosition);
+        // Debug.Log("Jump! " + jumpDirection);
 
         // From pod position, raycast in the jump direction to find the next pod
         Debug.DrawRay(podPosition, jumpDirection * maxDistanceCheck, Color.red, 1000f, false);
         RaycastHit2D[] pods = Physics2D.RaycastAll(podPosition, jumpDirection, maxDistanceCheck, LayerMask.GetMask("JumpPod"));
 
-        Debug.Log("Pods found: " + pods.Length);
+        // Debug.Log("Pods found: " + pods.Length);
 
         // If no pod found, return
         if (pods.Length == 0 || pods[0].collider == null)
         {
-            Debug.Log("No pod found");
+            // Debug.Log("No pod found");
             return;
         }
 
-        Debug.Log("Pod found: " + pods[0].collider.gameObject.name + " at " + pods[0].collider.gameObject.transform.position);
+        // Debug.Log("Pod found: " + pods[0].collider.gameObject.name + " at " + pods[0].collider.gameObject.transform.position);
 
         // Find the closest pod center coordonates with a closestDistance (that is greater than 1f) and teleport to it
 
@@ -107,8 +107,6 @@ public class PlayerJumpBehaviour : MonoBehaviour
 
         // Calculate the jump position
         Vector3 jumpPosition = closestPod;
-
-        Debug.Log("Send to " + jumpPosition);
 
         GetComponent<PlayerController>().SetSpriteDirection(jumpDirection);
         transform.position = jumpPosition;

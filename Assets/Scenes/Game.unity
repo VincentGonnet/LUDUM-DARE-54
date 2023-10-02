@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 352877022}
+    - target: {fileID: 2385310381195193233, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
+      propertyPath: timerImage
+      value: 
+      objectReference: {fileID: 897170390}
     - target: {fileID: 2702001395606795274, guid: 471b886ff52c5a74490a53ae04671606, type: 3}
       propertyPath: m_Size.y
       value: 0.704854
@@ -989,6 +993,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4677e5be960434ab9146c4a3b36dac, type: 3}
+--- !u!114 &897170390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6294955236783617582, guid: ba1e5e1cdd066984a99905f6b1cda815, type: 3}
+  m_PrefabInstance: {fileID: 6861911427207002364}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &976886586
 PrefabInstance:
   m_ObjectHideFlags: 0
