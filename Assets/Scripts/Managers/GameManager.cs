@@ -39,11 +39,18 @@ public class GameManager : Singleton<GameManager>
     public bool memoryOverload = false;
     [SerializeField] private GameObject pauseMenu;
 
+    // Timer
+    public float timer = 0f;
+    private bool timerOn = true;
+
     public int numberOfTrashPickedUp = 0;
     public void setNumberOfTrashPickedUp(int value){
         numberOfTrashPickedUp = value;
         if (numberOfTrashPickedUp >= maxNumberOfTrash){
             Debug.Log("You win!");
+
+            // Stop Timer
+            timerOn = false;
 
             // Start Overlay as win
             GameObject.Find("DeathWinAnim").GetComponent<DeathWinManager>().StartOverlay(true);
@@ -53,6 +60,14 @@ public class GameManager : Singleton<GameManager>
         return numberOfTrashPickedUp;
     }
     public int maxNumberOfTrash = 3;
+
+    private void Update()
+    {
+        if (timerOn)
+        {
+            timer += Time.deltaTime;
+        }
+    }
 
     void Start()
     {

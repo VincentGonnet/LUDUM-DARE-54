@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class DeathWinManager : MonoBehaviour
 {
@@ -78,9 +79,14 @@ public class DeathWinManager : MonoBehaviour
             logo.GetComponent<Animator>().Play("GrowingPlant");
         }
 
+        float timer = GameManager.Instance.timer;
+        TimeSpan timeSpan = TimeSpan.FromSeconds(timer);
+        string formattedTimer = $"{timeSpan.Minutes:D2}m {timeSpan.Seconds:D2}s {timeSpan.Milliseconds:D3}ms";
+        Debug.Log("Timer: " + formattedTimer);
+
         // Show Title
         title.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255f, 255f, 255f, 1f);
-        StartCoroutine(this.GetComponent<TypeText>().Type(isWin ? "You win!" : "You are dead!", title.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeInMessage())));
+        StartCoroutine(this.GetComponent<TypeText>().Type(isWin ? "You won ! Your time: " + formattedTimer : "You are dead!", title.GetComponent<TMPro.TextMeshProUGUI>(), 20f, () => StartCoroutine(FadeInMessage())));
     }
 
     IEnumerator FadeInMessage(){
