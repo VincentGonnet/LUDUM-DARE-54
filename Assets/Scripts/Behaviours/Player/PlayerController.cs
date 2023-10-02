@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     public PlayerProperties playerProperties;
 
     // Stored Values
-    private Vector3 lastMovementDirection = Vector3.zero;
+    public Vector3 lastMovementDirection = Vector3.zero;
     public ArrayList jumpPodsPressedPos = new ArrayList();
 
     public bool isRecalling = false;

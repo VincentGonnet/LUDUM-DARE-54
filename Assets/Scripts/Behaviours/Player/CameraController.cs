@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
         }
         if(other.CompareTag("ZoneTrigger"))
         {
-            gameObject.GetComponent<PlayerMovementBehaviour>().Slide1UnitToward(other.gameObject.transform.position);
+            gameObject.GetComponent<PlayerMovementBehaviour>().Slide1UnitToward(other.gameObject.transform.position, gameObject.GetComponent<PlayerController>().lastMovementDirection);
             CameraManager.Instance.SlideTo(other.gameObject, 2f);
         }
     }

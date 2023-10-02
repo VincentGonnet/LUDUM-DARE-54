@@ -133,11 +133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3245928325106905497, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.11
+      value: -34.769
       objectReference: {fileID: 0}
     - target: {fileID: 3245928325106905497, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.71
+      value: 6.681
       objectReference: {fileID: 0}
     - target: {fileID: 3245928325106905497, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_LocalPosition.z
@@ -205,11 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7979845468841221981, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_Offset.x
-      value: 0.20716095
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7979845468841221981, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_Offset.y
-      value: 0.13144708
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8801305347343372129, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_Name
@@ -923,7 +923,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 352877022}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4303376955145351852, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22f606187eab104e8d6d89603e5d040, type: 3}
@@ -2244,11 +2245,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3245928325106905497, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.06
+      value: -22.03
       objectReference: {fileID: 0}
     - target: {fileID: 3245928325106905497, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 3245928325106905497, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2308,11 +2309,11 @@ PrefabInstance:
       objectReference: {fileID: 352877022}
     - target: {fileID: 7979845468841221981, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_Size.x
-      value: 3.3501358
+      value: 2.1923923
       objectReference: {fileID: 0}
     - target: {fileID: 7979845468841221981, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_Offset.x
-      value: 0.047546387
+      value: 0.019156456
       objectReference: {fileID: 0}
     - target: {fileID: 8801305347343372129, guid: 86330f33816bf5a4aa6bd5455fa4c410, type: 3}
       propertyPath: m_Name

@@ -47,33 +47,20 @@ public class PlayerMovementBehaviour : MonoBehaviour
         canMove = !canMove;
     }
 
-    public void Slide1UnitToward(Vector3 targetPosition)
+    public void Slide1UnitToward(Vector3 triggerPosition, Vector3 movementDirection)
     {
-        // Determine if the player should move horizontally or vertically
-        float xDiff = Math.Abs(targetPosition.x - transform.position.x);
-        float yDiff = Math.Abs(targetPosition.y - transform.position.y);
+        
+        movementDirection.Normalize();
+        Debug.Log("Movement Direction: " + movementDirection);
 
-        Vector3 movementDirection = (targetPosition - transform.position).normalized;
-        float newXDirection = movementDirection.x > 0 
-            ? (float) Math.Ceiling(transform.position.x + movementDirection.x*2)
-            : (float) Math.Floor(transform.position.x + movementDirection.x*2);
-
-        float newYDirection = movementDirection.y > 0
-            ? (float) Math.Ceiling(transform.position.y + movementDirection.y*2)
-            : (float) Math.Floor(transform.position.y + movementDirection.y*2);
-
-        targetPosition = new Vector3(newXDirection, newYDirection, -5f);
-
-        if(xDiff > yDiff)
+        if (movementDirection.x != 0 && movementDirection.y != 0)
         {
-            targetPosition.y = transform.position.y;
-        }
-        else
-        {
-            targetPosition.x = transform.position.x;
+            // TODO : we could calculate which axis is closer to the trigger and slide that way
+            // but it's overkill for now
+        } else {
+            StartCoroutine(Slide1UnitTowardCoroutine(transform.position + (movementDirection*2)));
         }
 
-        StartCoroutine(Slide1UnitTowardCoroutine(targetPosition));
     }
 
     private IEnumerator Slide1UnitTowardCoroutine(Vector3 targetPosition)
