@@ -37,18 +37,20 @@ public class CameraManager : Singleton<CameraManager>
 
         // get movement direction
         Vector3 movementDirection = (targetPosition - gameplayCameraObject.transform.position).normalized;
-        
+
         if (Math.Abs(movementDirection.x) > Math.Abs(movementDirection.y))
         {
             // Movement is horizontal
             targetPosition.y = gameplayCameraObject.transform.position.y;
-            if (cameraWidth < targetWidth) {
+            if (cameraWidth < targetWidth)
+            {
                 if (movementDirection.x > 0)
                 {
-                    targetPosition.x = (float) Math.Ceiling(minCameraX + cameraWidth/2f); // TODO: try changing to 0.5f if it stutters
-                } else
+                    targetPosition.x = (float)Math.Ceiling(minCameraX + cameraWidth / 2f); // TODO: try changing to 0.5f if it stutters
+                }
+                else
                 {
-                    targetPosition.x = (float) Math.Floor(maxCameraX - cameraWidth/2f + 0.5f);
+                    targetPosition.x = (float)Math.Floor(maxCameraX - cameraWidth / 2f + 0.5f);
                 }
             }
         }
@@ -56,13 +58,15 @@ public class CameraManager : Singleton<CameraManager>
         {
             // Movement is vertical
             targetPosition.x = gameplayCameraObject.transform.position.x;
-            if (cameraHeight < targetHeight) {
+            if (cameraHeight < targetHeight)
+            {
                 if (movementDirection.y > 0)
                 {
-                    targetPosition.y = (float) Math.Ceiling(minCameraY + cameraHeight/2f);
-                } else
+                    targetPosition.y = (float)Math.Ceiling(minCameraY + cameraHeight / 2f);
+                }
+                else
                 {
-                    targetPosition.y = (float) Math.Floor(maxCameraY - cameraHeight/2f);
+                    targetPosition.y = (float)Math.Floor(maxCameraY - cameraHeight / 2f);
                 }
             }
         }
@@ -75,7 +79,7 @@ public class CameraManager : Singleton<CameraManager>
         Vector3 startPosition = gameplayCameraObject.transform.position;
         float t = 0f;
 
-        while(t < 1f)
+        while (t < 1f)
         {
             t += Time.deltaTime * slideSpeed;
             gameplayCameraObject.transform.position = Vector3.Lerp(startPosition, targetPosition, t);

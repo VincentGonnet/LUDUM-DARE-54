@@ -12,6 +12,7 @@ TagManager:
   - JumpPod
   - TrashPickUp
   - TriggerError
+  - ZoneTransition
   layers:
   - Default
   - TransparentFX
