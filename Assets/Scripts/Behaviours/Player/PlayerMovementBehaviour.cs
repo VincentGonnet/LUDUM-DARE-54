@@ -12,9 +12,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     [Header("Movement Settings")]
     public float movementSpeed = 3f;
+    // [SerializeField] private float lerpStop = 0.5f;
 
     //Stored Values
     private Vector3 movementDirection;
+    private bool isSliding = false;
 
 
     public void SetupBehaviour()
@@ -36,7 +38,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
     public void MoveThePlayer()
     {
         Vector3 movement = canMove ? movementDirection * movementSpeed * Time.deltaTime : Vector3.zero;
-        if (movement != Vector3.zero) {
+        if (movement != Vector3.zero)
+        {
             playerRigidbody.MovePosition(transform.position + movement);
             GetComponent<PlayerController>().SetSpriteDirection(movement);
         }
@@ -47,52 +50,35 @@ public class PlayerMovementBehaviour : MonoBehaviour
         canMove = !canMove;
     }
 
-    public void Slide1UnitToward(Vector3 triggerPosition, Vector3 movementDirection)
+    public void ChangeZone(Vector3 movementDirection, float unitsToSlide, GameObject enteringZoneTrigger)
     {
-        
-        movementDirection.Normalize();
-        Debug.Log("Movement Direction: " + movementDirection);
+        if (isSliding) return;
+        Vector3 position = transform.position;
+        Vector3 newPosition = position + movementDirection * unitsToSlide;
 
-        if (movementDirection.x != 0 && movementDirection.y != 0)
-        {
-            // TODO : we could calculate which axis is closer to the trigger and slide that way
-            // but it's overkill for now
-        } else {
-            StartCoroutine(Slide1UnitTowardCoroutine(transform.position + (movementDirection*2)));
-        }
-
+        // Start camera transition
+        CameraFollowPlayer cameraFollowPlayer = CameraManager.Instance.gameplayCameraObject.GetComponent<CameraFollowPlayer>();
+        cameraFollowPlayer.StartCameraTransition(newPosition, enteringZoneTrigger);
+        StartCoroutine(SlideTowardCoroutine(newPosition));
     }
 
-    private IEnumerator Slide1UnitTowardCoroutine(Vector3 targetPosition)
+    private IEnumerator SlideTowardCoroutine(Vector3 targetPosition)
     {
-        float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-        float timeToReachTarget = distanceToTarget / movementSpeed;
+        isSliding = true;
 
-        float elapsedTime = 0f;
 
-        while (elapsedTime < timeToReachTarget)
+        float journeyLength = Vector3.Distance(transform.position, targetPosition);
+        float startTime = Time.time;
+
+        while (transform.position != targetPosition)
         {
-            // Calculate the interpolation factor (0 to 1) based on elapsed time and timeToReachTarget.
-            float t = elapsedTime / timeToReachTarget;
+            float distanceCovered = (Time.time - startTime) * movementSpeed;
+            float fractionOfJourney = distanceCovered / journeyLength;
+            transform.position = Vector3.Lerp(transform.position, targetPosition, fractionOfJourney);
 
-            // Interpolate the player's position between the current position and the target position.
-            Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, t);
-            newPosition.z = -5f;
-
-            // Move the player to the new position.
-            gameObject.transform.position = newPosition;
-
-            // Increment elapsed time by the time that has passed since the last frame.
-            elapsedTime += Time.deltaTime;
-
-            // Yielding null here allows the Coroutine to continue in the next frame.
             yield return null;
         }
-        Vector3 finalPosition = targetPosition;
-        finalPosition.z = -5f;
 
-        // Ensure the player reaches the exact target position.
-        gameObject.transform.position = targetPosition;
-
+        isSliding = false;
     }
 }
